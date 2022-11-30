@@ -9,5 +9,13 @@
 
 public class Ticket
 {
+    private int ticketID;
+    private int userID;
+    private Seats seatNumber;
+    private ShowRoom showRoom;
+
+    public Ticket(){
+        
+    }
   
 }

@@ -9,5 +9,12 @@
 
 public class Theatre
 {
-  
+    private ShowRoom[] showRooms;
+    private Movie[] movies;
+    private User[] users;
+    //this is also where we would have a reference to GUI
+
+    public Theatre(){
+        
+    }
 }

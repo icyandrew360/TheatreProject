@@ -9,5 +9,9 @@
 
 public class Seats
 {
-  
+  boolean isTaken;
+
+  public Seats(){
+    
+  }
 }
