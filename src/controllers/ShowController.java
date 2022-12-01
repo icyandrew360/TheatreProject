@@ -21,7 +21,8 @@ public class ShowController extends DBController {
         }              
     }
 
-    private HashMap<String, Movie> movieData = new HashMap<String, Movie>();
+    private HashMap<String, Movie> movieDataByName = new HashMap<String, Movie>();
+    private HashMap<Integer, Movie> movieDataByID = new HashMap<Integer, Movie>();
 
     public void pullMovieData(){
         String sql = "select * from moviesdb";
@@ -44,7 +45,8 @@ public class ShowController extends DBController {
                 tempMovie.showTime = rs.getInt("ShowTime");
                 tempMovie.showRoom = rs.getInt("ShowRoom");
 
-                movieData.put(movieName, tempMovie);
+                movieDataByName.put(movieName, tempMovie);
+                movieDataByID.put(ID, tempMovie);
             }
         }
         catch(Exception e){
