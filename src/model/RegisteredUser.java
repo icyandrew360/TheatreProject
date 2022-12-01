@@ -1,3 +1,4 @@
+package model;
 /*
 * File: User.java
 * Assignment: ENSF480 Final Project

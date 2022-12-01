@@ -1,4 +1,4 @@
-
+package model;
 /*
 * File: Payment.java
 * Assignment: ENSF480 Final Project
