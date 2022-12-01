@@ -9,6 +9,7 @@
 
 public class Seats
 {
+  private int seatNumber;
   boolean isTaken;
 
   public Seats(){
