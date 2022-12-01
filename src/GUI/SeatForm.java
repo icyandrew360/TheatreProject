@@ -4,7 +4,6 @@ package GUI;
  *
  * @author Jenna Vlaar
  */
- 
 public class SeatForm extends javax.swing.JFrame {
 
     /**
@@ -26,7 +25,8 @@ public class SeatForm extends javax.swing.JFrame {
         seatFormPanel = new javax.swing.JPanel();
         seatTitle = new javax.swing.JLabel();
         seatPanel = new javax.swing.JPanel();
-        screen = new javax.swing.JPanel();
+        screenPanel = new javax.swing.JPanel();
+        screenLabel = new javax.swing.JLabel();
         seatA2 = new javax.swing.JLabel();
         seatA1 = new javax.swing.JLabel();
         seatA4 = new javax.swing.JLabel();
@@ -64,24 +64,31 @@ public class SeatForm extends javax.swing.JFrame {
         seatFormPanel.setBackground(new java.awt.Color(41, 44, 142));
 
         seatTitle.setBackground(new java.awt.Color(243, 224, 52));
-        seatTitle.setFont(new java.awt.Font("Trebuchet MS", 1, 48)); // NOI18N
+        seatTitle.setFont(new java.awt.Font("Trebuchet MS", 1, 40)); // NOI18N
         seatTitle.setForeground(new java.awt.Color(243, 224, 52));
         seatTitle.setText("SELECT SEAT(S)");
 
         seatPanel.setBackground(new java.awt.Color(87, 79, 198));
         seatPanel.setForeground(new java.awt.Color(87, 79, 198));
 
-        screen.setBackground(new java.awt.Color(147, 155, 255));
+        screenPanel.setBackground(new java.awt.Color(147, 155, 255));
 
-        javax.swing.GroupLayout screenLayout = new javax.swing.GroupLayout(screen);
-        screen.setLayout(screenLayout);
-        screenLayout.setHorizontalGroup(
-            screenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        screenLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        screenLabel.setForeground(new java.awt.Color(69, 69, 69));
+        screenLabel.setText("S C R E E N");
+
+        javax.swing.GroupLayout screenPanelLayout = new javax.swing.GroupLayout(screenPanel);
+        screenPanel.setLayout(screenPanelLayout);
+        screenPanelLayout.setHorizontalGroup(
+            screenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, screenPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(screenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(263, 263, 263))
         );
-        screenLayout.setVerticalGroup(
-            screenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 24, Short.MAX_VALUE)
+        screenPanelLayout.setVerticalGroup(
+            screenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(screenLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
         );
 
         seatA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/gui/seatimages/seat.png"))); // NOI18N
@@ -182,7 +189,7 @@ public class SeatForm extends javax.swing.JFrame {
                 .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(seatPanelLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(screen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(screenPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, seatPanelLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +203,7 @@ public class SeatForm extends javax.swing.JFrame {
                                 .addComponent(seatA4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(seatA5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                                 .addComponent(seatA6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(seatA7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,8 +263,8 @@ public class SeatForm extends javax.swing.JFrame {
             seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(seatPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(screen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
+                .addComponent(screenPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(seatA2)
                     .addComponent(seatA1)
@@ -288,13 +295,12 @@ public class SeatForm extends javax.swing.JFrame {
                     .addComponent(seatC4)
                     .addComponent(seatC3)
                     .addComponent(seatC5)
-                    .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(seatC7)
-                        .addComponent(seatC6)
-                        .addComponent(seatC9)
-                        .addComponent(seatC8)
-                        .addComponent(seatC10)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addComponent(seatC7)
+                    .addComponent(seatC6)
+                    .addComponent(seatC9)
+                    .addComponent(seatC8)
+                    .addComponent(seatC10))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         confirmButton.setBackground(new java.awt.Color(158, 155, 255));
@@ -310,30 +316,29 @@ public class SeatForm extends javax.swing.JFrame {
         seatFormPanel.setLayout(seatFormPanelLayout);
         seatFormPanelLayout.setHorizontalGroup(
             seatFormPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seatFormPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
             .addGroup(seatFormPanelLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(67, 67, 67)
                 .addComponent(seatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seatFormPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(seatFormPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seatFormPanelLayout.createSequentialGroup()
-                        .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seatFormPanelLayout.createSequentialGroup()
-                        .addComponent(seatTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120))))
+                .addComponent(seatTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(265, 265, 265))
         );
         seatFormPanelLayout.setVerticalGroup(
             seatFormPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(seatFormPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(17, 17, 17)
                 .addComponent(seatTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(seatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -342,11 +347,13 @@ public class SeatForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(seatFormPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(seatFormPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(seatFormPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 71, Short.MAX_VALUE))
         );
 
         pack();
@@ -394,7 +401,8 @@ public class SeatForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton confirmButton;
-    private javax.swing.JPanel screen;
+    private javax.swing.JLabel screenLabel;
+    private javax.swing.JPanel screenPanel;
     private javax.swing.JLabel seatA1;
     private javax.swing.JLabel seatA10;
     private javax.swing.JLabel seatA2;
