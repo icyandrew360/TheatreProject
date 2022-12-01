@@ -1,4 +1,4 @@
-/*
+package model;/*
 * File: ShowTimes.java
 * Assignment: ENSF480 Final Project
 * Section: L02

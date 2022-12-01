@@ -1,3 +1,4 @@
+package model;
 /*
 * File: Theatre.java
 * Assignment: ENSF480 Final Project

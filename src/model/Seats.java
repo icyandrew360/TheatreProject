@@ -1,3 +1,4 @@
+package model;
 /*
 * File: Seats.java
 * Assignment: ENSF480 Final Project

@@ -1,4 +1,4 @@
-
+package model;
 import java.util.ArrayList;
 
 /*
@@ -12,13 +12,19 @@ import java.util.ArrayList;
 
 
 
-class ShowTime
-{
-  private String time;
-  private ArrayList<Seats> seats;
-}
+// class ShowTime
+// {
+//   private String time;
+//   private ArrayList<Seats> seats;
+// }
 
 public class Movie
 {
-  private ArrayList<ShowTime> showTimes;
+  public int movieID;
+  public String movieName;
+  public int movieLength;
+  public int showTime;
+  public int showRoom;
+
+//  private ArrayList<ShowTime> showTimes;
 }

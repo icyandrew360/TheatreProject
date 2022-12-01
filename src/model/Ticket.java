@@ -1,3 +1,4 @@
+package model;
 /*
 * File: Ticket.java
 * Assignment: ENSF480 Final Project
