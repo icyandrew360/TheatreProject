@@ -103,7 +103,7 @@ public class SeatForm extends javax.swing.JFrame {
         );
 
         seatA1.setBackground(new java.awt.Color(87, 79, 198));
-        seatA1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA1.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA1.setBorder(null);
         seatA1.setBorderPainted(false);
         seatA1.setContentAreaFilled(false);
@@ -115,7 +115,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatA2.setBackground(new java.awt.Color(87, 79, 198));
-        seatA2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA2.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA2.setBorder(null);
         seatA2.setBorderPainted(false);
         seatA2.setContentAreaFilled(false);
@@ -126,7 +126,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatA3.setBackground(new java.awt.Color(87, 79, 198));
-        seatA3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA3.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA3.setBorder(null);
         seatA3.setBorderPainted(false);
         seatA3.setContentAreaFilled(false);
@@ -137,7 +137,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatA4.setBackground(new java.awt.Color(87, 79, 198));
-        seatA4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA4.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA4.setBorder(null);
         seatA4.setBorderPainted(false);
         seatA4.setContentAreaFilled(false);
@@ -148,7 +148,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatA5.setBackground(new java.awt.Color(87, 79, 198));
-        seatA5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA5.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA5.setBorder(null);
         seatA5.setBorderPainted(false);
         seatA5.setContentAreaFilled(false);
@@ -159,7 +159,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatA6.setBackground(new java.awt.Color(87, 79, 198));
-        seatA6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA6.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA6.setBorder(null);
         seatA6.setBorderPainted(false);
         seatA6.setContentAreaFilled(false);
@@ -170,7 +170,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatA7.setBackground(new java.awt.Color(87, 79, 198));
-        seatA7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA7.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA7.setBorder(null);
         seatA7.setBorderPainted(false);
         seatA7.setContentAreaFilled(false);
@@ -181,7 +181,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatA8.setBackground(new java.awt.Color(87, 79, 198));
-        seatA8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA8.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA8.setBorder(null);
         seatA8.setBorderPainted(false);
         seatA8.setContentAreaFilled(false);
@@ -192,7 +192,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatA9.setBackground(new java.awt.Color(87, 79, 198));
-        seatA9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA9.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA9.setBorder(null);
         seatA9.setBorderPainted(false);
         seatA9.setContentAreaFilled(false);
@@ -203,7 +203,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatA10.setBackground(new java.awt.Color(87, 79, 198));
-        seatA10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatA10.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatA10.setBorder(null);
         seatA10.setBorderPainted(false);
         seatA10.setContentAreaFilled(false);
@@ -214,7 +214,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB1.setBackground(new java.awt.Color(87, 79, 198));
-        seatB1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB1.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB1.setBorder(null);
         seatB1.setBorderPainted(false);
         seatB1.setContentAreaFilled(false);
@@ -225,7 +225,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB2.setBackground(new java.awt.Color(87, 79, 198));
-        seatB2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB2.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB2.setBorder(null);
         seatB2.setBorderPainted(false);
         seatB2.setContentAreaFilled(false);
@@ -236,7 +236,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB3.setBackground(new java.awt.Color(87, 79, 198));
-        seatB3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB3.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB3.setBorder(null);
         seatB3.setBorderPainted(false);
         seatB3.setContentAreaFilled(false);
@@ -247,7 +247,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB4.setBackground(new java.awt.Color(87, 79, 198));
-        seatB4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB4.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB4.setBorder(null);
         seatB4.setBorderPainted(false);
         seatB4.setContentAreaFilled(false);
@@ -258,7 +258,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB5.setBackground(new java.awt.Color(87, 79, 198));
-        seatB5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB5.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB5.setBorder(null);
         seatB5.setBorderPainted(false);
         seatB5.setContentAreaFilled(false);
@@ -269,7 +269,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB6.setBackground(new java.awt.Color(87, 79, 198));
-        seatB6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB6.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB6.setBorder(null);
         seatB6.setBorderPainted(false);
         seatB6.setContentAreaFilled(false);
@@ -280,7 +280,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB7.setBackground(new java.awt.Color(87, 79, 198));
-        seatB7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB7.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB7.setBorder(null);
         seatB7.setBorderPainted(false);
         seatB7.setContentAreaFilled(false);
@@ -291,7 +291,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB8.setBackground(new java.awt.Color(87, 79, 198));
-        seatB8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB8.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB8.setBorder(null);
         seatB8.setBorderPainted(false);
         seatB8.setContentAreaFilled(false);
@@ -302,7 +302,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB9.setBackground(new java.awt.Color(87, 79, 198));
-        seatB9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB9.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB9.setBorder(null);
         seatB9.setBorderPainted(false);
         seatB9.setContentAreaFilled(false);
@@ -313,7 +313,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatB10.setBackground(new java.awt.Color(87, 79, 198));
-        seatB10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatB10.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatB10.setBorder(null);
         seatB10.setBorderPainted(false);
         seatB10.setContentAreaFilled(false);
@@ -324,7 +324,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC1.setBackground(new java.awt.Color(87, 79, 198));
-        seatC1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC1.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC1.setBorder(null);
         seatC1.setBorderPainted(false);
         seatC1.setContentAreaFilled(false);
@@ -335,7 +335,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC2.setBackground(new java.awt.Color(87, 79, 198));
-        seatC2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC2.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC2.setBorder(null);
         seatC2.setBorderPainted(false);
         seatC2.setContentAreaFilled(false);
@@ -346,7 +346,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC3.setBackground(new java.awt.Color(87, 79, 198));
-        seatC3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC3.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC3.setBorder(null);
         seatC3.setBorderPainted(false);
         seatC3.setContentAreaFilled(false);
@@ -357,7 +357,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC4.setBackground(new java.awt.Color(87, 79, 198));
-        seatC4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC4.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC4.setBorder(null);
         seatC4.setBorderPainted(false);
         seatC4.setContentAreaFilled(false);
@@ -368,7 +368,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC5.setBackground(new java.awt.Color(87, 79, 198));
-        seatC5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC5.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC5.setBorder(null);
         seatC5.setBorderPainted(false);
         seatC5.setContentAreaFilled(false);
@@ -379,7 +379,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC6.setBackground(new java.awt.Color(87, 79, 198));
-        seatC6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC6.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC6.setBorder(null);
         seatC6.setBorderPainted(false);
         seatC6.setContentAreaFilled(false);
@@ -390,7 +390,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC7.setBackground(new java.awt.Color(87, 79, 198));
-        seatC7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC7.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC7.setBorder(null);
         seatC7.setBorderPainted(false);
         seatC7.setContentAreaFilled(false);
@@ -401,7 +401,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC8.setBackground(new java.awt.Color(87, 79, 198));
-        seatC8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC8.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC8.setBorder(null);
         seatC8.setBorderPainted(false);
         seatC8.setContentAreaFilled(false);
@@ -412,7 +412,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC9.setBackground(new java.awt.Color(87, 79, 198));
-        seatC9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC9.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC9.setBorder(null);
         seatC9.setBorderPainted(false);
         seatC9.setContentAreaFilled(false);
@@ -423,7 +423,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         seatC10.setBackground(new java.awt.Color(87, 79, 198));
-        seatC10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png")); // NOI18N
+        seatC10.setIcon(new javax.swing.ImageIcon("Images/seat.png")); // NOI18N
         seatC10.setBorder(null);
         seatC10.setBorderPainted(false);
         seatC10.setContentAreaFilled(false);
@@ -653,11 +653,11 @@ public class SeatForm extends javax.swing.JFrame {
         //if statement to check if seat is already taken
         if(button.isSelected())
         {
-            button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\selectedseat.png"));
+            button.setIcon(new javax.swing.ImageIcon("Images/selectedseat.png"));
         }
         else
         {  
-           button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\seat.png"));
+           button.setIcon(new javax.swing.ImageIcon("Images/seat.png"));
         }
     }
     
