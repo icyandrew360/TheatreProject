@@ -32,9 +32,9 @@ public class GuestPage extends javax.swing.JFrame {
         drSoftwareLabel = new javax.swing.JLabel();
         moviesTitle = new javax.swing.JLabel();
         searchText = new javax.swing.JTextField();
+        ticketComboBox = new javax.swing.JComboBox<>();
+        cancelTicketButton = new javax.swing.JButton();
         theatreComboBox = new javax.swing.JComboBox<>();
-        accountButton = new javax.swing.JButton();
-        theatreComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 620));
@@ -124,22 +124,22 @@ public class GuestPage extends javax.swing.JFrame {
             }
         });
 
-        theatreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Your Tickets", "Item 2", "Item 3", "Item 4" }));
-        theatreComboBox.addActionListener(new java.awt.event.ActionListener() {
+        ticketComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Your Tickets", "Item 2", "Item 3", "Item 4" }));
+        ticketComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                theatreComboBoxActionPerformed(evt);
+                ticketComboBoxActionPerformed(evt);
             }
         });
 
-        accountButton.setBackground(new java.awt.Color(158, 155, 255));
-        accountButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        accountButton.setText("Cancel Ticket");
-        accountButton.setActionCommand("");
+        cancelTicketButton.setBackground(new java.awt.Color(158, 155, 255));
+        cancelTicketButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        cancelTicketButton.setText("Cancel Ticket");
+        cancelTicketButton.setActionCommand("");
 
-        theatreComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Theatre", "Item 2", "Item 3", "Item 4" }));
-        theatreComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        theatreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Theatre", "Item 2", "Item 3", "Item 4" }));
+        theatreComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                theatreComboBox1ActionPerformed(evt);
+                theatreComboBoxActionPerformed(evt);
             }
         });
 
@@ -156,12 +156,12 @@ public class GuestPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(theatreComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(theatreComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ticketComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(accountButton)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addComponent(cancelTicketButton)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,9 +170,9 @@ public class GuestPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(theatreComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(accountButton, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                        .addComponent(theatreComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ticketComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cancelTicketButton, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                        .addComponent(theatreComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(moviesTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,7 +185,7 @@ public class GuestPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 399, Short.MAX_VALUE))
+                .addGap(0, 436, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,17 +195,24 @@ public class GuestPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+    private void ticketComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+    }                                              
+
     private void theatreComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
     }                                               
 
-    private void theatreComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
-    }                                                
-
     private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
-        System.out.println("searched!");
+        //GET MOST RELEVANT MOVIE FROM DATABSE, return ID
+        int movieID = 0;
+        this.setVisible(false);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SearchResults(movieID, false).setVisible(true);
+            }
+        });
     }                                          
 
     /**
@@ -244,7 +251,7 @@ public class GuestPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton accountButton;
+    private javax.swing.JButton cancelTicketButton;
     private javax.swing.JLabel drSoftwareLabel;
     private javax.swing.JLabel drSoftwarePoster;
     private javax.swing.JPanel jPanel1;
@@ -254,7 +261,7 @@ public class GuestPage extends javax.swing.JFrame {
     private javax.swing.JLabel stackOverflowLabel;
     private javax.swing.JLabel stackOverflowPoster;
     private javax.swing.JComboBox<String> theatreComboBox;
-    private javax.swing.JComboBox<String> theatreComboBox1;
+    private javax.swing.JComboBox<String> ticketComboBox;
     private javax.swing.JLabel wordsLabel;
     private javax.swing.JLabel wowLabel1;
     // End of variables declaration                   
