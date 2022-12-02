@@ -61,9 +61,9 @@ public class MainPage extends javax.swing.JFrame {
         wordsLabel.setForeground(new java.awt.Color(255, 255, 255));
         wordsLabel.setText("Subscribe to MOVIE NEWS to get updates on upcoming movies!");
 
-        drSoftwarePoster.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\drsoftware.png")); // NOI18N
+        drSoftwarePoster.setIcon(new javax.swing.ImageIcon("Images/drsoftware.png")); // NOI18N
 
-        stackOverflowPoster.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jenna Vlaar\\Desktop\\stackoverflow.png")); // NOI18N
+        stackOverflowPoster.setIcon(new javax.swing.ImageIcon("Images/stackoverflow.png")); // NOI18N
 
         wowLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         wowLabel1.setForeground(new java.awt.Color(243, 224, 52));
