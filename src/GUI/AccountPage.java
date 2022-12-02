@@ -11,6 +11,7 @@ public class AccountPage extends javax.swing.JFrame {
      */
     public AccountPage() {
         initComponents();
+        addInformation();
     }
 
     /**
@@ -39,6 +40,7 @@ public class AccountPage extends javax.swing.JFrame {
         ticketComboBox = new javax.swing.JComboBox<>();
         cancelTicketLabel = new javax.swing.JLabel();
         cancelTicketButton = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -47,6 +49,8 @@ public class AccountPage extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         accountPagePanel.setBackground(new java.awt.Color(41, 44, 142));
+        accountPagePanel.setMaximumSize(new java.awt.Dimension(1000, 620));
+        accountPagePanel.setMinimumSize(new java.awt.Dimension(1000, 620));
 
         moviesTitle.setFont(new java.awt.Font("Trebuchet MS", 1, 48)); // NOI18N
         moviesTitle.setForeground(new java.awt.Color(243, 224, 52));
@@ -135,6 +139,11 @@ public class AccountPage extends javax.swing.JFrame {
         selectTicketLabel.setText("Select a Ticket");
 
         ticketComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ticketComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ticketComboBoxActionPerformed(evt);
+            }
+        });
 
         cancelTicketLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         cancelTicketLabel.setForeground(new java.awt.Color(243, 224, 52));
@@ -196,14 +205,27 @@ public class AccountPage extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
+        homeButton.setBackground(new java.awt.Color(158, 155, 255));
+        homeButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        homeButton.setText("Back to Home");
+        homeButton.setActionCommand("");
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout accountPagePanelLayout = new javax.swing.GroupLayout(accountPagePanel);
         accountPagePanel.setLayout(accountPagePanelLayout);
         accountPagePanelLayout.setHorizontalGroup(
             accountPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(accountPagePanelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(accountPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(moviesTitle)
+                .addGroup(accountPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(accountPagePanelLayout.createSequentialGroup()
+                        .addComponent(moviesTitle)
+                        .addGap(627, 627, 627)
+                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(accountDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(131, Short.MAX_VALUE))
         );
@@ -211,7 +233,9 @@ public class AccountPage extends javax.swing.JFrame {
             accountPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(accountPagePanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(moviesTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(accountPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(moviesTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(accountDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(84, Short.MAX_VALUE))
@@ -221,11 +245,11 @@ public class AccountPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(accountPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(accountPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(accountPagePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(accountPagePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
         );
 
         pack();
@@ -237,6 +261,28 @@ public class AccountPage extends javax.swing.JFrame {
 
     }                                                  
 
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+        this.setVisible(false);
+        //MAKE SURE THEY HAVE AN ACCOUNT!
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainPage().setVisible(true);
+            }
+        });
+    }                                          
+
+    private void ticketComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+    }                                              
+    
+    private void addInformation()
+    {
+        //GET INFO FROM DATABASE
+        emailText.setText("");
+        passwordText.setText("");
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -281,6 +327,7 @@ public class AccountPage extends javax.swing.JFrame {
     private javax.swing.JLabel cancelTicketLabel;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel emailText;
+    private javax.swing.JButton homeButton;
     private javax.swing.JLabel moviesTitle;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel passwordText;
@@ -292,3 +339,4 @@ public class AccountPage extends javax.swing.JFrame {
     private javax.swing.JLabel yourTicketsLabel;
     // End of variables declaration                   
 }
+
