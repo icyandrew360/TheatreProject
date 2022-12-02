@@ -1,8 +1,5 @@
 package GUI;
 
-import java.util.Vector;
-import javax.swing.JOptionPane;
-import javax.swing.JToggleButton;
 
 /**
  *
@@ -11,12 +8,14 @@ import javax.swing.JToggleButton;
 public class SeatForm extends javax.swing.JFrame {
     private JToggleButton[] allSeats;
     private static int movieID;
+    private static boolean registered;
     
     /**
      * Creates new form SeatForm
      */
-    public SeatForm(int movieID) {
+    public SeatForm(int movieID, boolean registered) {
         this.movieID = movieID;
+        this.registered = registered;
         initComponents();
     }
 
@@ -635,7 +634,7 @@ public class SeatForm extends javax.swing.JFrame {
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
               public void run() {
-                new PaymentForm(selectedSeats.size()).setVisible(true);
+                new PaymentForm(selectedSeats.size(), movieID, registered).setVisible(true);
               }
            });
         }
@@ -843,7 +842,7 @@ public class SeatForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SeatForm(movieID).setVisible(true);
+                new SeatForm(movieID, registered).setVisible(true);
             }
         });
     }
@@ -887,3 +886,4 @@ public class SeatForm extends javax.swing.JFrame {
     private javax.swing.JLabel seatTitle;
     // End of variables declaration                   
 }
+
