@@ -1,5 +1,7 @@
 package GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jenna Vlaar
@@ -7,14 +9,19 @@ package GUI;
 public class PaymentForm extends javax.swing.JFrame {
     private static int seats;
     private static int movieID;
+    private String creditCardNumber;
+    private String creditCardName;
+    private String creditCardCVV;
+    private static boolean registered;
     /**
      * Creates new form PaymentForm
      */
-    public PaymentForm(int seats, int movieID) {
+    public PaymentForm(int seats, int movieID, boolean registered) {
         initComponents();
         this.seats = seats;
         this.movieID = movieID;
         addInformation();
+        this.registered = registered;
     }
     
     private void addInformation()
@@ -60,7 +67,7 @@ public class PaymentForm extends javax.swing.JFrame {
         creditNameText = new javax.swing.JTextField();
         CVVText = new javax.swing.JTextField();
         CVVLabel = new javax.swing.JLabel();
-        registerButton = new javax.swing.JButton();
+        placeOrderButton = new javax.swing.JButton();
         moviesTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
@@ -182,6 +189,11 @@ public class PaymentForm extends javax.swing.JFrame {
         paymentTitle.setText("Payment Information");
 
         creditCardText.setBackground(new java.awt.Color(218, 215, 245));
+        creditCardText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creditCardTextActionPerformed(evt);
+            }
+        });
 
         creditCardLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         creditCardLabel.setForeground(new java.awt.Color(243, 224, 52));
@@ -192,19 +204,29 @@ public class PaymentForm extends javax.swing.JFrame {
         creditNameLabel.setText("Name on the Card");
 
         creditNameText.setBackground(new java.awt.Color(218, 215, 245));
+        creditNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creditNameTextActionPerformed(evt);
+            }
+        });
 
         CVVText.setBackground(new java.awt.Color(218, 215, 245));
+        CVVText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CVVTextActionPerformed(evt);
+            }
+        });
 
         CVVLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         CVVLabel.setForeground(new java.awt.Color(243, 224, 52));
         CVVLabel.setText("CVV");
 
-        registerButton.setBackground(new java.awt.Color(158, 155, 255));
-        registerButton.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        registerButton.setText("Place Order");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
+        placeOrderButton.setBackground(new java.awt.Color(158, 155, 255));
+        placeOrderButton.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        placeOrderButton.setText("Place Order");
+        placeOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+                placeOrderButtonActionPerformed(evt);
             }
         });
 
@@ -232,8 +254,6 @@ public class PaymentForm extends javax.swing.JFrame {
             .addGroup(paymentFormPanelLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(paymentFormPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(moviesTitle)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(paymentFormPanelLayout.createSequentialGroup()
                         .addGroup(paymentFormPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(receiptPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,8 +266,11 @@ public class PaymentForm extends javax.swing.JFrame {
                                 .addComponent(creditNameLabel)
                                 .addComponent(CVVLabel)
                                 .addComponent(creditNameText)
-                                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CVVText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(placeOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CVVText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(paymentFormPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(moviesTitle, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(217, Short.MAX_VALUE))
         );
         paymentFormPanelLayout.setVerticalGroup(
@@ -274,7 +297,7 @@ public class PaymentForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(CVVText, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(placeOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(receiptPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
@@ -287,17 +310,103 @@ public class PaymentForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paymentFormPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+            .addComponent(paymentFormPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>                        
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void placeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         // User pressed REGISTER
         //open register form
+        creditCardNumber = creditCardText.getText().strip();
+        creditCardName = creditNameText.getText();
+        creditCardCVV = CVVText.getText();
         
+        if(creditCardNumber == null || creditCardNumber.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Please a credit card number.", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+        }
+        try
+        {
+            Long.parseLong(creditCardNumber);
+            if(creditCardNumber.length() < 15 || creditCardNumber.length() > 16){
+                JOptionPane.showMessageDialog(null, "Invalid credit card number.", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+                return;
+            }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Invalid credit card number.", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+        }
+        
+        if(creditCardName == null || creditCardName.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter a name.", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+        }
+        if(creditCardCVV == null || creditCardCVV.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter a CVV.", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+        }
+        try
+        {
+            Long.parseLong(creditCardCVV);
+            if(creditCardCVV.length() != 3){
+                JOptionPane.showMessageDialog(null, "Invalid CVV.", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Invalid CVV.", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+        }
+        
+        JOptionPane.showMessageDialog(null, "Order Placed!", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+        this.setVisible(false);
+        if(registered)
+        {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainPage().setVisible(true);
+            }
+            });
+        }
+        else
+        {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new GuestPage().setVisible(true);
+            }
+            });
+        }
+    }                                                
+
+    private void creditCardTextActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+        creditCardNumber = creditCardText.getText();
+       
     }                                              
+
+    private void creditNameTextActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+        creditCardName = creditNameText.getText();
+    }                                              
+
+    private void CVVTextActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+        creditCardCVV = CVVText.getText();
+    }                                       
 
     /**
      * @param args the command line arguments
@@ -307,7 +416,7 @@ public class PaymentForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaymentForm(seats, movieID).setVisible(true);
+                new PaymentForm(seats, movieID, registered).setVisible(true);
             }
         });
     }
@@ -335,8 +444,8 @@ public class PaymentForm extends javax.swing.JFrame {
     private javax.swing.JLabel orderDetailsLabel;
     private javax.swing.JPanel paymentFormPanel;
     private javax.swing.JLabel paymentTitle;
+    private javax.swing.JButton placeOrderButton;
     private javax.swing.JPanel receiptPanel;
-    private javax.swing.JButton registerButton;
     private javax.swing.JLabel totalCostLabel;
     // End of variables declaration                   
 }
