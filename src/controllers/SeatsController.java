@@ -2,16 +2,19 @@ package controllers;
 
 import java.sql.*;
 
-public class SeatsController extends DBController {
+public class SeatsController{//these will refer to the singleton DBcontroller
+    private DBController database;
+
     public SeatsController(){
-        super("temp url that should be changed");\
-        super.initializeConnection();
+        database = DBController.getOnlyInstance();
+        // super("temp url that should be changed");
+        // super.initializeConnection();
     }
 
     public void updateSeats(int id, String seats){
         try {
             String query = "UP FROM AVAILABLE_FOOD WHERE ItemID = ?"; // Creating the query command
-            PreparedStatement myStmt = dbConnect.prepareStatement(query); // Executing the query
+            PreparedStatement myStmt = database.dbConnect.prepareStatement(query); // Executing the query
 
             myStmt.setString(1, ItemID);
                         
