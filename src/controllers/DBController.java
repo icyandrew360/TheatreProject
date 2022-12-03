@@ -10,20 +10,24 @@ public class DBController {
     protected String PASSWORD;    
     protected Connection dbConnect;
     protected ResultSet results;
+    private static DBController onlyInstance;
 
-    public DBController(String url){
-        this.DBURL = url;
+    private DBController(){
+        this.DBURL = "jdbc:mysql://localhost/userdatabase";
         this.USERNAME = "student";
         this.PASSWORD = "ensf";
-    }
-
-    //Method to create a connection to the database, no arguments, no return value  
-    public void initializeConnection(){
         try{
             dbConnect = DriverManager.getConnection(this.DBURL, this.USERNAME, this.PASSWORD); // creating connection
         } catch (SQLException e) {
             e.printStackTrace();                        // Error catching
-        }              
+        }   
+    }
+
+    public static DBController getConnection(){
+        if(onlyInstance == null){
+            onlyInstance = new DBController();
+        }
+        return onlyInstance;
     }
 
     // Url getter
