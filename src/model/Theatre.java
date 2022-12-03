@@ -13,6 +13,7 @@ public class Theatre
     private ShowRoom[] showRooms;
     private Movie[] movies;
     private User[] users;
+    private static int theatreID =0;
     //this is also where we would have a reference to GUI
 
     public Theatre(){

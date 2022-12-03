@@ -5,21 +5,14 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class ShowController extends DBController {
+public class ShowController {
     public ShowController(){
-        super("temp url that should be changed");
+        
     }
     //map id = tuple of data(name, showtime, showroom)
 
 
      //Method to create a connection to the database, no arguments, no return value  
-    public void initializeConnection(){
-        try{
-            dbConnect = DriverManager.getConnection(this.DBURL, this.USERNAME, this.PASSWORD); // creating connection
-        } catch (SQLException e) {
-            e.printStackTrace();                        // Error catching
-        }              
-    }
 
     private HashMap<String, Movie> movieDataByName = new HashMap<String, Movie>();
     private HashMap<Integer, Movie> movieDataByID = new HashMap<Integer, Movie>();

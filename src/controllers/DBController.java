@@ -30,6 +30,17 @@ public class DBController {
         return onlyInstance;
     }
 
+    public static void closeConnection(){
+        if(onlyInstance != null){
+            try {
+                onlyInstance.results.close();     // Closing Connection
+                onlyInstance.dbConnect.close();   // Closing ResultSet
+            } catch (SQLException e) {
+                e.printStackTrace();    // Error checking
+            }              
+        }
+    }
+
     // Url getter
     String getDburl(){
         return this.DBURL;
