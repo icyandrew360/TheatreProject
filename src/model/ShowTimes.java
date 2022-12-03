@@ -11,13 +11,15 @@ import java.util.Vector;
 
 public class ShowTimes
 {
+  private int movieID;
   private int showTime;
   private String showDate;
   private Vector<Seats> seats;
 
-  public ShowTimes(int showTime, String showDate){
+  public ShowTimes(int showTime, String showDate, int movieID){
     this.showTime = showTime;
     this.showDate = showDate;
+    this.movieID = movieID;
     this.seats = new Vector<Seats>(0);
     for(int i =0; i < 30; i++){
         this.seats.add(new Seats("" + i, false));
@@ -32,6 +34,9 @@ public class ShowTimes
     return this.showDate;
   }
 
+  public int getMovieID(){
+    return this.movieID;
+  }
 
   public Seats getSeat(String seatNum){
     Seats temp = null;
@@ -50,6 +55,10 @@ public class ShowTimes
 
   public void setShowDate(String newShowDate){
     this.showDate = newShowDate;
+  }
+
+  public void setMovieID(int newMovieID){
+    this.movieID = newMovieID;
   }
 
   public void setSeatStatus(int seatNumber, boolean isTaken){

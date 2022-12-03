@@ -20,11 +20,31 @@ import java.util.ArrayList;
 
 public class Movie
 {
-  private int movieID;
   private String movieName;
   private int movieLength;
-  private ShowTimes showTime;
-  private ShowRoom showRoom;
+
+  public Movie(String movieName, int movieLength){
+    this.movieLength = movieLength;
+    this.movieName = movieName;
+  }
+
+  public String getMovieName(){
+    return this.movieName;
+  }
+
+  public int getMovieLength(){
+    return this.movieLength;
+  }
+
+  public void setMovieName(String newMovieName){
+    this.movieName = newMovieName;
+  }
+
+  public void setMovieLength(int newMovieLength){
+    this.movieLength = newMovieLength;
+  }
+
+  
   
 
 //  private ArrayList<ShowTime> showTimes;

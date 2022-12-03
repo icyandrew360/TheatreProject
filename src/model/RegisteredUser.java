@@ -11,5 +11,9 @@ package model;
 
 public class RegisteredUser extends User
 {
-    
+    private String password;
+    public RegisteredUser(String firstName, String lastName, String email, String password){
+        super(firstName, lastName, email);
+        this.password = password;
+    }
 }

@@ -17,8 +17,10 @@ public class User
   private ArrayList<Ticket> tickets;
   private ArrayList<Payment> paymentHistory;
 
-  public User(){
-
+  public User(String firstName, String lastName, String email){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
   }
 
   public void addPayment(Payment payment){

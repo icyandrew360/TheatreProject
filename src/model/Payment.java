@@ -10,5 +10,27 @@ package model;
 
 public class Payment
 {
+  double amount;
+  boolean payed = false;
   
+  public Payment(double amount){
+    this.amount = amount;
+  }
+
+  public double getAmountDue(){
+    return this.amount;
+  }
+
+  public boolean isPayed(){
+    return this.payed;
+  }
+
+  public void setAmountDue(double newAmount){
+    this.amount = newAmount;
+  }
+
+  public void payFee(){
+    this.payed = true;
+  }
+
 }
