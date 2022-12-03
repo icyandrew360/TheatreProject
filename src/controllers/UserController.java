@@ -23,7 +23,7 @@ public class UserController extends DBController{
         try{
             p = dbConnect.prepareStatement(sql);
             rs = p.executeQuery();
-
+            
             while (rs.next()){
                 loginInfos.put(rs.getString("email"), rs.getString("password"));
             }
