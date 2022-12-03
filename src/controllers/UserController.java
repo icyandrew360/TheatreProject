@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 public class UserController extends DBController{
    
+
     public UserController(){
         super("temp url that should be changed");
     }
