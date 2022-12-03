@@ -10,10 +10,13 @@ package model;
 
 public class Ticket
 {
-    private int ticketID;
-    private int userID;
+    private int movieID;
+    private String email;
     private Seats seatNumber;
     private ShowRoom showRoom;
+    private ShowTimes showTime;
+    private String purchaseDate;
+    private int purchaseTime;
 
     public Ticket(){
         
