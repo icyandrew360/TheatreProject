@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 public class Movie
 {
-  public int movieID;
-  public String movieName;
-  public int movieLength;
-  public int showTime;
-  public int showRoom;
+  private int movieID;
+  private String movieName;
+  private int movieLength;
+  private ShowTimes showTime;
+  private ShowRoom showRoom;
+  
 
 //  private ArrayList<ShowTime> showTimes;
 }

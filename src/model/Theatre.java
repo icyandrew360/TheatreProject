@@ -18,4 +18,12 @@ public class Theatre
     public Theatre(){
         
     }
+
+    // public void bookSeat(int showroom, String seatNum, int showTime){
+    //     //call the controller function
+    //     ShowRoom temp = showRooms[showRoom];
+    //     ShowTime tempShowTime = temp.getShowTime(showTime);
+    //     Seats tempSeat = tempShowTime.getSeat(seatNum);
+    //     controllerfunciton(tmep,tempShowTime,tempSeat)
+    // }
 }

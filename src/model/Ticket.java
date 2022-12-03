@@ -12,14 +12,43 @@ public class Ticket
 {
     private int movieID;
     private String email;
-    private Seats seatNumber;
-    private ShowRoom showRoom;
-    private ShowTimes showTime;
-    private String purchaseDate;
-    private int purchaseTime;
+    private String seatNumber;
+    private int showRoom;
+    private int showTime;
+    private String showDate;
 
-    public Ticket(){
-        
+    public Ticket(int movieID, String email, String seat, 
+    int showRoom, int showTime, String showDate){
+        this.movieID = movieID;
+        this.email = email;
+        this.seatNumber = seat;
+        this.showRoom = showRoom;
+        this.showTime = showTime;
+        this.showDate = showDate;
+    }
+
+    public int getMovieID(){
+        return this.movieID;
+    }
+
+    public String getEmail(){
+        return this.email;
+    }
+
+    public String getSeatNumber(){
+        return this.seatNumber;
+    }
+
+    public int getShowRoom(){
+        return this.showRoom;
+    }
+
+    public int getShowTime(){
+        return this.showTime;
+    }
+
+    public String getShowDate(){
+        return this.showDate;
     }
   
 }

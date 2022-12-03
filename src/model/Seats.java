@@ -12,10 +12,29 @@ package model;
 
 public class Seats
 {
-  private int seatNumber;
+  private String seatNumber;
   boolean isTaken;
 
-  public Seats(){
+  public Seats(String seatNumber, boolean isTaken){
+    this.seatNumber = seatNumber;
+    this.isTaken = isTaken;
+  }
 
+  public String getSeatNumber(){
+    return this.seatNumber;
+  }
+
+  public boolean isTaken(){
+    return this.isTaken;
+  }
+
+  public void setSeatNumber(String newSeatNumber){
+    this.seatNumber = newSeatNumber;
+  }
+
+  public void setTakenStatus(boolean newStatus){
+    this.isTaken = newStatus;
+    //this is where we would use some sort of controller
+    //to update the database.
   }
 }
