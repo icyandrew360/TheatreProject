@@ -348,7 +348,7 @@ public class RegisterForm extends javax.swing.JFrame {
             return;
         }
 
-        JOptionPane.showMessageDialog(null, "Successfully Registered!", 
+        JOptionPane.showMessageDialog(null, "Successfully Registered!\nYou have been charged $20.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
         this.setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
