@@ -10,15 +10,17 @@ import javax.swing.*;
  */
 public class SeatForm extends javax.swing.JFrame {
     private JToggleButton[] allSeats;
-    private static int movieID;
+    private static String movie;
+    private static String showTime;
     private static boolean registered;
     
     /**
      * Creates new form SeatForm
      */
-    public SeatForm(int movieID, boolean registered) {
-        SeatForm.movieID = movieID;
+    public SeatForm(String movie, String showTime, boolean registered) {
+        SeatForm.movie = movie;
         SeatForm.registered = registered;
+        SeatForm.showTime = showTime;
         initComponents();
         disableTakenSeats();
     }
@@ -632,13 +634,13 @@ public class SeatForm extends javax.swing.JFrame {
         this.allSeats = new JToggleButton[]{seatA1, seatA2, seatA3, seatA4, seatA5, seatA6, seatA7, seatA8, seatA9, seatA10,
             seatB1, seatB2, seatB3, seatB4, seatB5, seatB6, seatB7, seatB8, seatB9, seatB10, seatC1, seatC2, seatC3, seatC4, seatC5,
             seatC6, seatC7, seatC8, seatC9, seatC10};
-        Vector<JToggleButton> selectedSeats = new Vector<JToggleButton>();
+        Vector<String> selectedSeats = new Vector<String>();
         
         for(int i = 0; i < allSeats.length; i++)
         {
             if(allSeats[i].isSelected())
             {
-                selectedSeats.addElement(allSeats[i]);
+                selectedSeats.addElement(allSeats[i].getName());
             }
         }
         
@@ -647,7 +649,7 @@ public class SeatForm extends javax.swing.JFrame {
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
               public void run() {
-                new PaymentForm(selectedSeats.size(), movieID, registered).setVisible(true);
+                new PaymentForm(selectedSeats, movie, showTime, registered).setVisible(true);
               }
            });
         }
@@ -825,7 +827,7 @@ public class SeatForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SeatForm(movieID, registered).setVisible(true);
+                new SeatForm(movie, showTime, registered).setVisible(true);
             }
         });
     }
