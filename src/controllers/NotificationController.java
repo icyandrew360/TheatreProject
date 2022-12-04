@@ -8,11 +8,17 @@ import javax.activation.*;
 
 public class NotificationController {
 
-    public void sendMail(String email){
+    public void sendMail(String email, float paidAmount, Vector<Integer> tickets ){
         String to = email;
         String from = "jmovies.noreply@gmail.com";
-
         String host  = "localhost";
+        String Str = "Your ticket(s) - \n";
+
+        for (Integer n: tickets){
+            Str =+ n + "\n";
+        }
+        Str = Str + "The amount paid for the ticket(s) - " + paidAmount; 
+
 
         Properties properties = new Properties();
 
@@ -32,7 +38,7 @@ public class NotificationController {
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             message.setSubject("Payment Successful");
-            message.setText("Your ticket number is ");
+            message.setText(Str);
             Transport.send(message);
             System.out.println("Email Sent!");
         }
