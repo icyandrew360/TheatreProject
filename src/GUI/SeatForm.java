@@ -13,6 +13,7 @@ public class SeatForm extends javax.swing.JFrame {
     private static String movie;
     private static String showTime;
     private static boolean registered;
+    private String seats;
     
     /**
      * Creates new form SeatForm
@@ -49,36 +50,36 @@ public class SeatForm extends javax.swing.JFrame {
         seatPanel = new javax.swing.JPanel();
         screenPanel = new javax.swing.JPanel();
         screenLabel = new javax.swing.JLabel();
-        seatA1 = new javax.swing.JToggleButton();
-        seatA2 = new javax.swing.JToggleButton();
-        seatA3 = new javax.swing.JToggleButton();
-        seatA4 = new javax.swing.JToggleButton();
-        seatA5 = new javax.swing.JToggleButton();
-        seatA6 = new javax.swing.JToggleButton();
-        seatA7 = new javax.swing.JToggleButton();
-        seatA8 = new javax.swing.JToggleButton();
-        seatA9 = new javax.swing.JToggleButton();
-        seatA10 = new javax.swing.JToggleButton();
-        seatB1 = new javax.swing.JToggleButton();
-        seatB2 = new javax.swing.JToggleButton();
-        seatB3 = new javax.swing.JToggleButton();
-        seatB4 = new javax.swing.JToggleButton();
-        seatB5 = new javax.swing.JToggleButton();
-        seatB6 = new javax.swing.JToggleButton();
-        seatB7 = new javax.swing.JToggleButton();
-        seatB8 = new javax.swing.JToggleButton();
-        seatB9 = new javax.swing.JToggleButton();
-        seatB10 = new javax.swing.JToggleButton();
-        seatC1 = new javax.swing.JToggleButton();
-        seatC2 = new javax.swing.JToggleButton();
-        seatC3 = new javax.swing.JToggleButton();
-        seatC4 = new javax.swing.JToggleButton();
-        seatC5 = new javax.swing.JToggleButton();
-        seatC6 = new javax.swing.JToggleButton();
-        seatC7 = new javax.swing.JToggleButton();
-        seatC8 = new javax.swing.JToggleButton();
-        seatC9 = new javax.swing.JToggleButton();
-        seatC10 = new javax.swing.JToggleButton();
+        A1 = new javax.swing.JToggleButton();
+        A2 = new javax.swing.JToggleButton();
+        A3 = new javax.swing.JToggleButton();
+        A4 = new javax.swing.JToggleButton();
+        A5 = new javax.swing.JToggleButton();
+        A6 = new javax.swing.JToggleButton();
+        A7 = new javax.swing.JToggleButton();
+        A8 = new javax.swing.JToggleButton();
+        A9 = new javax.swing.JToggleButton();
+        A10 = new javax.swing.JToggleButton();
+        B1 = new javax.swing.JToggleButton();
+        B2 = new javax.swing.JToggleButton();
+        B3 = new javax.swing.JToggleButton();
+        B4 = new javax.swing.JToggleButton();
+        B5 = new javax.swing.JToggleButton();
+        B6 = new javax.swing.JToggleButton();
+        B7 = new javax.swing.JToggleButton();
+        B8 = new javax.swing.JToggleButton();
+        B9 = new javax.swing.JToggleButton();
+        B10 = new javax.swing.JToggleButton();
+        C1 = new javax.swing.JToggleButton();
+        C2 = new javax.swing.JToggleButton();
+        C3 = new javax.swing.JToggleButton();
+        C4 = new javax.swing.JToggleButton();
+        C5 = new javax.swing.JToggleButton();
+        C6 = new javax.swing.JToggleButton();
+        C7 = new javax.swing.JToggleButton();
+        C8 = new javax.swing.JToggleButton();
+        C9 = new javax.swing.JToggleButton();
+        C10 = new javax.swing.JToggleButton();
         confirmButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,333 +119,333 @@ public class SeatForm extends javax.swing.JFrame {
             .addComponent(screenLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
         );
 
-        seatA1.setBackground(new java.awt.Color(87, 79, 198));
-        seatA1.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA1.setBorder(null);
-        seatA1.setBorderPainted(false);
-        seatA1.setContentAreaFilled(false);
-        seatA1.addActionListener(new java.awt.event.ActionListener() {
+        A1.setBackground(new java.awt.Color(87, 79, 198));
+        A1.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A1.setBorder(null);
+        A1.setBorderPainted(false);
+        A1.setContentAreaFilled(false);
+        A1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA1ActionPerformed(evt);
+                A1ActionPerformed(evt);
             }
         });
 
-        seatA2.setBackground(new java.awt.Color(87, 79, 198));
-        seatA2.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA2.setBorder(null);
-        seatA2.setBorderPainted(false);
-        seatA2.setContentAreaFilled(false);
-        seatA2.addActionListener(new java.awt.event.ActionListener() {
+        A2.setBackground(new java.awt.Color(87, 79, 198));
+        A2.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A2.setBorder(null);
+        A2.setBorderPainted(false);
+        A2.setContentAreaFilled(false);
+        A2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA2ActionPerformed(evt);
+                A2ActionPerformed(evt);
             }
         });
 
-        seatA3.setBackground(new java.awt.Color(87, 79, 198));
-        seatA3.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA3.setBorder(null);
-        seatA3.setBorderPainted(false);
-        seatA3.setContentAreaFilled(false);
-        seatA3.addActionListener(new java.awt.event.ActionListener() {
+        A3.setBackground(new java.awt.Color(87, 79, 198));
+        A3.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A3.setBorder(null);
+        A3.setBorderPainted(false);
+        A3.setContentAreaFilled(false);
+        A3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA3ActionPerformed(evt);
+                A3ActionPerformed(evt);
             }
         });
 
-        seatA4.setBackground(new java.awt.Color(87, 79, 198));
-        seatA4.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA4.setBorder(null);
-        seatA4.setBorderPainted(false);
-        seatA4.setContentAreaFilled(false);
-        seatA4.addActionListener(new java.awt.event.ActionListener() {
+        A4.setBackground(new java.awt.Color(87, 79, 198));
+        A4.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A4.setBorder(null);
+        A4.setBorderPainted(false);
+        A4.setContentAreaFilled(false);
+        A4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA4ActionPerformed(evt);
+                A4ActionPerformed(evt);
             }
         });
 
-        seatA5.setBackground(new java.awt.Color(87, 79, 198));
-        seatA5.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA5.setBorder(null);
-        seatA5.setBorderPainted(false);
-        seatA5.setContentAreaFilled(false);
-        seatA5.addActionListener(new java.awt.event.ActionListener() {
+        A5.setBackground(new java.awt.Color(87, 79, 198));
+        A5.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A5.setBorder(null);
+        A5.setBorderPainted(false);
+        A5.setContentAreaFilled(false);
+        A5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA5ActionPerformed(evt);
+                A5ActionPerformed(evt);
             }
         });
 
-        seatA6.setBackground(new java.awt.Color(87, 79, 198));
-        seatA6.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA6.setBorder(null);
-        seatA6.setBorderPainted(false);
-        seatA6.setContentAreaFilled(false);
-        seatA6.addActionListener(new java.awt.event.ActionListener() {
+        A6.setBackground(new java.awt.Color(87, 79, 198));
+        A6.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A6.setBorder(null);
+        A6.setBorderPainted(false);
+        A6.setContentAreaFilled(false);
+        A6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA6ActionPerformed(evt);
+                A6ActionPerformed(evt);
             }
         });
 
-        seatA7.setBackground(new java.awt.Color(87, 79, 198));
-        seatA7.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA7.setBorder(null);
-        seatA7.setBorderPainted(false);
-        seatA7.setContentAreaFilled(false);
-        seatA7.addActionListener(new java.awt.event.ActionListener() {
+        A7.setBackground(new java.awt.Color(87, 79, 198));
+        A7.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A7.setBorder(null);
+        A7.setBorderPainted(false);
+        A7.setContentAreaFilled(false);
+        A7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA7ActionPerformed(evt);
+                A7ActionPerformed(evt);
             }
         });
 
-        seatA8.setBackground(new java.awt.Color(87, 79, 198));
-        seatA8.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA8.setBorder(null);
-        seatA8.setBorderPainted(false);
-        seatA8.setContentAreaFilled(false);
-        seatA8.addActionListener(new java.awt.event.ActionListener() {
+        A8.setBackground(new java.awt.Color(87, 79, 198));
+        A8.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A8.setBorder(null);
+        A8.setBorderPainted(false);
+        A8.setContentAreaFilled(false);
+        A8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA8ActionPerformed(evt);
+                A8ActionPerformed(evt);
             }
         });
 
-        seatA9.setBackground(new java.awt.Color(87, 79, 198));
-        seatA9.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA9.setBorder(null);
-        seatA9.setBorderPainted(false);
-        seatA9.setContentAreaFilled(false);
-        seatA9.addActionListener(new java.awt.event.ActionListener() {
+        A9.setBackground(new java.awt.Color(87, 79, 198));
+        A9.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A9.setBorder(null);
+        A9.setBorderPainted(false);
+        A9.setContentAreaFilled(false);
+        A9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA9ActionPerformed(evt);
+                A9ActionPerformed(evt);
             }
         });
 
-        seatA10.setBackground(new java.awt.Color(87, 79, 198));
-        seatA10.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatA10.setBorder(null);
-        seatA10.setBorderPainted(false);
-        seatA10.setContentAreaFilled(false);
-        seatA10.addActionListener(new java.awt.event.ActionListener() {
+        A10.setBackground(new java.awt.Color(87, 79, 198));
+        A10.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A10.setBorder(null);
+        A10.setBorderPainted(false);
+        A10.setContentAreaFilled(false);
+        A10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA10ActionPerformed(evt);
+                A10ActionPerformed(evt);
             }
         });
 
-        seatB1.setBackground(new java.awt.Color(87, 79, 198));
-        seatB1.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB1.setBorder(null);
-        seatB1.setBorderPainted(false);
-        seatB1.setContentAreaFilled(false);
-        seatB1.addActionListener(new java.awt.event.ActionListener() {
+        B1.setBackground(new java.awt.Color(87, 79, 198));
+        B1.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B1.setBorder(null);
+        B1.setBorderPainted(false);
+        B1.setContentAreaFilled(false);
+        B1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB1ActionPerformed(evt);
+                B1ActionPerformed(evt);
             }
         });
 
-        seatB2.setBackground(new java.awt.Color(87, 79, 198));
-        seatB2.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB2.setBorder(null);
-        seatB2.setBorderPainted(false);
-        seatB2.setContentAreaFilled(false);
-        seatB2.addActionListener(new java.awt.event.ActionListener() {
+        B2.setBackground(new java.awt.Color(87, 79, 198));
+        B2.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B2.setBorder(null);
+        B2.setBorderPainted(false);
+        B2.setContentAreaFilled(false);
+        B2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB2ActionPerformed(evt);
+                B2ActionPerformed(evt);
             }
         });
 
-        seatB3.setBackground(new java.awt.Color(87, 79, 198));
-        seatB3.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB3.setBorder(null);
-        seatB3.setBorderPainted(false);
-        seatB3.setContentAreaFilled(false);
-        seatB3.addActionListener(new java.awt.event.ActionListener() {
+        B3.setBackground(new java.awt.Color(87, 79, 198));
+        B3.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B3.setBorder(null);
+        B3.setBorderPainted(false);
+        B3.setContentAreaFilled(false);
+        B3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB3ActionPerformed(evt);
+                B3ActionPerformed(evt);
             }
         });
 
-        seatB4.setBackground(new java.awt.Color(87, 79, 198));
-        seatB4.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB4.setBorder(null);
-        seatB4.setBorderPainted(false);
-        seatB4.setContentAreaFilled(false);
-        seatB4.addActionListener(new java.awt.event.ActionListener() {
+        B4.setBackground(new java.awt.Color(87, 79, 198));
+        B4.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B4.setBorder(null);
+        B4.setBorderPainted(false);
+        B4.setContentAreaFilled(false);
+        B4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB4ActionPerformed(evt);
+                B4ActionPerformed(evt);
             }
         });
 
-        seatB5.setBackground(new java.awt.Color(87, 79, 198));
-        seatB5.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB5.setBorder(null);
-        seatB5.setBorderPainted(false);
-        seatB5.setContentAreaFilled(false);
-        seatB5.addActionListener(new java.awt.event.ActionListener() {
+        B5.setBackground(new java.awt.Color(87, 79, 198));
+        B5.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B5.setBorder(null);
+        B5.setBorderPainted(false);
+        B5.setContentAreaFilled(false);
+        B5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB5ActionPerformed(evt);
+                B5ActionPerformed(evt);
             }
         });
 
-        seatB6.setBackground(new java.awt.Color(87, 79, 198));
-        seatB6.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB6.setBorder(null);
-        seatB6.setBorderPainted(false);
-        seatB6.setContentAreaFilled(false);
-        seatB6.addActionListener(new java.awt.event.ActionListener() {
+        B6.setBackground(new java.awt.Color(87, 79, 198));
+        B6.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B6.setBorder(null);
+        B6.setBorderPainted(false);
+        B6.setContentAreaFilled(false);
+        B6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB6ActionPerformed(evt);
+                B6ActionPerformed(evt);
             }
         });
 
-        seatB7.setBackground(new java.awt.Color(87, 79, 198));
-        seatB7.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB7.setBorder(null);
-        seatB7.setBorderPainted(false);
-        seatB7.setContentAreaFilled(false);
-        seatB7.addActionListener(new java.awt.event.ActionListener() {
+        B7.setBackground(new java.awt.Color(87, 79, 198));
+        B7.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B7.setBorder(null);
+        B7.setBorderPainted(false);
+        B7.setContentAreaFilled(false);
+        B7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB7ActionPerformed(evt);
+                B7ActionPerformed(evt);
             }
         });
 
-        seatB8.setBackground(new java.awt.Color(87, 79, 198));
-        seatB8.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB8.setBorder(null);
-        seatB8.setBorderPainted(false);
-        seatB8.setContentAreaFilled(false);
-        seatB8.addActionListener(new java.awt.event.ActionListener() {
+        B8.setBackground(new java.awt.Color(87, 79, 198));
+        B8.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B8.setBorder(null);
+        B8.setBorderPainted(false);
+        B8.setContentAreaFilled(false);
+        B8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB8ActionPerformed(evt);
+                B8ActionPerformed(evt);
             }
         });
 
-        seatB9.setBackground(new java.awt.Color(87, 79, 198));
-        seatB9.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB9.setBorder(null);
-        seatB9.setBorderPainted(false);
-        seatB9.setContentAreaFilled(false);
-        seatB9.addActionListener(new java.awt.event.ActionListener() {
+        B9.setBackground(new java.awt.Color(87, 79, 198));
+        B9.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B9.setBorder(null);
+        B9.setBorderPainted(false);
+        B9.setContentAreaFilled(false);
+        B9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB9ActionPerformed(evt);
+                B9ActionPerformed(evt);
             }
         });
 
-        seatB10.setBackground(new java.awt.Color(87, 79, 198));
-        seatB10.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatB10.setBorder(null);
-        seatB10.setBorderPainted(false);
-        seatB10.setContentAreaFilled(false);
-        seatB10.addActionListener(new java.awt.event.ActionListener() {
+        B10.setBackground(new java.awt.Color(87, 79, 198));
+        B10.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B10.setBorder(null);
+        B10.setBorderPainted(false);
+        B10.setContentAreaFilled(false);
+        B10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB10ActionPerformed(evt);
+                B10ActionPerformed(evt);
             }
         });
 
-        seatC1.setBackground(new java.awt.Color(87, 79, 198));
-        seatC1.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC1.setBorder(null);
-        seatC1.setBorderPainted(false);
-        seatC1.setContentAreaFilled(false);
-        seatC1.addActionListener(new java.awt.event.ActionListener() {
+        C1.setBackground(new java.awt.Color(87, 79, 198));
+        C1.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C1.setBorder(null);
+        C1.setBorderPainted(false);
+        C1.setContentAreaFilled(false);
+        C1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC1ActionPerformed(evt);
+                C1ActionPerformed(evt);
             }
         });
 
-        seatC2.setBackground(new java.awt.Color(87, 79, 198));
-        seatC2.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC2.setBorder(null);
-        seatC2.setBorderPainted(false);
-        seatC2.setContentAreaFilled(false);
-        seatC2.addActionListener(new java.awt.event.ActionListener() {
+        C2.setBackground(new java.awt.Color(87, 79, 198));
+        C2.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C2.setBorder(null);
+        C2.setBorderPainted(false);
+        C2.setContentAreaFilled(false);
+        C2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC2ActionPerformed(evt);
+                C2ActionPerformed(evt);
             }
         });
 
-        seatC3.setBackground(new java.awt.Color(87, 79, 198));
-        seatC3.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC3.setBorder(null);
-        seatC3.setBorderPainted(false);
-        seatC3.setContentAreaFilled(false);
-        seatC3.addActionListener(new java.awt.event.ActionListener() {
+        C3.setBackground(new java.awt.Color(87, 79, 198));
+        C3.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C3.setBorder(null);
+        C3.setBorderPainted(false);
+        C3.setContentAreaFilled(false);
+        C3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC3ActionPerformed(evt);
+                C3ActionPerformed(evt);
             }
         });
 
-        seatC4.setBackground(new java.awt.Color(87, 79, 198));
-        seatC4.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC4.setBorder(null);
-        seatC4.setBorderPainted(false);
-        seatC4.setContentAreaFilled(false);
-        seatC4.addActionListener(new java.awt.event.ActionListener() {
+        C4.setBackground(new java.awt.Color(87, 79, 198));
+        C4.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C4.setBorder(null);
+        C4.setBorderPainted(false);
+        C4.setContentAreaFilled(false);
+        C4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC4ActionPerformed(evt);
+                C4ActionPerformed(evt);
             }
         });
 
-        seatC5.setBackground(new java.awt.Color(87, 79, 198));
-        seatC5.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC5.setBorder(null);
-        seatC5.setBorderPainted(false);
-        seatC5.setContentAreaFilled(false);
-        seatC5.addActionListener(new java.awt.event.ActionListener() {
+        C5.setBackground(new java.awt.Color(87, 79, 198));
+        C5.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C5.setBorder(null);
+        C5.setBorderPainted(false);
+        C5.setContentAreaFilled(false);
+        C5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC5ActionPerformed(evt);
+                C5ActionPerformed(evt);
             }
         });
 
-        seatC6.setBackground(new java.awt.Color(87, 79, 198));
-        seatC6.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC6.setBorder(null);
-        seatC6.setBorderPainted(false);
-        seatC6.setContentAreaFilled(false);
-        seatC6.addActionListener(new java.awt.event.ActionListener() {
+        C6.setBackground(new java.awt.Color(87, 79, 198));
+        C6.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C6.setBorder(null);
+        C6.setBorderPainted(false);
+        C6.setContentAreaFilled(false);
+        C6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC6ActionPerformed(evt);
+                C6ActionPerformed(evt);
             }
         });
 
-        seatC7.setBackground(new java.awt.Color(87, 79, 198));
-        seatC7.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC7.setBorder(null);
-        seatC7.setBorderPainted(false);
-        seatC7.setContentAreaFilled(false);
-        seatC7.addActionListener(new java.awt.event.ActionListener() {
+        C7.setBackground(new java.awt.Color(87, 79, 198));
+        C7.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C7.setBorder(null);
+        C7.setBorderPainted(false);
+        C7.setContentAreaFilled(false);
+        C7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC7ActionPerformed(evt);
+                C7ActionPerformed(evt);
             }
         });
 
-        seatC8.setBackground(new java.awt.Color(87, 79, 198));
-        seatC8.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC8.setBorder(null);
-        seatC8.setBorderPainted(false);
-        seatC8.setContentAreaFilled(false);
-        seatC8.addActionListener(new java.awt.event.ActionListener() {
+        C8.setBackground(new java.awt.Color(87, 79, 198));
+        C8.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C8.setBorder(null);
+        C8.setBorderPainted(false);
+        C8.setContentAreaFilled(false);
+        C8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC8ActionPerformed(evt);
+                C8ActionPerformed(evt);
             }
         });
 
-        seatC9.setBackground(new java.awt.Color(87, 79, 198));
-        seatC9.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC9.setBorder(null);
-        seatC9.setBorderPainted(false);
-        seatC9.setContentAreaFilled(false);
-        seatC9.addActionListener(new java.awt.event.ActionListener() {
+        C9.setBackground(new java.awt.Color(87, 79, 198));
+        C9.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C9.setBorder(null);
+        C9.setBorderPainted(false);
+        C9.setContentAreaFilled(false);
+        C9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC9ActionPerformed(evt);
+                C9ActionPerformed(evt);
             }
         });
 
-        seatC10.setBackground(new java.awt.Color(87, 79, 198));
-        seatC10.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        seatC10.setBorder(null);
-        seatC10.setBorderPainted(false);
-        seatC10.setContentAreaFilled(false);
-        seatC10.addActionListener(new java.awt.event.ActionListener() {
+        C10.setBackground(new java.awt.Color(87, 79, 198));
+        C10.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C10.setBorder(null);
+        C10.setBorderPainted(false);
+        C10.setContentAreaFilled(false);
+        C10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC10ActionPerformed(evt);
+                C10ActionPerformed(evt);
             }
         });
 
@@ -463,68 +464,68 @@ public class SeatForm extends javax.swing.JFrame {
                             .addGroup(seatPanelLayout.createSequentialGroup()
                                 .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(seatPanelLayout.createSequentialGroup()
-                                        .addComponent(seatA1)
+                                        .addComponent(A1)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatA2)
+                                        .addComponent(A2)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatA3)
+                                        .addComponent(A3)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatA4)
+                                        .addComponent(A4)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatA5))
+                                        .addComponent(A5))
                                     .addGroup(seatPanelLayout.createSequentialGroup()
-                                        .addComponent(seatC1)
+                                        .addComponent(C1)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatC2)
+                                        .addComponent(C2)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatC3)
+                                        .addComponent(C3)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatC4)
+                                        .addComponent(C4)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatC5)))
+                                        .addComponent(C5)))
                                 .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(seatPanelLayout.createSequentialGroup()
                                         .addGap(109, 109, 109)
-                                        .addComponent(seatA6)
+                                        .addComponent(A6)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatA7)
+                                        .addComponent(A7)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatA8)
+                                        .addComponent(A8)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatA9)
+                                        .addComponent(A9)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatA10))
+                                        .addComponent(A10))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seatPanelLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(seatC6)
+                                        .addComponent(C6)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatC7)
+                                        .addComponent(C7)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatC8)
+                                        .addComponent(C8)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatC9)
+                                        .addComponent(C9)
                                         .addGap(18, 18, 18)
-                                        .addComponent(seatC10))))
+                                        .addComponent(C10))))
                             .addGroup(seatPanelLayout.createSequentialGroup()
-                                .addComponent(seatB1)
+                                .addComponent(B1)
                                 .addGap(18, 18, 18)
-                                .addComponent(seatB2)
+                                .addComponent(B2)
                                 .addGap(18, 18, 18)
-                                .addComponent(seatB3)
+                                .addComponent(B3)
                                 .addGap(18, 18, 18)
-                                .addComponent(seatB4)
+                                .addComponent(B4)
                                 .addGap(18, 18, 18)
-                                .addComponent(seatB5)
+                                .addComponent(B5)
                                 .addGap(109, 109, 109)
-                                .addComponent(seatB6)
+                                .addComponent(B6)
                                 .addGap(18, 18, 18)
-                                .addComponent(seatB7)
+                                .addComponent(B7)
                                 .addGap(18, 18, 18)
-                                .addComponent(seatB8)
+                                .addComponent(B8)
                                 .addGap(18, 18, 18)
-                                .addComponent(seatB9)
+                                .addComponent(B9)
                                 .addGap(18, 18, 18)
-                                .addComponent(seatB10)))
+                                .addComponent(B10)))
                         .addGap(6, 6, 6)))
                 .addGap(36, 36, 36))
         );
@@ -535,40 +536,40 @@ public class SeatForm extends javax.swing.JFrame {
                 .addComponent(screenPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(seatA1)
-                    .addComponent(seatA2)
-                    .addComponent(seatA3)
-                    .addComponent(seatA4)
-                    .addComponent(seatA5)
-                    .addComponent(seatA6)
-                    .addComponent(seatA7)
-                    .addComponent(seatA8)
-                    .addComponent(seatA9)
-                    .addComponent(seatA10))
+                    .addComponent(A1)
+                    .addComponent(A2)
+                    .addComponent(A3)
+                    .addComponent(A4)
+                    .addComponent(A5)
+                    .addComponent(A6)
+                    .addComponent(A7)
+                    .addComponent(A8)
+                    .addComponent(A9)
+                    .addComponent(A10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(seatB1)
-                    .addComponent(seatB2)
-                    .addComponent(seatB3)
-                    .addComponent(seatB4)
-                    .addComponent(seatB5)
-                    .addComponent(seatB6)
-                    .addComponent(seatB7)
-                    .addComponent(seatB8)
-                    .addComponent(seatB9)
-                    .addComponent(seatB10))
+                    .addComponent(B1)
+                    .addComponent(B2)
+                    .addComponent(B3)
+                    .addComponent(B4)
+                    .addComponent(B5)
+                    .addComponent(B6)
+                    .addComponent(B7)
+                    .addComponent(B8)
+                    .addComponent(B9)
+                    .addComponent(B10))
                 .addGap(36, 36, 36)
                 .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(seatC1)
-                    .addComponent(seatC2)
-                    .addComponent(seatC3)
-                    .addComponent(seatC4)
-                    .addComponent(seatC5)
-                    .addComponent(seatC6)
-                    .addComponent(seatC7)
-                    .addComponent(seatC8)
-                    .addComponent(seatC9)
-                    .addComponent(seatC10))
+                    .addComponent(C1)
+                    .addComponent(C2)
+                    .addComponent(C3)
+                    .addComponent(C4)
+                    .addComponent(C5)
+                    .addComponent(C6)
+                    .addComponent(C7)
+                    .addComponent(C8)
+                    .addComponent(C9)
+                    .addComponent(C10))
                 .addGap(53, 53, 53))
         );
 
@@ -631,25 +632,28 @@ public class SeatForm extends javax.swing.JFrame {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         //send selectedSeats to database
-        this.allSeats = new JToggleButton[]{seatA1, seatA2, seatA3, seatA4, seatA5, seatA6, seatA7, seatA8, seatA9, seatA10,
-            seatB1, seatB2, seatB3, seatB4, seatB5, seatB6, seatB7, seatB8, seatB9, seatB10, seatC1, seatC2, seatC3, seatC4, seatC5,
-            seatC6, seatC7, seatC8, seatC9, seatC10};
-        Vector<String> selectedSeats = new Vector<String>();
+        this.allSeats = new JToggleButton[]{A1, A2, A3, A4, A5, A6, A7, A8, A9, A10,
+            B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, C1, C2, C3, C4, C5,
+            C6, C7, C8, C9, C10};
+        String[] seatNames = { "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8","A9", "A10", "B1", "B2", "B3", "B4", "B5", "B6", "B7",
+                                "B8", "B9", "B10", "C1", "C2", "C3", "C4", "C5", "C6"," C7", "C8", "C9", "C10" };
+
+        seats = "";
         
         for(int i = 0; i < allSeats.length; i++)
         {
             if(allSeats[i].isSelected())
             {
-                selectedSeats.addElement(allSeats[i].getName());
+                seats += seatNames[i];
             }
         }
         
-        if(!selectedSeats.isEmpty())
+        if(!seats.isEmpty())
         {
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
               public void run() {
-                new PaymentForm(selectedSeats, movie, showTime, registered).setVisible(true);
+                new PaymentForm(seats, movie, showTime, registered).setVisible(true);
               }
            });
         }
@@ -658,9 +662,6 @@ public class SeatForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please select your seats!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
         }
-        
-        
- 
     }                                             
 
     private void selectSeat(JToggleButton button)
@@ -677,124 +678,124 @@ public class SeatForm extends javax.swing.JFrame {
     }
     
     
-    private void seatA1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatA1);
+    private void A1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(A1);
     }                                      
 
-    private void seatA2ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatA2);
+    private void A2ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(A2);
     }                                      
 
-    private void seatA3ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatA3);
+    private void A3ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(A3);
     }                                      
 
-    private void seatA4ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatA4);
+    private void A4ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(A4);
     }                                      
 
-    private void seatA5ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatA5);
+    private void A5ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(A5);
     }                                      
 
-    private void seatA6ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatA6);
+    private void A6ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(A6);
     }                                      
 
-    private void seatA7ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatA7);
+    private void A7ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(A7);
     }                                      
 
-    private void seatA8ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatA8);
+    private void A8ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(A8);
     }                                      
 
-    private void seatA9ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatA9);
+    private void A9ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(A9);
     }                                      
 
-    private void seatA10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        selectSeat(seatA10);
+    private void A10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        selectSeat(A10);
     }                                       
 
-    private void seatB1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatB1);
+    private void B1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(B1);
     }                                      
 
-    private void seatB2ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatB2);
+    private void B2ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(B2);
     }                                      
 
-    private void seatB3ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatB3);
+    private void B3ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(B3);
     }                                      
 
-    private void seatB4ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatB4);
+    private void B4ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(B4);
     }                                      
 
-    private void seatB5ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatB5);
+    private void B5ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(B5);
     }                                      
 
-    private void seatB6ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatB6);
+    private void B6ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(B6);
     }                                      
 
-    private void seatB7ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatB7);
+    private void B7ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(B7);
     }                                      
 
-    private void seatB8ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatB8);
+    private void B8ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(B8);
     }                                      
 
-    private void seatB9ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatB9);
+    private void B9ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(B9);
     }                                      
 
-    private void seatB10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        selectSeat(seatB10);
+    private void B10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        selectSeat(B10);
     }                                       
 
-    private void seatC1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatC1);
+    private void C1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(C1);
     }                                      
 
-    private void seatC2ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatC2);
+    private void C2ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(C2);
     }                                      
 
-    private void seatC3ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatC3);
+    private void C3ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(C3);
     }                                      
 
-    private void seatC4ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatC4);
+    private void C4ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(C4);
     }                                      
 
-    private void seatC5ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatC5);
+    private void C5ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(C5);
     }                                      
 
-    private void seatC6ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatC6);
+    private void C6ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(C6);
     }                                      
 
-    private void seatC7ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatC7);
+    private void C7ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(C7);
     }                                      
 
-    private void seatC8ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatC8);
+    private void C8ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(C8);
     }                                      
 
-    private void seatC9ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        selectSeat(seatC9);
+    private void C9ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        selectSeat(C9);
     }                                      
 
-    private void seatC10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        selectSeat(seatC10);
+    private void C10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        selectSeat(C10);
     }                                       
 
     /**
@@ -836,36 +837,36 @@ public class SeatForm extends javax.swing.JFrame {
     private javax.swing.JButton confirmButton;
     private javax.swing.JLabel screenLabel;
     private javax.swing.JPanel screenPanel;
-    private javax.swing.JToggleButton seatA1;
-    private javax.swing.JToggleButton seatA10;
-    private javax.swing.JToggleButton seatA2;
-    private javax.swing.JToggleButton seatA3;
-    private javax.swing.JToggleButton seatA4;
-    private javax.swing.JToggleButton seatA5;
-    private javax.swing.JToggleButton seatA6;
-    private javax.swing.JToggleButton seatA7;
-    private javax.swing.JToggleButton seatA8;
-    private javax.swing.JToggleButton seatA9;
-    private javax.swing.JToggleButton seatB1;
-    private javax.swing.JToggleButton seatB10;
-    private javax.swing.JToggleButton seatB2;
-    private javax.swing.JToggleButton seatB3;
-    private javax.swing.JToggleButton seatB4;
-    private javax.swing.JToggleButton seatB5;
-    private javax.swing.JToggleButton seatB6;
-    private javax.swing.JToggleButton seatB7;
-    private javax.swing.JToggleButton seatB8;
-    private javax.swing.JToggleButton seatB9;
-    private javax.swing.JToggleButton seatC1;
-    private javax.swing.JToggleButton seatC10;
-    private javax.swing.JToggleButton seatC2;
-    private javax.swing.JToggleButton seatC3;
-    private javax.swing.JToggleButton seatC4;
-    private javax.swing.JToggleButton seatC5;
-    private javax.swing.JToggleButton seatC6;
-    private javax.swing.JToggleButton seatC7;
-    private javax.swing.JToggleButton seatC8;
-    private javax.swing.JToggleButton seatC9;
+    private javax.swing.JToggleButton A1;
+    private javax.swing.JToggleButton A10;
+    private javax.swing.JToggleButton A2;
+    private javax.swing.JToggleButton A3;
+    private javax.swing.JToggleButton A4;
+    private javax.swing.JToggleButton A5;
+    private javax.swing.JToggleButton A6;
+    private javax.swing.JToggleButton A7;
+    private javax.swing.JToggleButton A8;
+    private javax.swing.JToggleButton A9;
+    private javax.swing.JToggleButton B1;
+    private javax.swing.JToggleButton B10;
+    private javax.swing.JToggleButton B2;
+    private javax.swing.JToggleButton B3;
+    private javax.swing.JToggleButton B4;
+    private javax.swing.JToggleButton B5;
+    private javax.swing.JToggleButton B6;
+    private javax.swing.JToggleButton B7;
+    private javax.swing.JToggleButton B8;
+    private javax.swing.JToggleButton B9;
+    private javax.swing.JToggleButton C1;
+    private javax.swing.JToggleButton C10;
+    private javax.swing.JToggleButton C2;
+    private javax.swing.JToggleButton C3;
+    private javax.swing.JToggleButton C4;
+    private javax.swing.JToggleButton C5;
+    private javax.swing.JToggleButton C6;
+    private javax.swing.JToggleButton C7;
+    private javax.swing.JToggleButton C8;
+    private javax.swing.JToggleButton C9;
     private javax.swing.JPanel seatFormPanel;
     private javax.swing.JPanel seatPanel;
     private javax.swing.JLabel seatTitle;

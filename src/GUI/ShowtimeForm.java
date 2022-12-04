@@ -18,15 +18,33 @@ public class ShowtimeForm extends javax.swing.JFrame {
     public ShowtimeForm(String movie) {
         populateShowtimes();
         initComponents();
+        ShowtimeForm.movie = SearchResults.movie;
         populateInfo();
-        ShowtimeForm.movie = movie;
     }
 
     private void populateInfo()
     {
         //get show time from database
+        if(movie.equals("drSoftware"))
+        {
+            movieTitleLabel.setText("The Incredible Dr. Software");
+            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\drsoftware.png")); // NOI18N
+        }
+        else if(movie.equals("stackOverflow"))
+        {
+            movieTitleLabel.setText("Stack Overflow");
+            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\stackoverflow.png"));
+        }
+        else
+        {
+            movieTitleLabel.setText("No Decimal's Land");
+            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\nodecimal.png")); // NOI18N
+        }
+        
+
         movieLengthLabel.setText("");
     }
+    
 
     private void populateShowtimes()
     {
@@ -93,7 +111,7 @@ public class ShowtimeForm extends javax.swing.JFrame {
         movieLengthLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         movieTitleLabel.setBackground(new java.awt.Color(243, 224, 52));
-        movieTitleLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
+        movieTitleLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         movieTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         selectShowtimeLabel.setBackground(new java.awt.Color(243, 224, 52));
@@ -250,7 +268,7 @@ public class ShowtimeForm extends javax.swing.JFrame {
         {
             showTime = showtimeArray[showtimesComboBox.getSelectedIndex()];
         }
-                   
+
         this.setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

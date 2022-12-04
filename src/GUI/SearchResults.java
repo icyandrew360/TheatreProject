@@ -7,7 +7,7 @@ package GUI;
 
 public class SearchResults extends javax.swing.JFrame {
     public static boolean registered;
-    private static String movie;
+    static String movie;
     private static String search;
     /** 
      * Creates new form SearchResults
@@ -24,7 +24,7 @@ public class SearchResults extends javax.swing.JFrame {
 
     private void displayResults()
     {
-        String movie = ""; //from database
+        movie = "drSoftware"; //from database
         if(movie == "stackOverflow")
         {
             imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\stackoverflow.png")); // NOI18N
