@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  * @author Jenna Vlaar
  */
 public class LoginForm extends javax.swing.JFrame {
-
+    public static String email;
     /**
      * Creates new form LoginForm
      */
@@ -189,7 +189,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // User pressed LOGIN
-        String email = emailText.getText().strip();
+        email = emailText.getText().strip();
         String password = valueOf(passwordField.getPassword());
         
         // User pressed REGISTER
@@ -229,6 +229,26 @@ public class LoginForm extends javax.swing.JFrame {
             new MainPage().setVisible(true);
           }
        });
+       
+       /*
+       if(verifyUser(email, password))
+       {
+            this.setVisible(false);
+            
+            java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainPage().setVisible(true);
+            }
+            });
+
+       }
+       else
+       {
+            JOptionPane.showMessageDialog(null, "Sorry! No user associated with that email/password.", 
+                            "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+       }
+       */
         //verify username/password from user database
     }                                           
 
@@ -243,8 +263,7 @@ public class LoginForm extends javax.swing.JFrame {
     }                                              
 
     private void guestButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-        String email = JOptionPane.showInputDialog("Please enter your email address.");
+        email = JOptionPane.showInputDialog("Please enter your email address.");
         if(email.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Please enter an email address.", 

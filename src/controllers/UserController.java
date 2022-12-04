@@ -83,12 +83,12 @@ public class UserController {
         }
     }
 
-    public void populateUserTickets(Vector<RegisteredUser> users, TicketController ticketController){
+    public void populateUserTickets(Vector<UnRegisteredUser> unRegUsers, Vector<RegisteredUser> users, TicketController ticketController){
         HashMap<String, ArrayList<Ticket>>tempMap = new HashMap<String, ArrayList<Ticket>>();
         for(int i = 0; i < users.size(); i++){
             tempMap.put(users.get(i).getEmail(), users.get(i).getTickets());
         }
-        ticketController.populateTickets(tempMap);
+        ticketController.populateTickets(tempMap, unRegUsers);
     }
 
     //returns true if there is a registered user in the data base with this email.

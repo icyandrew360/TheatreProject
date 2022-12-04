@@ -22,7 +22,7 @@ public class AccountPage extends javax.swing.JFrame {
     private void addInformation()
     {
         //GET INFO FROM DATABASE
-        emailText.setText("");
+        emailText.setText(LoginForm.email);
         passwordText.setText("");
 
         String tickets = "";

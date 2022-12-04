@@ -1,7 +1,5 @@
 package GUI;
 
-import java.util.Vector;
-
 import javax.swing.JOptionPane;
 
 /**
@@ -9,7 +7,7 @@ import javax.swing.JOptionPane;
  * @author Jenna Vlaar
  */
 public class PaymentForm extends javax.swing.JFrame {
-    private static Vector<String> seats;
+    private static String seats;
     private static String movie;
     private String creditCardNumber;
     private String creditCardName;
@@ -19,19 +17,27 @@ public class PaymentForm extends javax.swing.JFrame {
     /**
      * Creates new form PaymentForm
      */
-    public PaymentForm(Vector<String> seats, String movie, String showTime, boolean registered) {
-        initComponents();
+    public PaymentForm(String seats, String movie, String showTime, boolean registered) {
         PaymentForm.showTime = showTime;
         PaymentForm.seats = seats;
         PaymentForm.movie = movie;
-        addInformation();
         PaymentForm.registered = registered;
+        initComponents();
+        addInformation();
     }
     
     private void addInformation()
     {
-        numberTicketsLabel.setText(seats.size() + "x");
-        double cost = seats.size() * 13.99;
+        int numberOfSeats = 0;
+        for(int i = 0; i < seats.length(); i++)
+        {
+            if(Character.isAlphabetic(seats.charAt(i)))
+            {
+                numberOfSeats++;
+            }
+        }
+        numberTicketsLabel.setText(numberOfSeats + "x");
+        double cost = numberOfSeats * 13.99;
         double gst = cost * 0.05;
         double total = cost + gst;
         gstCostLabel.setText(String.format("%.2f", gst));
@@ -381,7 +387,9 @@ public class PaymentForm extends javax.swing.JFrame {
         this.setVisible(false);
         // 
         // UPDATE DATABASE!
+        // create String seats
         //
+        
         if(registered)
         {
             java.awt.EventQueue.invokeLater(new Runnable() {
