@@ -17,8 +17,10 @@ public class Theatre
     //this is also where we would have a reference to GUI
 
     public Theatre(){
-        
+        //
     }
+
+
 
     // public void bookSeat(int showroom, String seatNum, int showTime){
     //     //call the controller function

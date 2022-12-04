@@ -6,8 +6,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class ShowController {
+
+    private DBController onlyInstance;
+
     public ShowController(){
-        
+        this.onlyInstance = DBController.getConnection();
     }
     //map id = tuple of data(name, showtime, showroom)
 
@@ -23,7 +26,7 @@ public class ShowController {
         ResultSet rs = null;
 
         try{
-            p = dbConnect.prepareStatement(sql);
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
             rs = p.executeQuery();
 
             while (rs.next()){

@@ -42,18 +42,26 @@ public class DBController {
     }
 
     // Url getter
-    String getDburl(){
+    public String getDburl(){
         return this.DBURL;
     }
 
     // Username getter
-    String getUsername(){
+    public String getUsername(){
         return this.USERNAME;
     }
     
     // Password getter
-    String getPassword(){
+    public String getPassword(){
         return this.PASSWORD;
+    }
+
+    public Connection getDBConnection(){
+        return this.dbConnect;
+    }
+
+    public ResultSet getResults(){
+        return this.results;
     }
 
     
