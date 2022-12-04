@@ -105,8 +105,8 @@ public class UserController {
             rs = p.executeQuery();
             //linear search of database to check if a user exists in database
             while (rs.next()){
-                if(rs.getString("Email") == email){
-                    if(rs.getString("Password") == password){
+                if(rs.getString("Email").equals(email)){
+                    if(rs.getString("Password").equals(password)){
                         isInDataBase = true;
                         break;
                     }

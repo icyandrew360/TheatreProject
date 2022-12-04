@@ -84,7 +84,7 @@ public class ShowController {
 
             while (rs.next()){
                 //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
-                if (rs.getString("MovieName") == movieName && rs.getInt("ShowTime") == showTime){
+                if (rs.getString("MovieName").equals(movieName)  && rs.getInt("ShowTime") == showTime){
                     String[] array = rs.getString("SoldSeats").split("(?<=\\G.{2})");//using regex to split the string into an array of each seat of 2 chars
 
                     ArrayList<String> seatsArrayList = new ArrayList<String>(Arrays.asList(array));
@@ -222,7 +222,7 @@ public class ShowController {
 
             while (rs.next()){
                 //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
-                if (rs.getString("MovieName") == movieTitle){
+                if (rs.getString("MovieName").equals(movieTitle)){
                     showTimes.add(rs.getInt("ShowTime"));
                 }
             }

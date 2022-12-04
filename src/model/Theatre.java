@@ -108,6 +108,7 @@ public class Theatre
         //grab show times as integers and then convert to strings
         Vector<Integer> showTimesAsInt = this.showController.getShowTimes(movieTitle);
         Vector<String> showTimesAsString = new Vector<String>();
+        System.out.println(showTimesAsInt.size());
         //go through list of ints and convert
         for(int i : showTimesAsInt){
             String temp = new String("");
@@ -121,7 +122,13 @@ public class Theatre
             }
             //add delimeter and add remaining minutes
             temp += ":";
-            temp += i % 60;
+            if(i % 60 < 10) {
+                temp += 0;
+                temp += i % 60;
+            }
+            else{
+                temp += i % 60;
+            }
 
             showTimesAsString.add(temp);
         }
