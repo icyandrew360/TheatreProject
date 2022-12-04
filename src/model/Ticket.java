@@ -16,15 +16,17 @@ public class Ticket
     private int showRoom;
     private int showTime;
     private String showDate;
+    private String movieName;
 
     public Ticket(int movieID, String email, String seat, 
-    int showRoom, int showTime, String showDate){
+    int showRoom, int showTime, String showDate, String movieName){
         this.movieID = movieID;
         this.email = email;
         this.seatNumber = seat;
         this.showRoom = showRoom;
         this.showTime = showTime;
         this.showDate = showDate;
+        this.movieName = movieName;
     }
 
     public int getMovieID(){
@@ -49,6 +51,10 @@ public class Ticket
 
     public String getShowDate(){
         return this.showDate;
+    }
+
+    public String getMovieName(){
+        return this.movieName;
     }
   
 }
