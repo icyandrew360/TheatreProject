@@ -81,6 +81,8 @@ public class Theatre
         int intTime = Integer.parseInt(showTimeAsStrings[0]) * 60;
         intTime += Integer.parseInt(showTimeAsStrings[1]);
         Ticket temp = this.showController.createTicketAndAddSeats(user, seats, movieName, intTime);
+        if(user.getTickets() == null)
+            user.setTickets(new ArrayList<Ticket>());
         user.getTickets().add(temp);
         this.ticketController.addTicket(temp, user);
     }

@@ -46,6 +46,7 @@ public class TicketController {
         ResultSet rs = null;
         try{
             p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO tickets(Email,TicketID,Seats,ShowTime,ShowRoom, ShowDate, Mname, IsRegistered) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            System.out.println(temp.getEmail());
             p.setString(1, temp.getEmail());
             p.setInt(2, temp.getMovieID());
             p.setString(3, temp.getSeatNumber());
