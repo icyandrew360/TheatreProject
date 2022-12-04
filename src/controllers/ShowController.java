@@ -34,11 +34,11 @@ public class ShowController {
             while (rs.next()){
                 //adds movie names to the hashset. this can be sped up,
                 //but leaving this in parts for clarity of how this is done.
-                String movieName = rs.getString("Mname").toLowerCase();
+                String movieName = rs.getString("Mname");
                 int ID = rs.getInt("idMovies");
                 int movieLength = rs.getInt("Length");
 
-                searchableMovieList.add(movieName);
+                searchableMovieList.add(movieName);//these kept their cases, not all lowercase
                 movieDataByName.put(movieName, new Movie(movieName, movieLength));
                 // movieDataByID.put(ID, tempMovie);
             }
@@ -57,7 +57,7 @@ public class ShowController {
 
         for (int i = 0; i < searchableMovieList.size(); i++){
             //if we find a movie name with the substring in it:
-            if (searchableMovieList.get(i).contains(substring)){
+            if (searchableMovieList.get(i).toLowerCase().contains(substring)){
                 //return the first instance of a movie containing the substring
                 return searchableMovieList.get(i);
             }
