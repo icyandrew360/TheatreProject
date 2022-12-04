@@ -13,7 +13,7 @@ public class TicketController {
        this.onlyInstance = DBController.getConnection();
     }
 
-    public void populateTickets(HashMap<String, ArrayList<Ticket>> map){
+    public void populateTickets(HashMap<String, ArrayList<Ticket>> map, Vector<UnRegisteredUser> unRegUsers){
         String sql = "select * from tickets";
         PreparedStatement p = null;
         ResultSet rs = null;
@@ -27,6 +27,9 @@ public class TicketController {
                     map.get(rs.getString("email")).add(new Ticket(rs.getInt("ID"), rs.getString("email")
                     , rs.getString("seatNumber"), rs.getInt("showRoom"), 
                     rs.getInt("showTime"), rs.getString("showDate"), rs.getString("movieName")));
+                }
+                else{
+                    unRegUsers.add(new UnRegisteredUser("", "", rs.getString("email")));
                 }
             }
 

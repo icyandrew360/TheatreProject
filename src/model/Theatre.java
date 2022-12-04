@@ -20,7 +20,6 @@ public class Theatre
     private UserController userController;
     private TicketController ticketController;
     private ShowController showController;
-    private SeatsController seatsController;
     private PaymentController paymentController;
     private NotificationController notificationController;
     
@@ -33,8 +32,9 @@ public class Theatre
         this.userController = new UserController();
         userController.populateUsers(registeredUsers);
         //2. go through ticketDB and add tickets to user objects.
+        //also paritally intializes unRegesteredUsers
         this.ticketController = new TicketController();
-        userController.populateUserTickets(registeredUsers, ticketController);
+        userController.populateUserTickets(unRegisteredUsers, registeredUsers, ticketController);
         //3. go through moviesDB and ticketDB and populate ShowRooms / ShowTimes
         
     }
@@ -57,7 +57,7 @@ public class Theatre
     }
 
     public void addTicket(User user, String seats, String movieName, String showTime){
-
+        
     }
 
     public Vector<String> takenSeats(String movieName, String showTime){
