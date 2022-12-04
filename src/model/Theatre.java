@@ -15,6 +15,7 @@ public class Theatre
 {
     private Vector<ShowRoom> showRooms;
     private Vector<RegisteredUser> registeredUsers;
+    private Vector<UnRegisteredUser> unRegisteredUsers;
     private static int theatreID =0;
     private UserController userController;
     private TicketController ticketController;
@@ -52,6 +53,14 @@ public class Theatre
     }
 
     public void addSeatsToShowTime(String movieName, String showTime){
+
+    }
+
+    public void addTicket(User user, String seats, String movieName, String showTime){
+
+    }
+
+    public Vector<String> takenSeats(String movieName, String showTime){
 
     }
 
