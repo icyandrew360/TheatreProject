@@ -29,7 +29,7 @@ CREATE TABLE `movies` (
   `ShowTime` int DEFAULT NULL,
   `ShowRoom` int DEFAULT NULL,
   `SoldSeats` varchar(150) DEFAULT NULL,
-  `ShowDate` date DEFAULT NULL,
+  `ShowDate` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`MoviesID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -53,18 +53,23 @@ DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
   `Email` varchar(45) NOT NULL,
   `TicketID` int NOT NULL,
+  `MovieName` varchar(45) DEFAULT NULL,
   `Seats` varchar(45) NOT NULL,
   `ShowTime` int NOT NULL,
   `ShowRoom` int NOT NULL,
-  `PurchaseDate` date NOT NULL,
-  `PurchaseTime` varchar(45) NOT NULL,
+  `ShowDate` varchar(45) DEFAULT NULL,
+  `Registered` BOOLEAN DEFAULT NULL,
   PRIMARY KEY (`TicketID`),
   KEY `Email_idx` (`Email`),
+  KEY `MovieName_idx` (`MovieName`),
   KEY `ShowTime_idx` (`ShowTime`),
-  KEY `ShowRoom` (`ShowRoom`),
+  KEY `ShowRoom_idx` (`ShowRoom`),
+  KEY `ShowDate_idx` (`ShowDate`),
   CONSTRAINT `Email` FOREIGN KEY (`Email`) REFERENCES `users` (`Email`),
+  CONSTRAINT `MovieName` FOREIGN KEY (`MovieName`) REFERENCES `movies` (`MovieName`),
+  CONSTRAINT `ShowTime` FOREIGN KEY (`ShowTime`) REFERENCES `movies` (`ShowTime`),
   CONSTRAINT `ShowRoom` FOREIGN KEY (`ShowRoom`) REFERENCES `movies` (`ShowRoom`),
-  CONSTRAINT `ShowTime` FOREIGN KEY (`ShowTime`) REFERENCES `movies` (`ShowTime`)
+  CONSTRAINT `ShowDate` FOREIGN KEY (`ShowDate`) REFERENCES `movies` (`ShowDate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -91,6 +96,7 @@ CREATE TABLE `users` (
   `Phone` bigint DEFAULT NULL,
   `Password` varchar(45) DEFAULT NULL,
   `OwnedSeats` varchar(45) DEFAULT NULL,
+  xcel
   PRIMARY KEY (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -102,6 +108,31 @@ CREATE TABLE `users` (
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+--
+-- Table structure for table `credits`
+--
+
+DROP TABLE IF EXISTS `credits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credits` (
+  `Email` varchar(45) NOT NULL,
+  `Credit` float NOT NULL,
+  PRIMARY KEY (`Email`),
+  CONSTRAINT `Email` FOREIGN KEY (`Email`) REFERENCES `users` (`Email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credits`
+--
+
+LOCK TABLES `credits` WRITE;
+/*!40000 ALTER TABLE `credits` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credits` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
