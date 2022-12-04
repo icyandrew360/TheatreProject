@@ -4,6 +4,7 @@ import model.*;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Vector;
+import java.util.ArrayList;
 
 public class UserController {
    
@@ -19,7 +20,7 @@ public class UserController {
 
     //this map will be used for validating login info quickly. Use next function for more detailed user info.
     public void pullLoginInfoValidation(){
-        String sql = "select * from userdb";
+        String sql = "select * from users";
         PreparedStatement p = null;
         ResultSet rs = null;
 
@@ -37,7 +38,7 @@ public class UserController {
     }
 
     public void pullUserInfo(){
-        String sql = "select * from userdb";
+        String sql = "select * from users";
         PreparedStatement p = null;
         ResultSet rs = null;
 
@@ -61,7 +62,7 @@ public class UserController {
 
     //populates array users with all the user infromation in the database
     public void populateUsers(Vector<RegisteredUser> users){
-        String sql = "select * from userdb";
+        String sql = "select * from users";
         PreparedStatement p = null;
         ResultSet rs = null;
 
@@ -84,9 +85,17 @@ public class UserController {
         }
     }
 
+    // public void populateUserTickets(Vector<RegisteredUser> users, TicketController ticketController){
+    //     HashMap<String, ArrayList<Ticket>>tempMap = new HashMap<String, ArrayList<Ticket>>();
+    //     for(int i = 0; i < users.size(); i++){
+    //         tempMap.put(users.get(i).getEmail(), users.get(i).getTickets());
+    //     }
+    //     ticketController.populateTickets(tempMap);
+    // }
+
     //returns true if there is a registered user in the data base with this email.
     public boolean verifyEmailAndPassword(String email, String password){
-        String sql = "select * from userdb";
+        String sql = "select * from users";
         PreparedStatement p = null;
         ResultSet rs = null;
         boolean isInDataBase = false;

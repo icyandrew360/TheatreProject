@@ -38,7 +38,6 @@ public class GuestPage extends javax.swing.JFrame {
             for(int i = 1; i < tickets.size() + 1; i++)
             {
                 ticketArray[i] = tickets.get(i - 1);
-                System.out.println(ticketArray[i]);
             }
         }
 

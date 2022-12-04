@@ -1,17 +1,61 @@
 package GUI;
 
+import java.util.Vector;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jenna Vlaar
  */
 public class AccountPage extends javax.swing.JFrame {
-
+    private String[] ticketArray;
     /**
      * Creates new form AccountPage
      */
     public AccountPage() {
+        fillComboBoxes();
         initComponents();
         addInformation();
+    }
+
+    private void addInformation()
+    {
+        //GET INFO FROM DATABASE
+        emailText.setText("");
+        passwordText.setText("");
+
+        String tickets = "";
+        for(int i = 1; i < ticketArray.length; i++)
+        {
+            tickets += ticketArray[i] + "\n";
+        }
+        
+        ticketListLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 20)); // NOI18N
+        ticketListLabel.setForeground(new java.awt.Color(0, 0, 0));
+        ticketListLabel.setText(tickets);
+        
+    }
+
+    private void fillComboBoxes()
+    {
+        Vector<String> tickets = new Vector<>(); //from database
+        tickets.add("ticket");
+        ticketArray = new String[tickets.size() + 1];
+
+        if(tickets.isEmpty())
+        {
+            ticketArray[0] = "No Booked Tickets";
+        }
+        else
+        {
+            ticketArray[0] = "Select Ticket";
+            for(int i = 1; i < tickets.size() + 1; i++)
+            {
+                ticketArray[i] = tickets.get(i - 1);
+                System.out.println(ticketArray[i]);
+            }
+        }
     }
 
     /**
@@ -137,7 +181,7 @@ public class AccountPage extends javax.swing.JFrame {
         selectTicketLabel.setForeground(new java.awt.Color(243, 224, 52));
         selectTicketLabel.setText("Select a Ticket");
 
-        ticketComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ticketComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(ticketArray));
         ticketComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ticketComboBoxActionPerformed(evt);
@@ -258,6 +302,23 @@ public class AccountPage extends javax.swing.JFrame {
         // User pressed REGISTER
         //open register form
         ticketComboBox.getSelectedItem();
+        if(ticketComboBox.getItemCount() == 1)
+        {
+            JOptionPane.showMessageDialog(null, "You have no booked tickets!", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+        }
+        if(ticketComboBox.getSelectedIndex() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a ticket to cancel.", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+        }
+
+        //REMOVE TICKET FROM DATABASE, UPDATE SEATS
+        fillComboBoxes();
+        JOptionPane.showMessageDialog(null, "Ticket Canceled!", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
 
     }                                                  
 
@@ -274,13 +335,7 @@ public class AccountPage extends javax.swing.JFrame {
     private void ticketComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                               
     }                                              
     
-    private void addInformation()
-    {
-        //GET INFO FROM DATABASE
-        emailText.setText("");
-        passwordText.setText("");
-        
-    }
+    
     /**
      * @param args the command line arguments
      */
