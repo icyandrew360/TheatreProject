@@ -19,8 +19,25 @@ public class SearchResults extends javax.swing.JFrame {
         SearchResults.movieID = movieID;
         SearchResults.search = search;
         initComponents();
+        displayResults();
     }
 
+    private void displayResults()
+    {
+        String movie = ""; //from database
+        if(movie == "stackOverflow")
+        {
+            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\stackoverflow.png")); // NOI18N
+        }
+        else if(movie == "drSoftware")
+        {
+            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\drsoftware.png")); // NOI18N
+        }
+        else
+        {
+            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\nodecimal.png")); // NOI18N
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,10 +84,11 @@ public class SearchResults extends javax.swing.JFrame {
 
         searchLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         searchLabel1.setForeground(new java.awt.Color(243, 224, 52));
-        searchLabel1.setText("You Searched: ");
 
         searchText.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         searchText.setForeground(new java.awt.Color(255, 255, 255));
+        searchLabel1.setText("You Searched: ");
+        searchText.setText(search);
 
         buyTicketsButton.setBackground(new java.awt.Color(158, 155, 255));
         buyTicketsButton.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N

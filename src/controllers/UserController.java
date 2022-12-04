@@ -50,7 +50,6 @@ public class UserController {
                 String fName = rs.getString("Fname");
                 String lName = rs.getString("Lname");
                 String email = rs.getString("email");
-                String phone = rs.getString("phone");
                 userData.put(email, new User(fName, lName, email));
             }
 
@@ -74,7 +73,6 @@ public class UserController {
                 String fName = rs.getString("Fname");
                 String lName = rs.getString("Lname");
                 String email = rs.getString("email");
-                String phone = rs.getString("phone");
                 String password = rs.getString("password");
                 users.add(new RegisteredUser(fName, lName, email, password));
             }
@@ -85,13 +83,13 @@ public class UserController {
         }
     }
 
-    // public void populateUserTickets(Vector<RegisteredUser> users, TicketController ticketController){
-    //     HashMap<String, ArrayList<Ticket>>tempMap = new HashMap<String, ArrayList<Ticket>>();
-    //     for(int i = 0; i < users.size(); i++){
-    //         tempMap.put(users.get(i).getEmail(), users.get(i).getTickets());
-    //     }
-    //     ticketController.populateTickets(tempMap);
-    // }
+    public void populateUserTickets(Vector<RegisteredUser> users, TicketController ticketController){
+        HashMap<String, ArrayList<Ticket>>tempMap = new HashMap<String, ArrayList<Ticket>>();
+        for(int i = 0; i < users.size(); i++){
+            tempMap.put(users.get(i).getEmail(), users.get(i).getTickets());
+        }
+        ticketController.populateTickets(tempMap);
+    }
 
     //returns true if there is a registered user in the data base with this email.
     public boolean verifyEmailAndPassword(String email, String password){
