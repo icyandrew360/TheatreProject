@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Vector;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -198,5 +199,28 @@ public class ShowController {
         catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public Vector<Integer> getShowTimes(String movieTitle){
+        String sql = "select * from moviesdb";
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        Vector<Integer> showTimes = new Vector<Integer>();
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
+            rs = p.executeQuery();
+
+            while (rs.next()){
+                //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
+                if (rs.getString("Mname") == movieTitle){
+                    showTimes.add(rs.getInt("ShowTime"));
+                }
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        //if movie and showtime were not found
+        return showTimes;
     }
 }

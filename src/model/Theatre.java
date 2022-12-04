@@ -48,7 +48,14 @@ public class Theatre
     }
 
     public RegisteredUser grabRegisteredUser(String email, String password){
-
+        RegisteredUser temp = null;
+        for(RegisteredUser i : registeredUsers){
+            if(i.getEmail() == email && i.getPassword() == password){
+                temp = i;
+                break;
+            }
+        }
+        return temp;
     }
 
     public void registerUser(String firstName, String lastName, String email, String password){
@@ -57,7 +64,7 @@ public class Theatre
     }
 
     public void addUnregisteredUser(String firstName,String lastName,String email){
-
+        this.unRegisteredUsers.add(new UnRegisteredUser(firstName, lastName, email));
     }
 
     // public void addSeatsToShowTime(String movieName, String showTime){
@@ -88,6 +95,33 @@ public class Theatre
         return this.showController.getTakenSeats(movieName, intTime);
     }
 
+    public String searchMovie(String movieTitle){
+        return this.showController.searchMovie(movieTitle);
+    }
+
+    public Vector<String> getMovieShowTimes(String movieTitle){
+        //grab show times as integers and then convert to strings
+        Vector<Integer> showTimesAsInt = this.showController.getShowTimes(movieTitle);
+        Vector<String> showTimesAsString = new Vector<String>();
+        //go through list of ints and convert
+        for(int i : showTimesAsInt){
+            String temp = new String("");
+            //divide time as minutes by 60 to get hour, and subtract 12
+            //to get 12 hour clock version
+            if((i / 60) > 12){
+                temp += (i/60) - 12;
+            }
+            else{
+                temp += (i/60);
+            }
+            //add delimeter and add remaining minutes
+            temp += ":";
+            temp += i % 60;
+
+            showTimesAsString.add(temp);
+        }
+        return showTimesAsString;
+    }
 
 
     // public void bookSeat(int showroom, String seatNum, int showTime){
