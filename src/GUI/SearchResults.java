@@ -26,12 +26,12 @@ public class SearchResults extends javax.swing.JFrame {
 
     private void displayResults()
     {
-        if(movie == "stackOverflow")
+        if(movie.equals("stackOverflow"))
         {
             ImageIcon stackOverflow = new ImageIcon(getClass().getResource("Images/stackoverflow.png"));
             imageLabel.setIcon(stackOverflow); // NOI18N
         }
-        else if(movie == "drSoftware")
+        else if(movie.equals("drSoftware"))
         {
             ImageIcon drSoftware = new ImageIcon(getClass().getResource("Images/drsoftware.png"));
             imageLabel.setIcon(drSoftware); // NOI18N

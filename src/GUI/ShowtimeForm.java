@@ -29,18 +29,20 @@ public class ShowtimeForm extends javax.swing.JFrame {
         if(movie.equals("drSoftware"))
         {
             movieTitleLabel.setText("The Incredible Dr. Software");
-            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\drsoftware.png")); // NOI18N
+            ImageIcon drSoftware = new ImageIcon(getClass().getResource("Images/drsoftware.png"));
+            imageLabel.setIcon(drSoftware);
         }
         else if(movie.equals("stackOverflow"))
         {
             movieTitleLabel.setText("Stack Overflow");
-            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\stackoverflow.png"));
+            ImageIcon stackOverflow = new ImageIcon(getClass().getResource("Images/stackoverflow.png"));
+            imageLabel.setIcon(stackOverflow);
         }
         else
         {
             movieTitleLabel.setText("No Decimal's Land");
-            ImageIcon image = new ImageIcon(getClass().getResource("GUI/Images/nodecimal.png"));
-            imageLabel.setIcon(image); // NOI18N
+            ImageIcon noDecimal = new ImageIcon(getClass().getResource("Images/nodecimal.png"));
+            imageLabel.setIcon(noDecimal); // NOI18N
         }
         
 
