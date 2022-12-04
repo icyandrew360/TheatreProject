@@ -37,6 +37,7 @@ public class TicketController {
         catch(Exception e){
             e.printStackTrace();
         }
+        DBController.closeConnection();
     }
 
     public void addTicket(Ticket temp, User user){
@@ -58,6 +59,7 @@ public class TicketController {
         catch(Exception e){
             e.printStackTrace();
         }
+        DBController.closeConnection();
     }
 
     public void removeTicket(String email){
@@ -74,6 +76,7 @@ public class TicketController {
         catch(Exception e){
             e.printStackTrace();
         }
+        DBController.closeConnection();
     }
 
 

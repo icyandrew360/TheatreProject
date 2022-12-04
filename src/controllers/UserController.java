@@ -35,6 +35,7 @@ public class UserController {
         catch(Exception e){
             e.printStackTrace();
         }
+        DBController.closeConnection();
     }
 
     public void pullUserInfo(){
@@ -57,6 +58,7 @@ public class UserController {
         catch(Exception e){
             e.printStackTrace();
         }
+        DBController.closeConnection();
     }
 
     //populates array users with all the user infromation in the database
@@ -81,6 +83,7 @@ public class UserController {
         catch(Exception e){
             e.printStackTrace();
         }
+        DBController.closeConnection();
     }
 
     public void populateUserTickets(Vector<UnRegisteredUser> unRegUsers, Vector<RegisteredUser> users, TicketController ticketController){
@@ -114,6 +117,7 @@ public class UserController {
         catch(Exception e){
             e.printStackTrace();
         }
+        DBController.closeConnection();
         return isInDataBase;
     }
 
@@ -132,6 +136,7 @@ public class UserController {
         catch(Exception e){
             e.printStackTrace();
         }
+        DBController.closeConnection();
     }
     //vector<string> of user emails for verifying if someone is a user
     //add users to data base based on 
