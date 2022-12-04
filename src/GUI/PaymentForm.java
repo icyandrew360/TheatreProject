@@ -1,5 +1,7 @@
 package GUI;
 
+import java.util.Vector;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -7,33 +9,35 @@ import javax.swing.JOptionPane;
  * @author Jenna Vlaar
  */
 public class PaymentForm extends javax.swing.JFrame {
-    private static int seats;
-    private static int movieID;
+    private static Vector<String> seats;
+    private static String movie;
     private String creditCardNumber;
     private String creditCardName;
     private String creditCardCVV;
     private static boolean registered;
+    private static String showTime;
     /**
      * Creates new form PaymentForm
      */
-    public PaymentForm(int seats, int movieID, boolean registered) {
+    public PaymentForm(Vector<String> seats, String movie, String showTime, boolean registered) {
         initComponents();
+        PaymentForm.showTime = showTime;
         PaymentForm.seats = seats;
-        PaymentForm.movieID = movieID;
+        PaymentForm.movie = movie;
         addInformation();
         PaymentForm.registered = registered;
     }
     
     private void addInformation()
     {
-        numberTicketsLabel.setText(Integer.toString(seats) + "x");
-        double cost = seats * 13.99;
+        numberTicketsLabel.setText(seats.size() + "x");
+        double cost = seats.size() * 13.99;
         double gst = cost * 0.05;
         double total = cost + gst;
         gstCostLabel.setText(String.format("%.2f", gst));
         admissionCostLabel.setText("$" + String.format("%.2f", cost));
         totalCostLabel.setText(String.format("%.2f", total));
-        movieNameText.setText(Integer.toString(movieID));
+        movieNameText.setText(movie);
     }
 
     /**
@@ -375,6 +379,9 @@ public class PaymentForm extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Order Placed!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
         this.setVisible(false);
+        // 
+        // UPDATE DATABASE!
+        //
         if(registered)
         {
             java.awt.EventQueue.invokeLater(new Runnable() {
@@ -394,18 +401,15 @@ public class PaymentForm extends javax.swing.JFrame {
     }                                                
 
     private void creditCardTextActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
         creditCardNumber = creditCardText.getText();
        
     }                                              
 
     private void creditNameTextActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
         creditCardName = creditNameText.getText();
     }                                              
 
     private void CVVTextActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        // TODO add your handling code here:
         creditCardCVV = CVVText.getText();
     }                                       
 
@@ -417,7 +421,7 @@ public class PaymentForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaymentForm(seats, movieID, registered).setVisible(true);
+                new PaymentForm(seats, movie, showTime, registered).setVisible(true);
             }
         });
     }

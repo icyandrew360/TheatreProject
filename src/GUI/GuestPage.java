@@ -287,11 +287,11 @@ public class GuestPage extends javax.swing.JFrame {
         else
         {
             String search = searchText.getText();
-            int movieID = 0;
+            String movie = ""; //GET MOST RELEVANT MOVIE
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new SearchResults(movieID, false, search).setVisible(true);
+                    new SearchResults(movie, false, search).setVisible(true);
                 }
             });
         }

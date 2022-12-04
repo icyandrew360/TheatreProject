@@ -6,17 +6,17 @@ package GUI;
  */
 
 public class SearchResults extends javax.swing.JFrame {
-    private static boolean registered;
-    private static int movieID;
+    public static boolean registered;
+    private static String movie;
     private static String search;
     /** 
      * Creates new form SearchResults
      * @param registered
      */
 
-    public SearchResults(int movieID, boolean registered, String search) {
+    public SearchResults(String movie, boolean registered, String search) {
         SearchResults.registered = registered;
-        SearchResults.movieID = movieID;
+        SearchResults.movie = movie;
         SearchResults.search = search;
         initComponents();
         displayResults();
@@ -271,7 +271,7 @@ public class SearchResults extends javax.swing.JFrame {
         this.setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SeatForm(movieID, registered).setVisible(true);
+                new ShowtimeForm(movie).setVisible(true);
             }
         });
     }                                                
@@ -284,7 +284,7 @@ public class SearchResults extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SearchResults(movieID, registered, search).setVisible(true);
+                new SearchResults(movie, registered, search).setVisible(true);
             }
         });
     }
