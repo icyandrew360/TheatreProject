@@ -1,5 +1,7 @@
 package GUI;
 
+import java.util.Vector;
+
 import javax.swing.*;
 
 /**
@@ -7,12 +9,35 @@ import javax.swing.*;
  * @author Jenna Vlaar
  */
 public class MainPage extends javax.swing.JFrame {
-
+    private String[] theatreArray;
     /**
      * Creates new form MainPage
      */
     public MainPage() {
+        fillComboBoxes();
         initComponents();
+    }
+
+    
+    private void fillComboBoxes()
+    {
+        Vector<String> theatres = new Vector<>(); //from database
+        theatres.add("Movie Theatre");
+        theatreArray = new String[theatres.size() + 1];
+
+
+        if(theatres.isEmpty())
+        {
+            theatreArray[0] = "No Theatres";
+        }
+        else
+        {
+            theatreArray[0] = "Select Theatre";
+            for(int i = 1; i < theatres.size() + 1; i++)
+            {
+                theatreArray[i] = theatres.get(0);
+            }
+        }
     }
 
     /**
@@ -147,7 +172,7 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
-        theatreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Theatre", "Item 2", "Item 3", "Item 4" }));
+        theatreComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(theatreArray));
         theatreComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 theatreComboBoxActionPerformed(evt);
