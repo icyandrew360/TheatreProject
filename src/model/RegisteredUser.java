@@ -16,4 +16,8 @@ public class RegisteredUser extends User
         super(firstName, lastName, email, true);
         this.password = password;
     }
+
+    public String getPassword(){
+        return this.password;
+    }
 }

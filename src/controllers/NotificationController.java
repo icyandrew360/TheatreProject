@@ -8,14 +8,14 @@ import javax.activation.*;
 
 public class NotificationController {
 
-    public void sendMail(String email, float paidAmount, Vector<Integer> tickets ){
+    public static void sendMail(String email, float paidAmount, Vector<String> seats ){
         String to = email;
         String from = "jmovies.noreply@gmail.com";
         String host  = "localhost";
         String Str = "Your ticket(s) - \n";
 
-        for (Integer n: tickets){
-            Str =+ n + "\n";
+        for (String n: seats){
+            Str += n + "\n";
         }
         Str = Str + "The amount paid for the ticket(s) - " + paidAmount; 
 
