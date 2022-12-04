@@ -3,6 +3,7 @@ package controllers;
 import model.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -65,4 +66,30 @@ public class ShowController {
         //if we didnt find a match:
         return ("noDecimalsLand");
     }
+
+    public ArrayList<String> getTakenSeats(String movieName, int showTime){
+        String sql = "select * from moviesdb";
+        PreparedStatement p = null;
+        ResultSet rs = null;
+
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
+            rs = p.executeQuery();
+
+            while (rs.next()){
+                //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
+                if (rs.getString("Mname") == movieName && rs.getInt("showTime") == showTime){
+                    String[] array = rs.getString("Seats").split("(?<=\\G.{2})");//using regex to split the string into an array of each seat of 2 chars
+
+                    ArrayList<String> seatsArrayList = new ArrayList<String>(Arrays.asList(array));
+                    return (seatsArrayList);
+                }
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        //if movie and showtime were not found
+        return null;
+    }   
 }
