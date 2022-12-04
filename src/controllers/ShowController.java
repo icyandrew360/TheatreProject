@@ -2,6 +2,8 @@ package controllers;
 
 import model.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -16,9 +18,9 @@ public class ShowController {
 
 
      //Method to create a connection to the database, no arguments, no return value  
-
+    private ArrayList<String> searchableMovieList = new ArrayList<String>();
     private HashMap<String, Movie> movieDataByName = new HashMap<String, Movie>();
-    private HashMap<Integer, Movie> movieDataByID = new HashMap<Integer, Movie>();
+    // private HashMap<Integer, Movie> movieDataByID = new HashMap<Integer, Movie>();
 
     public void pullMovieData(){
         String sql = "select * from moviesdb";
@@ -32,24 +34,35 @@ public class ShowController {
             while (rs.next()){
                 //adds movie names to the hashset. this can be sped up,
                 //but leaving this in parts for clarity of how this is done.
-                Movie tempMovie = new Movie();
-                String movieName = rs.getString("Mname");
+                String movieName = rs.getString("Mname").toLowerCase();
                 int ID = rs.getInt("idMovies");
-                tempMovie.movieID = ID;
-                tempMovie.movieName = movieName;
-                tempMovie.movieLength = rs.getInt("Length");
-                tempMovie.showTime = rs.getInt("ShowTime");
-                tempMovie.showRoom = rs.getInt("ShowRoom");
+                int movieLength = rs.getInt("Length");
 
-                movieDataByName.put(movieName, tempMovie);
-                movieDataByID.put(ID, tempMovie);
+                searchableMovieList.add(movieName);
+                movieDataByName.put(movieName, new Movie(movieName, movieLength));
+                // movieDataByID.put(ID, tempMovie);
             }
+            //sort the search list for binary search implementation (DID NOT USE BINARY SEARCH BECAUSE we are returning all instances)
+            Collections.sort(searchableMovieList);
         }
         catch(Exception e){
-
+            e.printStackTrace();
         }
-
-        
     }
 
+
+    //given any string, return all movies that have that substring in the title
+    public ArrayList<Movie> searchMovie(String substring){
+        substring = substring.toLowerCase();
+        ArrayList<Movie> foundMovies = new ArrayList<Movie>();
+
+        for (int i = 0; i < searchableMovieList.size(); i++){
+            //if we find a movie name with the substring in it:
+            if (searchableMovieList.get(i).contains(substring)){
+                //use the moviedata hashmap keyed by name to return a movie object
+                foundMovies.add(movieDataByName.get(searchableMovieList.get(i)));
+            }
+        }
+        return foundMovies;
+    }
 }
