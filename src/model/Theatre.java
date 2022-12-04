@@ -8,16 +8,20 @@ package model;
 * Jenna Vlaar (30113774) and Sadman Shahriar (30121460)
 */
 
+import java.util.Vector;
+
 public class Theatre
 {
-    private ShowRoom[] showRooms;
-    private Movie[] movies;
-    private User[] users;
+    private Vector<ShowRoom> showRooms;
+    private Vector<User> users;
     private static int theatreID =0;
     //this is also where we would have a reference to GUI
 
     public Theatre(){
-        //
+        //what do we need to do to intialize a theatre
+        //1. go through userDB and populate users
+        //2. go through ticketDB and add tickets to user objects.
+        //3. go through moviesDB and ticketDB and populate ShowRooms / ShowTimes
     }
 
 

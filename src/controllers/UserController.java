@@ -4,11 +4,12 @@ import model.*;
 import java.sql.*;
 import java.util.HashMap;
 
-public class UserController extends DBController{
+public class UserController {
    
+    private DBController onlyInstance;
 
     public UserController(){
-        super("temp url that should be changed");
+       this.onlyInstance = DBController.getConnection();
     }
 
     private HashMap<String, String> loginInfos = new HashMap<String, String>();
@@ -22,7 +23,7 @@ public class UserController extends DBController{
         ResultSet rs = null;
 
         try{
-            p = dbConnect.prepareStatement(sql);
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
             rs = p.executeQuery();
             
             while (rs.next()){
@@ -40,18 +41,23 @@ public class UserController extends DBController{
         ResultSet rs = null;
 
         try{
-            p = dbConnect.prepareStatement(sql);
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
             rs = p.executeQuery();
 
             while (rs.next()){
-                User tempUser = new User();
-                tempUser.setFirstName(rs.getString("Fname"));
-                tempUser.setLastName(rs.getString("Lname"));
-                tempUser.setEmail(rs.getString("email"));
-                //this doesn't work yet
-                tempUser.setPhone(rs.getString("phone"));
+                // User tempUser = new User();
+                // tempUser.setFirstName(rs.getString("Fname"));
+                // tempUser.setLastName(rs.getString("Lname"));
+                // tempUser.setEmail(rs.getString("email"));
+                // //this doesn't work yet
+                // tempUser.setPhone(rs.getString("phone"));
                 
-                userData.put(tempUser.getEmail(), tempUser);
+                // userData.put(tempUser.getEmail(), tempUser);
+                String fName = rs.getString("Fname");
+                String lName = rs.getString("Lname");
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                userData.put(email, new User(fName, lName, email, phone));
             }
 
         }
