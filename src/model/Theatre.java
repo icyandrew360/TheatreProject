@@ -10,6 +10,7 @@ package model;
 
 import java.util.Vector;
 import controllers.*;
+import java.util.ArrayList;
 
 public class Theatre
 {
@@ -52,16 +53,19 @@ public class Theatre
         this.userController.addUser(firstName, lastName, email, password);
     }
 
-    public void addSeatsToShowTime(String movieName, String showTime){
+    // public void addSeatsToShowTime(String movieName, String showTime){
 
-    }
+    // }
 
     public void addTicket(User user, String seats, String movieName, String showTime){
         
     }
 
-    public Vector<String> takenSeats(String movieName, String showTime){
-
+    public ArrayList<String> takenSeats(String movieName, String showTime){
+        String[] showTimeAsStrings = showTime.split(":");
+        int intTime = Integer.parseInt(showTimeAsStrings[0]) * 60;
+        intTime += Integer.parseInt(showTimeAsStrings[1]);
+        return this.showController.getTakenSeats(movieName, intTime);
     }
 
 
