@@ -44,6 +44,8 @@ public class AccountPage extends javax.swing.JFrame {
     private void fillComboBoxes()
     {
         tickets = LoginForm.registeredUser.getTickets();
+        if(tickets == null)
+            tickets = new ArrayList<Ticket>(0);
         ticketArray = new String[tickets.size() + 1];
 
         if(tickets.isEmpty())

@@ -3,6 +3,8 @@ package GUI;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import model.*;
 
 /**
  *
@@ -10,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class GuestPage extends javax.swing.JFrame {
     private String[] ticketArray;
-    private String[] theatreArray;
+    private String[] theatreArray = {"Select Theatre", "Software Theatre"};
     /**
      * Creates new form GuestPage
      */
@@ -21,12 +23,11 @@ public class GuestPage extends javax.swing.JFrame {
 
     private void fillComboBoxes()
     {
-        Vector<String> theatres = new Vector<>(); //from database
-        theatres.add("Movie Theatre");
-        Vector<String> tickets = new Vector<>(); //from database
-        tickets.add("ticket");
+        ArrayList<Ticket> tickets = new ArrayList<Ticket>(); //from database
+        tickets = LoginForm.unregisteredUser.getTickets();
+        if(tickets == null)
+            tickets = new ArrayList<Ticket>(0);
         ticketArray = new String[tickets.size() + 1];
-        theatreArray = new String[theatres.size() + 1];
 
         if(tickets.isEmpty())
         {
@@ -37,20 +38,7 @@ public class GuestPage extends javax.swing.JFrame {
             ticketArray[0] = "Select Ticket";
             for(int i = 1; i < tickets.size() + 1; i++)
             {
-                ticketArray[i] = tickets.get(i - 1);
-            }
-        }
-
-        if(theatres.isEmpty())
-        {
-            theatreArray[0] = "No Theatres";
-        }
-        else
-        {
-            theatreArray[0] = "Select Theatre";
-            for(int i = 1; i < theatres.size() + 1; i++)
-            {
-                theatreArray[i] = theatres.get(0);
+                ticketArray[i] = tickets.get(i - 1).getMovieName();
             }
         }
     }

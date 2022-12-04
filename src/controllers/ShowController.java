@@ -47,7 +47,7 @@ public class ShowController {
             //sort the search list for binary search implementation (DID NOT USE BINARY SEARCH BECAUSE we are returning all instances)
             Collections.sort(searchableMovieList);
             //close connection
-            DBController.closeConnection();
+            //DBController.closeConnection();
         }
         catch(Exception e){
             e.printStackTrace();
@@ -64,11 +64,11 @@ public class ShowController {
             //if we find a movie name with the substring in it:
             if (searchableMovieList.get(i).toLowerCase().contains(substring)){
                 //return the first instance of a movie containing the substring
-                DBController.closeConnection();
+                //DBController.closeConnection();
                 return searchableMovieList.get(i);
             }
         }
-        DBController.closeConnection();
+        //DBController.closeConnection();
         //if we didnt find a match:
         return ("noDecimalsLand");
     }
@@ -88,7 +88,7 @@ public class ShowController {
                     String[] array = rs.getString("SoldSeats").split("(?<=\\G.{2})");//using regex to split the string into an array of each seat of 2 chars
 
                     ArrayList<String> seatsArrayList = new ArrayList<String>(Arrays.asList(array));
-                    DBController.closeConnection();
+                    //DBController.closeConnection();
                     return (seatsArrayList);
                 }
             }
@@ -97,7 +97,7 @@ public class ShowController {
         catch(Exception e){
             e.printStackTrace();
         }
-        DBController.closeConnection();
+        //DBController.closeConnection();
         //if movie and showtime were not found
         return null;
     }  
@@ -151,7 +151,7 @@ public class ShowController {
         catch(Exception e){
             e.printStackTrace();
         }
-        DBController.closeConnection();
+        //DBController.closeConnection();
         return temp;
     }
 
@@ -208,7 +208,7 @@ public class ShowController {
         catch(Exception e){
             e.printStackTrace();
         }
-        DBController.closeConnection();
+        //DBController.closeConnection();
     }
 
     public Vector<Integer> getShowTimes(String movieTitle){
@@ -230,7 +230,7 @@ public class ShowController {
         catch(Exception e){
             e.printStackTrace();
         }
-        DBController.closeConnection();
+        //DBController.closeConnection();
         //if movie and showtime were not found
         return showTimes;
     }

@@ -33,8 +33,10 @@ public class DBController {
     public static void closeConnection(){
         if(onlyInstance != null){
             try {
-                onlyInstance.results.close();     // Closing Connection
-                onlyInstance.dbConnect.close();   // Closing ResultSet
+                if(onlyInstance.getResults() != null)
+                    onlyInstance.getResults().close();     // Closing Connection
+                
+                onlyInstance.getDBConnection().close();   // Closing ResultSet
             } catch (SQLException e) {
                 e.printStackTrace();    // Error checking
             }              

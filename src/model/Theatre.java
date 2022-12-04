@@ -27,6 +27,8 @@ public class Theatre
     //this is also where we would have a reference to GUI
 
     public Theatre(){
+        this.registeredUsers = new Vector<RegisteredUser>();
+        this.unRegisteredUsers = new Vector<UnRegisteredUser>();
         //what do we need to do to intialize a theatre
         //1. go through userDB and populate users
         this.userController = new UserController();
@@ -37,6 +39,7 @@ public class Theatre
         userController.populateUserTickets(unRegisteredUsers, registeredUsers, ticketController);
         //3. go through moviesDB and ticketDB and populate ShowRooms / ShowTimes
         this.showController = new ShowController();
+        
         
     }
 
@@ -62,6 +65,7 @@ public class Theatre
     public void registerUser(String firstName, String lastName, String email, String password){
         this.registeredUsers.add(new RegisteredUser(firstName, lastName, email, password));
         this.userController.addUser(firstName, lastName, email, password);
+        System.out.println("test");
     }
 
     public void addUnregisteredUser(String firstName,String lastName,String email){
