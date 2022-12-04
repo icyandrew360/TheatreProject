@@ -247,7 +247,7 @@ public class SearchResults extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         this.setVisible(false);
-        //MAKE SURE THEY HAVE AN ACCOUNT!
+
         if(registered == true)
         {
             java.awt.EventQueue.invokeLater(new Runnable() {

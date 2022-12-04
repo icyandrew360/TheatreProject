@@ -16,9 +16,9 @@ public class ShowtimeForm extends javax.swing.JFrame {
      * Creates new form ShowtimeForm
      */
     public ShowtimeForm(String movie) {
+        ShowtimeForm.movie = SearchResults.movie;
         populateShowtimes();
         initComponents();
-        ShowtimeForm.movie = SearchResults.movie;
         populateInfo();
     }
 
@@ -48,8 +48,7 @@ public class ShowtimeForm extends javax.swing.JFrame {
 
     private void populateShowtimes()
     {
-        Vector<String> showtimes = new Vector<>(); //from database
-        showtimes.add("time");
+        Vector<String> showtimes = LoginForm.theatre.getMovieShowTimes(movie);
         showtimeArray = new String[showtimes.size() + 1];
 
         if(showtimes.isEmpty())

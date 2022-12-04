@@ -1,5 +1,6 @@
 package GUI;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.*;
@@ -14,6 +15,8 @@ public class SeatForm extends javax.swing.JFrame {
     private static String showTime;
     private static boolean registered;
     private String seats;
+    private String[] seatNames = { "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8","A9", "A0", "B1", "B2", "B3", "B4", "B5", "B6", "B7",
+    "B8", "B9", "B0", "C1", "C2", "C3", "C4", "C5", "C6"," C7", "C8", "C9", "C0" };
     
     /**
      * Creates new form SeatForm
@@ -23,14 +26,30 @@ public class SeatForm extends javax.swing.JFrame {
         SeatForm.registered = registered;
         SeatForm.showTime = showTime;
         initComponents();
+        this.allSeats = new JToggleButton[]{A1, A2, A3, A4, A5, A6, A7, A8, A9, A0,
+            B1, B2, B3, B4, B5, B6, B7, B8, B9, B0, C1, C2, C3, C4, C5,
+            C6, C7, C8, C9, C0};
         disableTakenSeats();
     }
 
     private void disableTakenSeats()
     {
         //get vector from database
-        Vector<JToggleButton> takenSeats = new Vector<JToggleButton>(); //vector from database
-        for(JToggleButton button : takenSeats)
+        ArrayList<String> takenSeats = new ArrayList<>();
+        Vector<JToggleButton> seatButtons = new Vector<>();
+        for(int i = 0; i < takenSeats.size(); i++)
+        {
+            for(int j = 0; j < seatNames.length; j++)
+            {
+                if(takenSeats.get(i).equals(seatNames[j]))
+                {
+                    seatButtons.add(allSeats[j]);
+                    break;
+                }
+            }
+        }
+
+        for(JToggleButton button : seatButtons)
         {
             button.setDisabledIcon(new javax.swing.ImageIcon("GUI\\Images\\takenseat.png"));
             button.setEnabled(false);
@@ -59,7 +78,7 @@ public class SeatForm extends javax.swing.JFrame {
         A7 = new javax.swing.JToggleButton();
         A8 = new javax.swing.JToggleButton();
         A9 = new javax.swing.JToggleButton();
-        A10 = new javax.swing.JToggleButton();
+        A0 = new javax.swing.JToggleButton();
         B1 = new javax.swing.JToggleButton();
         B2 = new javax.swing.JToggleButton();
         B3 = new javax.swing.JToggleButton();
@@ -69,7 +88,7 @@ public class SeatForm extends javax.swing.JFrame {
         B7 = new javax.swing.JToggleButton();
         B8 = new javax.swing.JToggleButton();
         B9 = new javax.swing.JToggleButton();
-        B10 = new javax.swing.JToggleButton();
+        B0 = new javax.swing.JToggleButton();
         C1 = new javax.swing.JToggleButton();
         C2 = new javax.swing.JToggleButton();
         C3 = new javax.swing.JToggleButton();
@@ -79,7 +98,7 @@ public class SeatForm extends javax.swing.JFrame {
         C7 = new javax.swing.JToggleButton();
         C8 = new javax.swing.JToggleButton();
         C9 = new javax.swing.JToggleButton();
-        C10 = new javax.swing.JToggleButton();
+        C0 = new javax.swing.JToggleButton();
         confirmButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -218,14 +237,14 @@ public class SeatForm extends javax.swing.JFrame {
             }
         });
 
-        A10.setBackground(new java.awt.Color(87, 79, 198));
-        A10.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        A10.setBorder(null);
-        A10.setBorderPainted(false);
-        A10.setContentAreaFilled(false);
-        A10.addActionListener(new java.awt.event.ActionListener() {
+        A0.setBackground(new java.awt.Color(87, 79, 198));
+        A0.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A0.setBorder(null);
+        A0.setBorderPainted(false);
+        A0.setContentAreaFilled(false);
+        A0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A10ActionPerformed(evt);
+                A0ActionPerformed(evt);
             }
         });
 
@@ -328,14 +347,14 @@ public class SeatForm extends javax.swing.JFrame {
             }
         });
 
-        B10.setBackground(new java.awt.Color(87, 79, 198));
-        B10.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        B10.setBorder(null);
-        B10.setBorderPainted(false);
-        B10.setContentAreaFilled(false);
-        B10.addActionListener(new java.awt.event.ActionListener() {
+        B0.setBackground(new java.awt.Color(87, 79, 198));
+        B0.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B0.setBorder(null);
+        B0.setBorderPainted(false);
+        B0.setContentAreaFilled(false);
+        B0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B10ActionPerformed(evt);
+                B0ActionPerformed(evt);
             }
         });
 
@@ -438,14 +457,14 @@ public class SeatForm extends javax.swing.JFrame {
             }
         });
 
-        C10.setBackground(new java.awt.Color(87, 79, 198));
-        C10.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
-        C10.setBorder(null);
-        C10.setBorderPainted(false);
-        C10.setContentAreaFilled(false);
-        C10.addActionListener(new java.awt.event.ActionListener() {
+        C0.setBackground(new java.awt.Color(87, 79, 198));
+        C0.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C0.setBorder(null);
+        C0.setBorderPainted(false);
+        C0.setContentAreaFilled(false);
+        C0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C10ActionPerformed(evt);
+                C0ActionPerformed(evt);
             }
         });
 
@@ -494,7 +513,7 @@ public class SeatForm extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(A9)
                                         .addGap(18, 18, 18)
-                                        .addComponent(A10))
+                                        .addComponent(A0))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seatPanelLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(C6)
@@ -505,7 +524,7 @@ public class SeatForm extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(C9)
                                         .addGap(18, 18, 18)
-                                        .addComponent(C10))))
+                                        .addComponent(C0))))
                             .addGroup(seatPanelLayout.createSequentialGroup()
                                 .addComponent(B1)
                                 .addGap(18, 18, 18)
@@ -525,7 +544,7 @@ public class SeatForm extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(B9)
                                 .addGap(18, 18, 18)
-                                .addComponent(B10)))
+                                .addComponent(B0)))
                         .addGap(6, 6, 6)))
                 .addGap(36, 36, 36))
         );
@@ -545,7 +564,7 @@ public class SeatForm extends javax.swing.JFrame {
                     .addComponent(A7)
                     .addComponent(A8)
                     .addComponent(A9)
-                    .addComponent(A10))
+                    .addComponent(A0))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(B1)
@@ -557,7 +576,7 @@ public class SeatForm extends javax.swing.JFrame {
                     .addComponent(B7)
                     .addComponent(B8)
                     .addComponent(B9)
-                    .addComponent(B10))
+                    .addComponent(B0))
                 .addGap(36, 36, 36)
                 .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(C1)
@@ -569,7 +588,7 @@ public class SeatForm extends javax.swing.JFrame {
                     .addComponent(C7)
                     .addComponent(C8)
                     .addComponent(C9)
-                    .addComponent(C10))
+                    .addComponent(C0))
                 .addGap(53, 53, 53))
         );
 
@@ -632,11 +651,6 @@ public class SeatForm extends javax.swing.JFrame {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         //send selectedSeats to database
-        this.allSeats = new JToggleButton[]{A1, A2, A3, A4, A5, A6, A7, A8, A9, A10,
-            B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, C1, C2, C3, C4, C5,
-            C6, C7, C8, C9, C10};
-        String[] seatNames = { "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8","A9", "A10", "B1", "B2", "B3", "B4", "B5", "B6", "B7",
-                                "B8", "B9", "B10", "C1", "C2", "C3", "C4", "C5", "C6"," C7", "C8", "C9", "C10" };
 
         seats = "";
         
@@ -714,8 +728,8 @@ public class SeatForm extends javax.swing.JFrame {
         selectSeat(A9);
     }                                      
 
-    private void A10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        selectSeat(A10);
+    private void A0ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        selectSeat(A0);
     }                                       
 
     private void B1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
@@ -754,8 +768,8 @@ public class SeatForm extends javax.swing.JFrame {
         selectSeat(B9);
     }                                      
 
-    private void B10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        selectSeat(B10);
+    private void B0ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        selectSeat(B0);
     }                                       
 
     private void C1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
@@ -794,8 +808,8 @@ public class SeatForm extends javax.swing.JFrame {
         selectSeat(C9);
     }                                      
 
-    private void C10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        selectSeat(C10);
+    private void C0ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        selectSeat(C0);
     }                                       
 
     /**
@@ -838,7 +852,7 @@ public class SeatForm extends javax.swing.JFrame {
     private javax.swing.JLabel screenLabel;
     private javax.swing.JPanel screenPanel;
     private javax.swing.JToggleButton A1;
-    private javax.swing.JToggleButton A10;
+    private javax.swing.JToggleButton A0;
     private javax.swing.JToggleButton A2;
     private javax.swing.JToggleButton A3;
     private javax.swing.JToggleButton A4;
@@ -848,7 +862,7 @@ public class SeatForm extends javax.swing.JFrame {
     private javax.swing.JToggleButton A8;
     private javax.swing.JToggleButton A9;
     private javax.swing.JToggleButton B1;
-    private javax.swing.JToggleButton B10;
+    private javax.swing.JToggleButton B0;
     private javax.swing.JToggleButton B2;
     private javax.swing.JToggleButton B3;
     private javax.swing.JToggleButton B4;
@@ -858,7 +872,7 @@ public class SeatForm extends javax.swing.JFrame {
     private javax.swing.JToggleButton B8;
     private javax.swing.JToggleButton B9;
     private javax.swing.JToggleButton C1;
-    private javax.swing.JToggleButton C10;
+    private javax.swing.JToggleButton C0;
     private javax.swing.JToggleButton C2;
     private javax.swing.JToggleButton C3;
     private javax.swing.JToggleButton C4;

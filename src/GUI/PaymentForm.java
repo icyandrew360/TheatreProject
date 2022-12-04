@@ -382,24 +382,25 @@ public class PaymentForm extends javax.swing.JFrame {
             return;
         }
         
-        JOptionPane.showMessageDialog(null, "Order Placed!", 
-                        "MOVIES", JOptionPane.CLOSED_OPTION);
-        this.setVisible(false);
-        // 
-        // UPDATE DATABASE!
-        // create String seats
-        //
-        
-        if(registered)
+
+        if(LoginForm.registeredUser != null)
         {
+            LoginForm.theatre.addTicket(LoginForm.registeredUser, seats, movie, showTime);
+            JOptionPane.showMessageDialog(null, "Order Placed!", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainPage().setVisible(true);
-            }
+                public void run() {
+                    new MainPage().setVisible(true);
+                }
             });
         }
         else
         {
+            LoginForm.theatre.addTicket(LoginForm.unregisteredUser, seats, movie, showTime);
+            JOptionPane.showMessageDialog(null, "Order Placed!", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GuestPage().setVisible(true);

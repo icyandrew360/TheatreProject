@@ -1,8 +1,11 @@
 package GUI;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+
+import model.Ticket;
+import model.User;
 
 /**
  *
@@ -10,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class AccountPage extends javax.swing.JFrame {
     private String[] ticketArray;
+    private ArrayList<Ticket> tickets;
     /**
      * Creates new form AccountPage
      */
@@ -22,8 +26,8 @@ public class AccountPage extends javax.swing.JFrame {
     private void addInformation()
     {
         //GET INFO FROM DATABASE
-        emailText.setText(LoginForm.email);
-        passwordText.setText("");
+        emailText.setText(LoginForm.registeredUser.getEmail());
+        passwordText.setText(LoginForm.registeredUser.getPassword());
 
         String tickets = "";
         for(int i = 1; i < ticketArray.length; i++)
@@ -39,8 +43,7 @@ public class AccountPage extends javax.swing.JFrame {
 
     private void fillComboBoxes()
     {
-        Vector<String> tickets = new Vector<>(); //from database
-        tickets.add("ticket");
+        tickets = LoginForm.registeredUser.getTickets();
         ticketArray = new String[tickets.size() + 1];
 
         if(tickets.isEmpty())
@@ -52,8 +55,7 @@ public class AccountPage extends javax.swing.JFrame {
             ticketArray[0] = "Select Ticket";
             for(int i = 1; i < tickets.size() + 1; i++)
             {
-                ticketArray[i] = tickets.get(i - 1);
-                System.out.println(ticketArray[i]);
+                ticketArray[i] = tickets.get(i - 1).getMovieName();
             }
         }
     }
@@ -298,10 +300,8 @@ public class AccountPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void cancelTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-        // User pressed REGISTER
-        //open register form
-        ticketComboBox.getSelectedItem();
+    private void cancelTicketButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {                                                   
         if(ticketComboBox.getItemCount() == 1)
         {
             JOptionPane.showMessageDialog(null, "You have no booked tickets!", 
@@ -314,22 +314,54 @@ public class AccountPage extends javax.swing.JFrame {
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
+        else
+        {
+            int index = ticketComboBox.getSelectedIndex();
+
+            if(LoginForm.registeredUser != null)
+            {
+                User user = LoginForm.registeredUser;
+                Ticket ticket = tickets.get(index - 1);
+                LoginForm.theatre.removeTicket(user, ticket);
+            }
+            else
+            {
+                User user = LoginForm.unregisteredUser;
+                Ticket ticket = tickets.get(index - 1);
+                LoginForm.theatre.removeTicket(user, ticket);
+            }
+
+            fillComboBoxes();
+            JOptionPane.showMessageDialog(null, "Ticket Canceled!", 
+                            "MOVIES", JOptionPane.CLOSED_OPTION);
+
+        }
 
         //REMOVE TICKET FROM DATABASE, UPDATE SEATS
-        fillComboBoxes();
-        JOptionPane.showMessageDialog(null, "Ticket Canceled!", 
-                        "MOVIES", JOptionPane.CLOSED_OPTION);
+        
 
     }                                                  
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         this.setVisible(false);
-        //MAKE SURE THEY HAVE AN ACCOUNT!
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainPage().setVisible(true);
-            }
-        });
+        if(LoginForm.registeredUser != null)
+        {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new MainPage().setVisible(true);
+                }
+            });
+
+        }
+        else
+        {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new GuestPage().setVisible(true);
+                }
+            });
+        }
+        
     }                                          
 
     private void ticketComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                               

@@ -350,6 +350,11 @@ public class RegisterForm extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "Successfully Registered!\nYou have been charged $20.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
+
+        
+        LoginForm.theatre.registerUser(firstName, lastName, email, password);
+        LoginForm.registeredUser = LoginForm.theatre.grabRegisteredUser(email, password);
+        
         this.setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

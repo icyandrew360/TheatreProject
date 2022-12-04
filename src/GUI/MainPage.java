@@ -232,13 +232,13 @@ public class MainPage extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void theatreComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
     }                                               
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+        LoginForm.registeredUser = null;
+        LoginForm.unregisteredUser = null;
+       
         this.setVisible(false);
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginForm().setVisible(true);
@@ -248,7 +248,7 @@ public class MainPage extends javax.swing.JFrame {
 
     private void accountButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         this.setVisible(false);
-        //MAKE SURE THEY HAVE AN ACCOUNT!
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AccountPage().setVisible(true);

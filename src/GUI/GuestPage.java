@@ -287,7 +287,7 @@ public class GuestPage extends javax.swing.JFrame {
         else
         {
             String search = searchText.getText();
-            String movie = ""; //GET MOST RELEVANT MOVIE
+            String movie = LoginForm.theatre.searchMovie(search);
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {

@@ -3,16 +3,25 @@ package GUI;
 import static java.lang.String.valueOf;
 import javax.swing.JOptionPane;
 
+import model.RegisteredUser;
+import model.Theatre;
+import model.UnRegisteredUser;
+import model.User;
+
 /**
  *
  * @author Jenna Vlaar
  */
 public class LoginForm extends javax.swing.JFrame {
     public static String email;
+    public static Theatre theatre;
+    public static RegisteredUser registeredUser;
+    public static UnRegisteredUser unregisteredUser;
     /**
      * Creates new form LoginForm
      */
     public LoginForm() {
+        theatre = new Theatre();
         initComponents();
     }
 
@@ -184,7 +193,6 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void emailTextActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
     }                                         
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
@@ -230,9 +238,10 @@ public class LoginForm extends javax.swing.JFrame {
           }
        });
        
-       /*
-       if(verifyUser(email, password))
+       
+       if(theatre.verifyUser(email, password))
        {
+            registeredUser = theatre.grabRegisteredUser(email, password);
             this.setVisible(false);
             
             java.awt.EventQueue.invokeLater(new Runnable() {
@@ -248,8 +257,6 @@ public class LoginForm extends javax.swing.JFrame {
                             "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
        }
-       */
-        //verify username/password from user database
     }                                           
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -283,6 +290,9 @@ public class LoginForm extends javax.swing.JFrame {
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             guestButtonActionPerformed(evt);
         }
+
+        LoginForm.theatre.addUnregisteredUser("", "", email);
+        unregisteredUser = new UnRegisteredUser("", "", email);
         //ADD EMAIL TO DATABASE
         this.setVisible(false);
         
