@@ -247,7 +247,6 @@ public class MainPage extends javax.swing.JFrame {
     }                                            
 
     private void accountButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
         this.setVisible(false);
         //MAKE SURE THEY HAVE AN ACCOUNT!
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -258,7 +257,6 @@ public class MainPage extends javax.swing.JFrame {
     }                                             
 
     private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
         //FIND MOST RELEVANT TITLE, RETURN MOVIE ID
         if(theatreComboBox.getSelectedIndex() == 0)
         {
@@ -276,11 +274,11 @@ public class MainPage extends javax.swing.JFrame {
         else
         {
             String search = searchText.getText();
-            int movieID = 0;
+            String movie = ""; //GET MOST RELEVANT MOVIE
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new SearchResults(movieID, true, search).setVisible(true);
+                    new SearchResults(movie, true, search).setVisible(true);
                 }
             });
         }
