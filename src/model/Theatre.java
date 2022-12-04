@@ -17,6 +17,7 @@ public class Theatre
     private Vector<RegisteredUser> registeredUsers;
     private static int theatreID =0;
     private UserController userController;
+    private TicketController ticketController;
     private ShowController showController;
     private SeatsController seatsController;
     private PaymentController paymentController;
@@ -31,6 +32,8 @@ public class Theatre
         this.userController = new UserController();
         userController.populateUsers(registeredUsers);
         //2. go through ticketDB and add tickets to user objects.
+        this.ticketController = new TicketController();
+        userController.populateUserTickets(registeredUsers, ticketController);
         //3. go through moviesDB and ticketDB and populate ShowRooms / ShowTimes
         
     }

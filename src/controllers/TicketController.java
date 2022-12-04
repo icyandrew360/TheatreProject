@@ -13,27 +13,28 @@ public class TicketController {
        this.onlyInstance = DBController.getConnection();
     }
 
-    // public void populateTickets(HashMap<String, ArrayList<Ticket>> map){
-    //     String sql = "select * from tickets";
-    //     PreparedStatement p = null;
-    //     ResultSet rs = null;
+    public void populateTickets(HashMap<String, ArrayList<Ticket>> map){
+        String sql = "select * from tickets";
+        PreparedStatement p = null;
+        ResultSet rs = null;
 
-    //     try{
-    //         p = this.onlyInstance.getDBConnection().prepareStatement(sql);
-    //         rs = p.executeQuery();
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
+            rs = p.executeQuery();
 
-    //         while (rs.next()){
-    //             if(map.get(rs.getString("email")) != null){
-    //                 map.get(rs.getString("email")).add(new Ticket(rs.getString("ID"), rs.getString("email")
-    //                 , rs.getString("seatNumber"), rs.getString(""), int showTime, String showDate, String movieName));
-    //             }
-    //         }
+            while (rs.next()){
+                if(map.get(rs.getString("email")) != null){
+                    map.get(rs.getString("email")).add(new Ticket(rs.getInt("ID"), rs.getString("email")
+                    , rs.getString("seatNumber"), rs.getInt("showRoom"), 
+                    rs.getInt("showTime"), rs.getString("showDate"), rs.getString("movieName")));
+                }
+            }
 
-    //     }
-    //     catch(Exception e){
-    //         e.printStackTrace();
-    //     }
-    // }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
 
 }
