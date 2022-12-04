@@ -32,6 +32,15 @@ public class Theatre
         userController.populateUsers(registeredUsers);
         //2. go through ticketDB and add tickets to user objects.
         //3. go through moviesDB and ticketDB and populate ShowRooms / ShowTimes
+        
+    }
+
+    /*
+     * will return true if the email and password are an exact
+     * match for a record in the database, otherwise false.
+     */
+    public boolean verifyUser(String email, String password){
+        return this.userController.verifyEmailAndPassword(email, password);
     }
 
 

@@ -50,7 +50,7 @@ public class UserController {
                 String lName = rs.getString("Lname");
                 String email = rs.getString("email");
                 String phone = rs.getString("phone");
-                userData.put(email, new User(fName, lName, email, phone));
+                userData.put(email, new User(fName, lName, email));
             }
 
         }
@@ -75,7 +75,7 @@ public class UserController {
                 String email = rs.getString("email");
                 String phone = rs.getString("phone");
                 String password = rs.getString("password");
-                users.add(new RegisteredUser(fName, lName, email, phone, password));
+                users.add(new RegisteredUser(fName, lName, email, password));
             }
 
         }
