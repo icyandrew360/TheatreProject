@@ -50,7 +50,7 @@ public class UserController {
                 String fName = rs.getString("Fname");
                 String lName = rs.getString("Lname");
                 String email = rs.getString("email");
-                userData.put(email, new User(fName, lName, email));
+                userData.put(email, new User(fName, lName, email, false));
             }
 
         }
@@ -122,7 +122,7 @@ public class UserController {
         PreparedStatement p = null;
         ResultSet rs = null;
         try{
-            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO table_name(Fname, Lname, Email, Password) VALUES (?, ?, ?)");
+            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO users(Fname, Lname, Email, Password) VALUES (?, ?, ?)");
             p.setString(1, firstName);
             p.setString(2, lastName);
             p.setString(3, email);

@@ -16,11 +16,13 @@ public class User
   protected String email;
   protected ArrayList<Ticket> tickets;
   protected ArrayList<Payment> paymentHistory;
+  protected boolean isReg;
 
-  public User(String firstName, String lastName, String email){
+  public User(String firstName, String lastName, String email, boolean isReg){
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
+    this.isReg = isReg;
   }
 
   public void addPayment(Payment payment){
@@ -33,6 +35,7 @@ public class User
   public String getFirstName() {return firstName;}
   public String getLastName() {return lastName;}
   public String getEmail() {return email;}
+  public boolean getIsRegistered(){return isReg;}
   public ArrayList<Ticket> getTickets() {return tickets;}
   public ArrayList<Payment> getPaymentHistory() {return paymentHistory;}
 
@@ -47,6 +50,9 @@ public class User
   }
   public void setTickets(ArrayList<Ticket> tickets){
     this.tickets = tickets;
+  }
+  public void setIsRegistered(boolean isReg){
+    this.isReg = isReg;
   }
   public void setPaymentHistory(ArrayList<Payment> payments){
     this.paymentHistory = payments;

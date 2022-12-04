@@ -91,5 +91,112 @@ public class ShowController {
         }
         //if movie and showtime were not found
         return null;
-    }   
+    }  
+    
+    public Ticket createTicketAndAddSeats(User user, String seats, String movieName, int showTime){
+        String sql = "select * from moviesdb";
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        Ticket temp = null;
+        String currentSeats = null;
+        int movieID = 0;
+        String mName = null;
+        int length = -1;
+        String showDate = null;
+        int showRoom = -1;
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
+            rs = p.executeQuery();
+
+            while (rs.next()){
+                //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
+                if (rs.getString("Mname") == movieName && rs.getInt("showTime") == showTime){
+                    movieID = rs.getInt("MoviesID");
+                    mName = movieName;
+                    length = rs.getInt("Length");
+                    showDate = rs.getString("ShowDate");
+                    showRoom = rs.getInt("ShowRoom");
+                    currentSeats = rs.getString("SoldSeats");
+                    temp = new Ticket(movieID, user.getEmail(), seats, showRoom, showTime, showDate, movieName);
+                    
+                }
+            }
+
+            String query = "DELETE FROM movies WHERE MoviesID = ?"; // Creating the query command
+            PreparedStatement myStmt = this.onlyInstance.getDBConnection().prepareStatement(query); // Executing the query
+
+            myStmt.setInt(1, movieID);
+                        
+            myStmt.executeUpdate();   
+
+            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO movies(MoviesID, MovieName, Length, ShowTime, ShowRoom, SoldSeats, ShowDate) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            p.setInt(1, movieID);
+            p.setString(2, movieName);
+            p.setInt(3, length);
+            p.setInt(4, showTime);
+            p.setInt(5, showRoom);
+            p.setString(6, currentSeats + seats);
+            p.setString(7, showDate);
+            p.executeUpdate();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return temp;
+    }
+
+    public void removeTickets(int MovieID, String seats){
+        String sql = "select * from moviesdb";
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        String currentSeats = null;
+        int movieID = 0;
+        String mName = null;
+        int length = -1;
+        String showDate = null;
+        int showRoom = -1;
+        int showTime = -1;
+        String[] seatsToRemove = seats.split("(?<=\\G.{2})");
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
+            rs = p.executeQuery();
+
+            while (rs.next()){
+                //find seats list for the given movie
+                if (rs.getInt("MovieID") == MovieID){
+                    currentSeats  = rs.getString("Seats");
+                    movieID = rs.getInt("MoviesID");
+                    mName = rs.getString("Mname");
+                    length = rs.getInt("Length");
+                    showDate = rs.getString("ShowDate");
+                    showRoom = rs.getInt("ShowRoom");
+                    showTime = rs.getInt("ShowTime");
+                    break;
+                }
+            }
+            //remove seats from seats list
+            for(int i = 0; i < seatsToRemove.length; i++)
+                currentSeats.replace(seatsToRemove[i], "");
+            
+            //remove row
+            String query = "DELETE FROM movies WHERE MoviesID = ?"; // Creating the query command
+            PreparedStatement myStmt = this.onlyInstance.getDBConnection().prepareStatement(query);
+            myStmt.setInt(1, movieID);
+            myStmt.executeUpdate();  
+
+            //add updated row back
+            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO movies(MoviesID, MovieName, Length, ShowTime, ShowRoom, SoldSeats, ShowDate) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            p.setInt(1, movieID);
+            p.setString(2, mName);
+            p.setInt(3, length);
+            p.setInt(4, showTime);
+            p.setInt(5, showRoom);
+            p.setString(6, currentSeats);
+            p.setString(7, showDate);
+            p.executeUpdate();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }

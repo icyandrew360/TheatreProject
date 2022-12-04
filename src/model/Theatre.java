@@ -21,7 +21,6 @@ public class Theatre
     private UserController userController;
     private TicketController ticketController;
     private ShowController showController;
-    private PaymentController paymentController;
     private NotificationController notificationController;
     
 
@@ -58,8 +57,21 @@ public class Theatre
     // }
 
     public void addTicket(User user, String seats, String movieName, String showTime){
-        
+        String[] showTimeAsStrings = showTime.split(":");
+        int intTime = Integer.parseInt(showTimeAsStrings[0]) * 60;
+        intTime += Integer.parseInt(showTimeAsStrings[1]);
+        Ticket temp = this.showController.createTicketAndAddSeats(user, seats, movieName, intTime);
+        user.getTickets().add(temp);
+        this.ticketController.addTicket(temp, user);
     }
+
+    public void removeTicket(User user, Ticket ticket_to_remove){
+        int movieID = ticket_to_remove.getMovieID();
+        user.getTickets().remove(ticket_to_remove);
+        this.ticketController.removeTicket(ticket_to_remove.getEmail());
+        this.showController.removeTickets(movieID, ticket_to_remove.getSeatNumber());
+    }
+
 
     public ArrayList<String> takenSeats(String movieName, String showTime){
         String[] showTimeAsStrings = showTime.split(":");
