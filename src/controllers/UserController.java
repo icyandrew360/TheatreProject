@@ -116,6 +116,23 @@ public class UserController {
         }
         return isInDataBase;
     }
+
+    public void addUser(String firstName, String lastName, String email, String password){
+        String sql = "select * from users";
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO table_name(Fname, Lname, Email, Password) VALUES (?, ?, ?)");
+            p.setString(1, firstName);
+            p.setString(2, lastName);
+            p.setString(3, email);
+            p.setString(4, password);
+            p.executeUpdate();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     //vector<string> of user emails for verifying if someone is a user
     //add users to data base based on 
     /*/

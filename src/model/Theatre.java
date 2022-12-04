@@ -46,6 +46,15 @@ public class Theatre
         return this.userController.verifyEmailAndPassword(email, password);
     }
 
+    public void registerUser(String firstName, String lastName, String email, String password){
+        this.registeredUsers.add(new RegisteredUser(firstName, lastName, email, password));
+        this.userController.addUser(firstName, lastName, email, password);
+    }
+
+    public void addSeatsToShowTime(String movieName, String showTime){
+
+    }
+
 
 
     // public void bookSeat(int showroom, String seatNum, int showTime){
