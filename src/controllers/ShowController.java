@@ -51,18 +51,18 @@ public class ShowController {
     }
 
 
-    //given any string, return all movies that have that substring in the title
-    public ArrayList<Movie> searchMovie(String substring){
+    //given any string, return the first move that has that substring in the title
+    public String searchMovie(String substring){
         substring = substring.toLowerCase();
-        ArrayList<Movie> foundMovies = new ArrayList<Movie>();
 
         for (int i = 0; i < searchableMovieList.size(); i++){
             //if we find a movie name with the substring in it:
             if (searchableMovieList.get(i).contains(substring)){
-                //use the moviedata hashmap keyed by name to return a movie object
-                foundMovies.add(movieDataByName.get(searchableMovieList.get(i)));
+                //return the first instance of a movie containing the substring
+                return searchableMovieList.get(i);
             }
         }
-        return foundMovies;
+        //if we didnt find a match:
+        return searchableMovieList.get(0);
     }
 }
