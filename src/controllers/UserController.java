@@ -46,19 +46,11 @@ public class UserController {
             rs = p.executeQuery();
 
             while (rs.next()){
-                // User tempUser = new User();
-                // tempUser.setFirstName(rs.getString("Fname"));
-                // tempUser.setLastName(rs.getString("Lname"));
-                // tempUser.setEmail(rs.getString("email"));
-                // //this doesn't work yet
-                // tempUser.setPhone(rs.getString("phone"));
-                
-                // userData.put(tempUser.getEmail(), tempUser);
                 String fName = rs.getString("Fname");
                 String lName = rs.getString("Lname");
                 String email = rs.getString("email");
                 String phone = rs.getString("phone");
-                userData.put(email, new User(fName, lName, email, phone));
+                userData.put(email, new User(fName, lName, email));
             }
 
         }
@@ -67,6 +59,7 @@ public class UserController {
         }
     }
 
+    //populates array users with all the user infromation in the database
     public void populateUsers(Vector<RegisteredUser> users){
         String sql = "select * from userdb";
         PreparedStatement p = null;
@@ -82,13 +75,39 @@ public class UserController {
                 String email = rs.getString("email");
                 String phone = rs.getString("phone");
                 String password = rs.getString("password");
-                users.add(new RegisteredUser(fName, lName, email, phone, password));
+                users.add(new RegisteredUser(fName, lName, email, password));
             }
 
         }
         catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    //returns true if there is a registered user in the data base with this email.
+    public boolean verifyEmailAndPassword(String email, String password){
+        String sql = "select * from userdb";
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        boolean isInDataBase = false;
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
+            rs = p.executeQuery();
+            //linear search of database to check if a user exists in database
+            while (rs.next()){
+                if(rs.getString("email") == email){
+                    if(rs.getString("password") == password){
+                        isInDataBase = true;
+                        break;
+                    }
+                }
+            }
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return isInDataBase;
     }
     //vector<string> of user emails for verifying if someone is a user
     //add users to data base based on 

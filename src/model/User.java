@@ -14,15 +14,13 @@ public class User
   protected String firstName;
   protected String lastName;
   protected String email;
-  protected String phone;
   protected ArrayList<Ticket> tickets;
   protected ArrayList<Payment> paymentHistory;
 
-  public User(String firstName, String lastName, String email, String phone){
+  public User(String firstName, String lastName, String email){
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
-    this.phone = phone;
   }
 
   public void addPayment(Payment payment){
@@ -35,7 +33,6 @@ public class User
   public String getFirstName() {return firstName;}
   public String getLastName() {return lastName;}
   public String getEmail() {return email;}
-  public String getPhone() {return phone;}
   public ArrayList<Ticket> getTickets() {return tickets;}
   public ArrayList<Payment> getPaymentHistory() {return paymentHistory;}
 
@@ -47,9 +44,6 @@ public class User
   }
   public void setEmail(String email){
     this.email = email;
-  }
-  public void setPhone(String phone){
-    this.phone = phone;
   }
   public void setTickets(ArrayList<Ticket> tickets){
     this.tickets = tickets;
