@@ -63,6 +63,6 @@ public class ShowController {
             }
         }
         //if we didnt find a match:
-        return searchableMovieList.get(0);
+        return ("noDecimalsLand");
     }
 }
