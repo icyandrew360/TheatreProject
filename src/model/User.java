@@ -11,12 +11,12 @@ import java.util.ArrayList;
 
 public class User
 {
-  private String firstName;
-  private String lastName;
-  private String email;
-  private String phone;
-  private ArrayList<Ticket> tickets;
-  private ArrayList<Payment> paymentHistory;
+  protected String firstName;
+  protected String lastName;
+  protected String email;
+  protected String phone;
+  protected ArrayList<Ticket> tickets;
+  protected ArrayList<Payment> paymentHistory;
 
   public User(String firstName, String lastName, String email, String phone){
     this.firstName = firstName;

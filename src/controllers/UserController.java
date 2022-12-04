@@ -3,6 +3,7 @@ package controllers;
 import model.*;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.Vector;
 
 public class UserController {
    
@@ -58,6 +59,30 @@ public class UserController {
                 String email = rs.getString("email");
                 String phone = rs.getString("phone");
                 userData.put(email, new User(fName, lName, email, phone));
+            }
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void populateUsers(Vector<RegisteredUser> users){
+        String sql = "select * from userdb";
+        PreparedStatement p = null;
+        ResultSet rs = null;
+
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
+            rs = p.executeQuery();
+
+            while (rs.next()){
+                String fName = rs.getString("Fname");
+                String lName = rs.getString("Lname");
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                String password = rs.getString("password");
+                users.add(new RegisteredUser(fName, lName, email, phone, password));
             }
 
         }
