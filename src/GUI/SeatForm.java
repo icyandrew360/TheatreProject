@@ -10,6 +10,7 @@ import javax.swing.*;
  * @author Jenna Vlaar
  */
 public class SeatForm extends javax.swing.JFrame {
+    private ImageIcon seatIcon = new ImageIcon(getClass().getResource("Images/seat.png"));
     private JToggleButton[] allSeats;
     private static String movie;
     private static String showTime;
@@ -51,7 +52,8 @@ public class SeatForm extends javax.swing.JFrame {
 
         for(JToggleButton button : seatButtons)
         {
-            button.setDisabledIcon(new javax.swing.ImageIcon("GUI\\Images\\takenseat.png"));
+            ImageIcon takenSeatIcon = new ImageIcon(getClass().getResource("Images/takenseat.png"));
+            button.setDisabledIcon(takenSeatIcon);
             button.setEnabled(false);
         }
     }
@@ -139,7 +141,7 @@ public class SeatForm extends javax.swing.JFrame {
         );
 
         A1.setBackground(new java.awt.Color(87, 79, 198));
-        A1.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A1.setIcon(seatIcon); // NOI18N
         A1.setBorder(null);
         A1.setBorderPainted(false);
         A1.setContentAreaFilled(false);
@@ -150,7 +152,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         A2.setBackground(new java.awt.Color(87, 79, 198));
-        A2.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A2.setIcon(seatIcon); // NOI18N
         A2.setBorder(null);
         A2.setBorderPainted(false);
         A2.setContentAreaFilled(false);
@@ -161,7 +163,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         A3.setBackground(new java.awt.Color(87, 79, 198));
-        A3.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A3.setIcon(seatIcon); // NOI18N
         A3.setBorder(null);
         A3.setBorderPainted(false);
         A3.setContentAreaFilled(false);
@@ -172,7 +174,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         A4.setBackground(new java.awt.Color(87, 79, 198));
-        A4.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A4.setIcon(seatIcon); // NOI18N
         A4.setBorder(null);
         A4.setBorderPainted(false);
         A4.setContentAreaFilled(false);
@@ -183,7 +185,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         A5.setBackground(new java.awt.Color(87, 79, 198));
-        A5.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A5.setIcon(seatIcon); // NOI18N
         A5.setBorder(null);
         A5.setBorderPainted(false);
         A5.setContentAreaFilled(false);
@@ -194,7 +196,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         A6.setBackground(new java.awt.Color(87, 79, 198));
-        A6.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A6.setIcon(seatIcon); // NOI18N
         A6.setBorder(null);
         A6.setBorderPainted(false);
         A6.setContentAreaFilled(false);
@@ -205,7 +207,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         A7.setBackground(new java.awt.Color(87, 79, 198));
-        A7.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A7.setIcon(seatIcon); // NOI18N
         A7.setBorder(null);
         A7.setBorderPainted(false);
         A7.setContentAreaFilled(false);
@@ -216,7 +218,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         A8.setBackground(new java.awt.Color(87, 79, 198));
-        A8.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A8.setIcon(seatIcon); // NOI18N
         A8.setBorder(null);
         A8.setBorderPainted(false);
         A8.setContentAreaFilled(false);
@@ -227,7 +229,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         A9.setBackground(new java.awt.Color(87, 79, 198));
-        A9.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A9.setIcon(seatIcon); // NOI18N
         A9.setBorder(null);
         A9.setBorderPainted(false);
         A9.setContentAreaFilled(false);
@@ -238,7 +240,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         A0.setBackground(new java.awt.Color(87, 79, 198));
-        A0.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        A0.setIcon(seatIcon); // NOI18N
         A0.setBorder(null);
         A0.setBorderPainted(false);
         A0.setContentAreaFilled(false);
@@ -249,7 +251,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B1.setBackground(new java.awt.Color(87, 79, 198));
-        B1.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B1.setIcon(seatIcon); // NOI18N
         B1.setBorder(null);
         B1.setBorderPainted(false);
         B1.setContentAreaFilled(false);
@@ -260,7 +262,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B2.setBackground(new java.awt.Color(87, 79, 198));
-        B2.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B2.setIcon(seatIcon); // NOI18N
         B2.setBorder(null);
         B2.setBorderPainted(false);
         B2.setContentAreaFilled(false);
@@ -271,7 +273,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B3.setBackground(new java.awt.Color(87, 79, 198));
-        B3.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B3.setIcon(seatIcon); // NOI18N
         B3.setBorder(null);
         B3.setBorderPainted(false);
         B3.setContentAreaFilled(false);
@@ -282,7 +284,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B4.setBackground(new java.awt.Color(87, 79, 198));
-        B4.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B4.setIcon(seatIcon); // NOI18N
         B4.setBorder(null);
         B4.setBorderPainted(false);
         B4.setContentAreaFilled(false);
@@ -293,7 +295,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B5.setBackground(new java.awt.Color(87, 79, 198));
-        B5.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B5.setIcon(seatIcon); // NOI18N
         B5.setBorder(null);
         B5.setBorderPainted(false);
         B5.setContentAreaFilled(false);
@@ -304,7 +306,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B6.setBackground(new java.awt.Color(87, 79, 198));
-        B6.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B6.setIcon(seatIcon); // NOI18N
         B6.setBorder(null);
         B6.setBorderPainted(false);
         B6.setContentAreaFilled(false);
@@ -315,7 +317,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B7.setBackground(new java.awt.Color(87, 79, 198));
-        B7.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B7.setIcon(seatIcon); // NOI18N
         B7.setBorder(null);
         B7.setBorderPainted(false);
         B7.setContentAreaFilled(false);
@@ -326,7 +328,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B8.setBackground(new java.awt.Color(87, 79, 198));
-        B8.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B8.setIcon(seatIcon); // NOI18N
         B8.setBorder(null);
         B8.setBorderPainted(false);
         B8.setContentAreaFilled(false);
@@ -337,7 +339,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B9.setBackground(new java.awt.Color(87, 79, 198));
-        B9.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B9.setIcon(seatIcon); // NOI18N
         B9.setBorder(null);
         B9.setBorderPainted(false);
         B9.setContentAreaFilled(false);
@@ -348,7 +350,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         B0.setBackground(new java.awt.Color(87, 79, 198));
-        B0.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        B0.setIcon(seatIcon); // NOI18N
         B0.setBorder(null);
         B0.setBorderPainted(false);
         B0.setContentAreaFilled(false);
@@ -359,7 +361,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C1.setBackground(new java.awt.Color(87, 79, 198));
-        C1.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C1.setIcon(seatIcon); // NOI18N
         C1.setBorder(null);
         C1.setBorderPainted(false);
         C1.setContentAreaFilled(false);
@@ -370,7 +372,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C2.setBackground(new java.awt.Color(87, 79, 198));
-        C2.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C2.setIcon(seatIcon); // NOI18N
         C2.setBorder(null);
         C2.setBorderPainted(false);
         C2.setContentAreaFilled(false);
@@ -381,7 +383,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C3.setBackground(new java.awt.Color(87, 79, 198));
-        C3.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C3.setIcon(seatIcon); // NOI18N
         C3.setBorder(null);
         C3.setBorderPainted(false);
         C3.setContentAreaFilled(false);
@@ -392,7 +394,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C4.setBackground(new java.awt.Color(87, 79, 198));
-        C4.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C4.setIcon(seatIcon); // NOI18N
         C4.setBorder(null);
         C4.setBorderPainted(false);
         C4.setContentAreaFilled(false);
@@ -403,7 +405,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C5.setBackground(new java.awt.Color(87, 79, 198));
-        C5.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C5.setIcon(seatIcon); // NOI18N
         C5.setBorder(null);
         C5.setBorderPainted(false);
         C5.setContentAreaFilled(false);
@@ -414,7 +416,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C6.setBackground(new java.awt.Color(87, 79, 198));
-        C6.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C6.setIcon(seatIcon); // NOI18N
         C6.setBorder(null);
         C6.setBorderPainted(false);
         C6.setContentAreaFilled(false);
@@ -425,7 +427,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C7.setBackground(new java.awt.Color(87, 79, 198));
-        C7.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C7.setIcon(seatIcon); // NOI18N
         C7.setBorder(null);
         C7.setBorderPainted(false);
         C7.setContentAreaFilled(false);
@@ -436,7 +438,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C8.setBackground(new java.awt.Color(87, 79, 198));
-        C8.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C8.setIcon(seatIcon); // NOI18N
         C8.setBorder(null);
         C8.setBorderPainted(false);
         C8.setContentAreaFilled(false);
@@ -447,7 +449,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C9.setBackground(new java.awt.Color(87, 79, 198));
-        C9.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C9.setIcon(seatIcon); // NOI18N
         C9.setBorder(null);
         C9.setBorderPainted(false);
         C9.setContentAreaFilled(false);
@@ -458,7 +460,7 @@ public class SeatForm extends javax.swing.JFrame {
         });
 
         C0.setBackground(new java.awt.Color(87, 79, 198));
-        C0.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png")); // NOI18N
+        C0.setIcon(seatIcon); // NOI18N
         C0.setBorder(null);
         C0.setBorderPainted(false);
         C0.setContentAreaFilled(false);
@@ -683,11 +685,12 @@ public class SeatForm extends javax.swing.JFrame {
         //if statement to check if seat is already taken
         if(button.isSelected())
         {
-            button.setIcon(new javax.swing.ImageIcon("GUI\\Images\\selectedseat.png"));
+            ImageIcon selectedSeat = new ImageIcon(getClass().getResource("Images/selectedseat.png"));
+            button.setIcon(selectedSeat); // NOI18N
         }
         else
         {  
-           button.setIcon(new javax.swing.ImageIcon("GUI\\Images\\seat.png"));
+            button.setIcon(seatIcon);
         }
     }
     

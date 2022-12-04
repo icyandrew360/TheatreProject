@@ -1,5 +1,7 @@
 package GUI;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Jenna Vlaar
@@ -24,18 +26,20 @@ public class SearchResults extends javax.swing.JFrame {
 
     private void displayResults()
     {
-        movie = "drSoftware"; //from database
         if(movie == "stackOverflow")
         {
-            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\stackoverflow.png")); // NOI18N
+            ImageIcon stackOverflow = new ImageIcon(getClass().getResource("Images/stackoverflow.png"));
+            imageLabel.setIcon(stackOverflow); // NOI18N
         }
         else if(movie == "drSoftware")
         {
-            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\drsoftware.png")); // NOI18N
+            ImageIcon drSoftware = new ImageIcon(getClass().getResource("Images/drsoftware.png"));
+            imageLabel.setIcon(drSoftware); // NOI18N
         }
         else
         {
-            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\nodecimal.png")); // NOI18N
+            ImageIcon noDecimalsLand = new ImageIcon(getClass().getResource("Images/nodecimalsland.png"));
+            imageLabel.setIcon(noDecimalsLand); // NOI18N
         }
     }
     /**
@@ -149,7 +153,8 @@ public class SearchResults extends javax.swing.JFrame {
         alsoLikeLabel.setForeground(new java.awt.Color(243, 224, 52));
         alsoLikeLabel.setText("You May Also Like..");
 
-        subject480Label.setIcon(new javax.swing.ImageIcon("GUI\\Images\\subject480.png")); // NOI18N
+        ImageIcon subject480 = new ImageIcon(getClass().getResource("Images/subject480.png"));
+        subject480Label.setIcon(subject480);
 
         comingSoonLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         comingSoonLabel.setForeground(new java.awt.Color(255, 255, 255));

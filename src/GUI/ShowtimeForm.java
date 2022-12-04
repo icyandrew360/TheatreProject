@@ -2,6 +2,7 @@ package GUI;
 
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -38,7 +39,8 @@ public class ShowtimeForm extends javax.swing.JFrame {
         else
         {
             movieTitleLabel.setText("No Decimal's Land");
-            imageLabel.setIcon(new javax.swing.ImageIcon("GUI\\Images\\nodecimal.png")); // NOI18N
+            ImageIcon image = new ImageIcon(getClass().getResource("GUI/Images/nodecimal.png"));
+            imageLabel.setIcon(image); // NOI18N
         }
         
 
