@@ -22,7 +22,7 @@ public class NotificationController {
         properties.put("mail.smtp.port", 587);
 
         Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator(){
-            protected PasswordAuthentication getPasswordAuthentiation(){
+            protected PasswordAuthentication getPasswordAuthentication(){
                 return new PasswordAuthentication("jmovies.noreply@gmail.com", "ensf-480");
             }
         });
@@ -31,7 +31,7 @@ public class NotificationController {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            message.setSubject("Payment Successfull");
+            message.setSubject("Payment Successful");
             message.setText("Your ticket number is ");
             Transport.send(message);
             System.out.println("Email Sent!");

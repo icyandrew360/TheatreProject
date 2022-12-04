@@ -51,7 +51,7 @@ public class ShowController {
     }
 
 
-    //given any string, return the first move that has that substring in the title
+    //given any string, return the first movie that has that substring in the title
     public String searchMovie(String substring){
         substring = substring.toLowerCase();
 
