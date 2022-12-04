@@ -2,6 +2,8 @@ package GUI;
 
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jenna Vlaar
@@ -300,6 +302,23 @@ public class AccountPage extends javax.swing.JFrame {
         // User pressed REGISTER
         //open register form
         ticketComboBox.getSelectedItem();
+        if(ticketComboBox.getItemCount() == 1)
+        {
+            JOptionPane.showMessageDialog(null, "You have no booked tickets!", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+        }
+        if(ticketComboBox.getSelectedIndex() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a ticket to cancel.", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+        }
+
+        //REMOVE TICKET FROM DATABASE, UPDATE SEATS
+        fillComboBoxes();
+        JOptionPane.showMessageDialog(null, "Ticket Canceled!", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
 
     }                                                  
 
