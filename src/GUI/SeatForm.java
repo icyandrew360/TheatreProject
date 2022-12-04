@@ -20,6 +20,18 @@ public class SeatForm extends javax.swing.JFrame {
         SeatForm.movieID = movieID;
         SeatForm.registered = registered;
         initComponents();
+        disableTakenSeats();
+    }
+
+    private void disableTakenSeats()
+    {
+        //get vector from database
+        Vector<JToggleButton> takenSeats = new Vector<JToggleButton>(); //vector from database
+        for(JToggleButton button : takenSeats)
+        {
+            button.setDisabledIcon(new javax.swing.ImageIcon("GUI\\Images\\takenseat.png"));
+            button.setEnabled(false);
+        }
     }
 
     /**
@@ -857,4 +869,3 @@ public class SeatForm extends javax.swing.JFrame {
     private javax.swing.JLabel seatTitle;
     // End of variables declaration                   
 }
-
