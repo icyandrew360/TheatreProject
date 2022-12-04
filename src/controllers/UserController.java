@@ -29,7 +29,7 @@ public class UserController {
             rs = p.executeQuery();
             
             while (rs.next()){
-                loginInfos.put(rs.getString("email"), rs.getString("password"));
+                loginInfos.put(rs.getString("Email"), rs.getString("Password"));
             }
         }
         catch(Exception e){
@@ -49,7 +49,7 @@ public class UserController {
             while (rs.next()){
                 String fName = rs.getString("Fname");
                 String lName = rs.getString("Lname");
-                String email = rs.getString("email");
+                String email = rs.getString("Email");
                 userData.put(email, new User(fName, lName, email, false));
             }
 
@@ -72,8 +72,8 @@ public class UserController {
             while (rs.next()){
                 String fName = rs.getString("Fname");
                 String lName = rs.getString("Lname");
-                String email = rs.getString("email");
-                String password = rs.getString("password");
+                String email = rs.getString("Email");
+                String password = rs.getString("Password");
                 users.add(new RegisteredUser(fName, lName, email, password));
             }
 
@@ -102,8 +102,8 @@ public class UserController {
             rs = p.executeQuery();
             //linear search of database to check if a user exists in database
             while (rs.next()){
-                if(rs.getString("email") == email){
-                    if(rs.getString("password") == password){
+                if(rs.getString("Email") == email){
+                    if(rs.getString("Password") == password){
                         isInDataBase = true;
                         break;
                     }
@@ -122,7 +122,7 @@ public class UserController {
         PreparedStatement p = null;
         ResultSet rs = null;
         try{
-            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO users(Fname, Lname, Email, Password) VALUES (?, ?, ?)");
+            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO users(Fname, Lname, Email, Password) VALUES (?, ?, ?, ?)");
             p.setString(1, firstName);
             p.setString(2, lastName);
             p.setString(3, email);

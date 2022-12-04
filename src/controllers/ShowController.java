@@ -25,7 +25,7 @@ public class ShowController {
     // private HashMap<Integer, Movie> movieDataByID = new HashMap<Integer, Movie>();
 
     public void pullMovieData(){
-        String sql = "select * from moviesdb";
+        String sql = "select * from movies";
         PreparedStatement p = null;
         ResultSet rs = null;
 
@@ -36,8 +36,8 @@ public class ShowController {
             while (rs.next()){
                 //adds movie names to the hashset. this can be sped up,
                 //but leaving this in parts for clarity of how this is done.
-                String movieName = rs.getString("Mname");
-                int ID = rs.getInt("idMovies");
+                String movieName = rs.getString("MovieName");
+                int ID = rs.getInt("MoviesID");
                 int movieLength = rs.getInt("Length");
 
                 searchableMovieList.add(movieName);//these kept their cases, not all lowercase
@@ -55,6 +55,7 @@ public class ShowController {
 
     //given any string, return the first movie that has that substring in the title
     public String searchMovie(String substring){
+        pullMovieData();
         substring = substring.toLowerCase();
 
         for (int i = 0; i < searchableMovieList.size(); i++){
@@ -69,7 +70,7 @@ public class ShowController {
     }
 
     public ArrayList<String> getTakenSeats(String movieName, int showTime){
-        String sql = "select * from moviesdb";
+        String sql = "select * from movies";
         PreparedStatement p = null;
         ResultSet rs = null;
 
@@ -79,8 +80,8 @@ public class ShowController {
 
             while (rs.next()){
                 //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
-                if (rs.getString("Mname") == movieName && rs.getInt("showTime") == showTime){
-                    String[] array = rs.getString("Seats").split("(?<=\\G.{2})");//using regex to split the string into an array of each seat of 2 chars
+                if (rs.getString("MovieName") == movieName && rs.getInt("ShowTime") == showTime){
+                    String[] array = rs.getString("SoldSeats").split("(?<=\\G.{2})");//using regex to split the string into an array of each seat of 2 chars
 
                     ArrayList<String> seatsArrayList = new ArrayList<String>(Arrays.asList(array));
                     return (seatsArrayList);
@@ -95,7 +96,7 @@ public class ShowController {
     }  
     
     public Ticket createTicketAndAddSeats(User user, String seats, String movieName, int showTime){
-        String sql = "select * from moviesdb";
+        String sql = "select * from movies";
         PreparedStatement p = null;
         ResultSet rs = null;
         Ticket temp = null;
@@ -111,7 +112,7 @@ public class ShowController {
 
             while (rs.next()){
                 //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
-                if (rs.getString("Mname") == movieName && rs.getInt("showTime") == showTime){
+                if (rs.getString("MovieName") == movieName && rs.getInt("ShowTime") == showTime){
                     movieID = rs.getInt("MoviesID");
                     mName = movieName;
                     length = rs.getInt("Length");
@@ -147,7 +148,7 @@ public class ShowController {
     }
 
     public void removeTickets(int MovieID, String seats){
-        String sql = "select * from moviesdb";
+        String sql = "select * from movies";
         PreparedStatement p = null;
         ResultSet rs = null;
         String currentSeats = null;
@@ -164,10 +165,10 @@ public class ShowController {
 
             while (rs.next()){
                 //find seats list for the given movie
-                if (rs.getInt("MovieID") == MovieID){
-                    currentSeats  = rs.getString("Seats");
+                if (rs.getInt("MoviesID") == MovieID){
+                    currentSeats  = rs.getString("SoldSeats");
                     movieID = rs.getInt("MoviesID");
-                    mName = rs.getString("Mname");
+                    mName = rs.getString("MovieName");
                     length = rs.getInt("Length");
                     showDate = rs.getString("ShowDate");
                     showRoom = rs.getInt("ShowRoom");
@@ -202,7 +203,7 @@ public class ShowController {
     }
 
     public Vector<Integer> getShowTimes(String movieTitle){
-        String sql = "select * from moviesdb";
+        String sql = "select * from movies";
         PreparedStatement p = null;
         ResultSet rs = null;
         Vector<Integer> showTimes = new Vector<Integer>();
@@ -212,7 +213,7 @@ public class ShowController {
 
             while (rs.next()){
                 //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
-                if (rs.getString("Mname") == movieTitle){
+                if (rs.getString("MovieName") == movieTitle){
                     showTimes.add(rs.getInt("ShowTime"));
                 }
             }

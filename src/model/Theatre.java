@@ -36,6 +36,7 @@ public class Theatre
         this.ticketController = new TicketController();
         userController.populateUserTickets(unRegisteredUsers, registeredUsers, ticketController);
         //3. go through moviesDB and ticketDB and populate ShowRooms / ShowTimes
+        this.showController = new ShowController();
         
     }
 

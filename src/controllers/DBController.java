@@ -39,6 +39,7 @@ public class DBController {
                 e.printStackTrace();    // Error checking
             }              
         }
+        onlyInstance = null;
     }
 
     // Url getter

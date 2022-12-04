@@ -23,13 +23,13 @@ public class TicketController {
             rs = p.executeQuery();
 
             while (rs.next()){
-                if(map.get(rs.getString("email")) != null){
-                    map.get(rs.getString("email")).add(new Ticket(rs.getInt("ID"), rs.getString("email")
-                    , rs.getString("seatNumber"), rs.getInt("showRoom"), 
-                    rs.getInt("showTime"), rs.getString("showDate"), rs.getString("movieName")));
+                if(map.get(rs.getString("Email")) != null){
+                    map.get(rs.getString("Email")).add(new Ticket(rs.getInt("TicketID"), rs.getString("Email")
+                    , rs.getString("Seats"), rs.getInt("ShowRoom"), 
+                    rs.getInt("ShowTime"), rs.getString("ShowDate"), rs.getString("MovieName")));
                 }
                 else{
-                    unRegUsers.add(new UnRegisteredUser("", "", rs.getString("email")));
+                    unRegUsers.add(new UnRegisteredUser("", "", rs.getString("Email")));
                 }
             }
 
@@ -44,7 +44,7 @@ public class TicketController {
         PreparedStatement p = null;
         ResultSet rs = null;
         try{
-            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO tickets(Email,TicketID,Seats,ShowTime,ShowRoom, ShowDate, Mname, IsRegistered) VALUES (?, ?, ?)");
+            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO tickets(Email,TicketID,Seats,ShowTime,ShowRoom, ShowDate, Mname, IsRegistered) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             p.setString(1, temp.getEmail());
             p.setInt(2, temp.getMovieID());
             p.setString(3, temp.getSeatNumber());
