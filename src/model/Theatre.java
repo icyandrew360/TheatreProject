@@ -73,7 +73,7 @@ public class Theatre
     }
 
     public void addUnregisteredUser(String firstName,String lastName,String email){
-        System.out.println(email);
+        System.out.println("test");
         this.unRegisteredUsers.add(new UnRegisteredUser(firstName, lastName, email));
 
     }

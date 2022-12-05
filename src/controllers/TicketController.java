@@ -29,6 +29,7 @@ public class TicketController {
                     rs.getInt("ShowTime"), rs.getString("ShowDate"), rs.getString("MovieName")));
                 }
                 else{
+                    System.out.println(rs.getString("Email"));
                     unRegUsers.add(new UnRegisteredUser("", "", rs.getString("Email")));
                 }
             }
