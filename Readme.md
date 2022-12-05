@@ -11,7 +11,7 @@ A java application that could be used to fufill an online movie ticket reservati
 
 
 
-###HOW TO RUN THE PROGRAM
+##HOW TO RUN THE PROGRAM
 
 1. Set up a database with the format specified in src/db/theatre-db.sql 
    Run a MySQL Database server, the provided database can be used. 
