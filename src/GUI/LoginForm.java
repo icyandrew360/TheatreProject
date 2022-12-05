@@ -274,8 +274,7 @@ public class LoginForm extends javax.swing.JFrame {
             guestButtonActionPerformed(evt);
         }
 
-        LoginForm.theatre.addUnregisteredUser("", "", email);
-        unregisteredUser = new UnRegisteredUser("", "", email);
+        unregisteredUser = LoginForm.theatre.addUnregisteredUser("", "", email);
         //ADD EMAIL TO DATABASE
         this.setVisible(false);
         
