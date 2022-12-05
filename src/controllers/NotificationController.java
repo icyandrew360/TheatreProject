@@ -24,12 +24,13 @@ public class NotificationController {
 
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", "smtp.google.com");
-        properties.put("mail.smtp.port", 587);
+        properties.put("mail.smtp.host", "smtp.mailtrap.io");
+        properties.put("mail.smtp.port", "25");
+        properties.put("mail.smtp.ssl.trust", "smtp.mailtrap.io");
 
         Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator(){
             protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication("jmovies.noreply@gmail.com", "denuyixiyxwmpobj");
+                return new PasswordAuthentication("jmovies.noreply@gmail.com", "ensf-480");
             }
         });
         try{
