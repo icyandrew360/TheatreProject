@@ -17,7 +17,7 @@ public class NotificationController {
         for (String n: seats){
             Str += n + "\n";
         }
-        Str = Str + "The amount paid for the ticket(s) - " + paidAmount; 
+        Str = Str + "The amount paid for the ticket(s) - " + paidAmount;
 
 
         Properties properties = new Properties();
@@ -29,7 +29,7 @@ public class NotificationController {
 
         Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator(){
             protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication("jmovies.noreply@gmail.com", "ensf-480");
+                return new PasswordAuthentication("jmovies.noreply@gmail.com", "denuyixiyxwmpobj");
             }
         });
         try{
