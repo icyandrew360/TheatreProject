@@ -63,7 +63,6 @@ public class Theatre
     public void registerUser(String firstName, String lastName, String email, String password){
         this.registeredUsers.add(new RegisteredUser(firstName, lastName, email, password));
         this.userController.addUser(firstName, lastName, email, password);
-        System.out.println("test");
     }
 
     public boolean validateEmail(String email){
@@ -77,7 +76,6 @@ public class Theatre
         UnRegisteredUser userToAdd = null;
         for(UnRegisteredUser i : unRegisteredUsers){
             if(i.getEmail().equals(email)){
-                System.out.println(i.getEmail());
                 isInDataBase = true;
                 userToAdd = i;
             }
@@ -95,7 +93,6 @@ public class Theatre
         int intTime = Integer.parseInt(showTimeAsStrings[0]) * 60;
         intTime += Integer.parseInt(showTimeAsStrings[1]);
         Ticket temp = this.showController.createTicketAndAddSeats(user, seats, movieName, intTime);
-        System.out.println(temp);
         if(user.getTickets() == null)
             user.setTickets(new ArrayList<Ticket>());
         user.getTickets().add(temp);
@@ -169,12 +166,4 @@ public class Theatre
         NotificationController.sendMail(email, paidAmount, seatsAsArray);
     }
 
-
-    // public void bookSeat(int showroom, String seatNum, int showTime){
-    //     //call the controller function
-    //     ShowRoom temp = showRooms[showRoom];
-    //     ShowTime tempShowTime = temp.getShowTime(showTime);
-    //     Seats tempSeat = tempShowTime.getSeat(seatNum);
-    //     controllerfunciton(tmep,tempShowTime,tempSeat)
-    // }
 }
