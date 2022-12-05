@@ -38,7 +38,7 @@ public class SearchResults extends javax.swing.JFrame {
         }
         else
         {
-            ImageIcon noDecimalsLand = new ImageIcon(getClass().getResource("Images/nodecimalsland.png"));
+            ImageIcon noDecimalsLand = new ImageIcon(getClass().getResource("Images/nodecimal.png"));
             imageLabel.setIcon(noDecimalsLand);
         }
     }

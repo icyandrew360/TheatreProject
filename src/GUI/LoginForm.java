@@ -221,20 +221,13 @@ public class LoginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter a password.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
-        }
-        
-        this.setVisible(false);
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-          public void run() {
-            new MainPage().setVisible(true);
-          }
-       });
-       
+        }  
        
        if(theatre.verifyUser(email, password))
        {
+
             registeredUser = theatre.grabRegisteredUser(email, password);
+            System.out.println(registeredUser);
             this.setVisible(false);
             
             java.awt.EventQueue.invokeLater(new Runnable() {

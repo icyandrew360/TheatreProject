@@ -54,7 +54,7 @@ public class Theatre
     public RegisteredUser grabRegisteredUser(String email, String password){
         RegisteredUser temp = null;
         for(RegisteredUser i : registeredUsers){
-            if(i.getEmail() == email && i.getPassword() == password){
+            if(i.getEmail().equals(email) && i.getPassword().equals(password)){
                 temp = i;
                 break;
             }
@@ -118,12 +118,7 @@ public class Theatre
             String temp = new String("");
             //divide time as minutes by 60 to get hour, and subtract 12
             //to get 12 hour clock version
-            if((i / 60) > 12){
-                temp += (i/60) - 12;
-            }
-            else{
-                temp += (i/60);
-            }
+            temp += (i/60);
             //add delimeter and add remaining minutes
             temp += ":";
             if(i % 60 < 10) {
@@ -137,6 +132,11 @@ public class Theatre
             showTimesAsString.add(temp);
         }
         return showTimesAsString;
+    }
+
+    public int getMovieLength(String movieTitle){
+        int movieLength = this.showController.getMovieLength(movieTitle);
+        return movieLength;
     }
 
 

@@ -186,7 +186,8 @@ public class ShowController {
             }
             //remove seats from seats list
             for(int i = 0; i < seatsToRemove.length; i++)
-                currentSeats.replace(seatsToRemove[i], "");
+                currentSeats = currentSeats.replace(seatsToRemove[i], "");
+           
             
             //remove row
             String query = "DELETE FROM movies WHERE MoviesID = ?"; // Creating the query command
@@ -233,5 +234,27 @@ public class ShowController {
         //DBController.closeConnection();
         //if movie and showtime were not found
         return showTimes;
+    }
+
+    public int getMovieLength(String movieTitle){
+        String sql = "select * from movies";
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        int movieLength = 0;
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
+            rs = p.executeQuery();
+
+            while (rs.next()){
+                //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
+                if (rs.getString("MovieName").equals(movieTitle)){
+                    movieLength = rs.getInt("ShowTime");
+                }
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return movieLength;
     }
 }
