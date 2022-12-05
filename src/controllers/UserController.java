@@ -138,16 +138,28 @@ public class UserController {
         }
         //DBController.closeConnection();
     }
-    //vector<string> of user emails for verifying if someone is a user
-    //add users to data base based on 
-    /*/
-    PreparedStatement pstmt = (PreparedStatement) con.prepareStatement("insert into product(productID,description,quantity,price,discount) values(?,?,?,?,?)");
-           pstmt.setString(1, productId);
-           pstmt.setString(1, desc);
-           //same for all statement
-           pstmt.executeUpdate();
-           pstmt.close();
+    
+    public boolean isValidEmail(String email){
+        String sql = "select * from users";
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        boolean isValid = true;
+        try{
+            p = this.onlyInstance.getDBConnection().prepareStatement(sql);
+            rs = p.executeQuery();
+            //linear search of database to check if a user exists in database
+            while (rs.next()){
+                if(rs.getString("Email").equals(email)){
+                    isValid = false;
+                    break;
+                }
+            }
 
-    */
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return isValid;
+    }
 
 }

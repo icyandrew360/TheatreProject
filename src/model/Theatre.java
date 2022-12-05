@@ -68,15 +68,17 @@ public class Theatre
         System.out.println("test");
     }
 
+    public boolean validateEmail(String email){
+        boolean isValidEmail = true;
+        isValidEmail = this.userController.isValidEmail(email);
+        return isValidEmail;
+    }
+
     public void addUnregisteredUser(String firstName,String lastName,String email){
         System.out.println(email);
         this.unRegisteredUsers.add(new UnRegisteredUser(firstName, lastName, email));
 
     }
-
-    // public void addSeatsToShowTime(String movieName, String showTime){
-
-    // }
 
     public void addTicket(User user, String seats, String movieName, String showTime){
         String[] showTimeAsStrings = showTime.split(":");
