@@ -10,14 +10,7 @@ import java.util.ArrayList;
 * Jenna Vlaar (30113774) and Sadman Shahriar (30121460)
 */
 
-
-
-// class ShowTime
-// {
-//   private String time;
-//   private ArrayList<Seats> seats;
-// }
-
+//class for containing movie infromation
 public class Movie
 {
   private String movieName;

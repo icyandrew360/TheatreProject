@@ -26,7 +26,7 @@ public class GuestPage extends javax.swing.JFrame {
 
     private void fillComboBoxes() //fill combo boxes with theatre/ticket information
     {
-        tickets = LoginForm.registeredUser.getTickets(); //get tickets from database
+        tickets = LoginForm.unregisteredUser.getTickets(); //get tickets from database
         if(tickets == null)
             tickets = new ArrayList<Ticket>(0); 
         ticketArray = new String[tickets.size() + 1];
@@ -244,7 +244,7 @@ public class GuestPage extends javax.swing.JFrame {
         else //they have selected a ticket to cancel
         {
             int index = ticketComboBox.getSelectedIndex();
-            User user = LoginForm.registeredUser; //initialize user object
+            User user = LoginForm.unregisteredUser; //initialize user object
             Ticket ticket = tickets.get(index - 1); //get ticket to cancel
             LoginForm.theatre.removeTicket(user, ticket); //remove ticket from database
 
