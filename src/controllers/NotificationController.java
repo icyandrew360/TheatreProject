@@ -8,7 +8,7 @@ import javax.activation.*;
 
 public class NotificationController {
 
-    public static void sendMail(String email, float paidAmount, Vector<String> seats ){
+    public static void sendMail(String email, double paidAmount, String[] seats ){
         String to = email;
         String from = "jmovies.noreply@gmail.com";
         String host  = "localhost";

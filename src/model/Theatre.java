@@ -17,11 +17,9 @@ public class Theatre
     private Vector<ShowRoom> showRooms;
     private Vector<RegisteredUser> registeredUsers;
     private Vector<UnRegisteredUser> unRegisteredUsers;
-    private static int theatreID =0;
     private UserController userController;
     private TicketController ticketController;
     private ShowController showController;
-    private NotificationController notificationController;
     
 
     //this is also where we would have a reference to GUI
@@ -152,6 +150,11 @@ public class Theatre
             temp += movieLength % 60;
         }
         return temp;
+    }
+
+    public void sendEmailReceipt(double paidAmount, String seats, String email){
+        String[] seatsAsArray = seats.split("(?<=\\G.{2})");
+        NotificationController.sendMail(seats, paidAmount, seatsAsArray);
     }
 
 
