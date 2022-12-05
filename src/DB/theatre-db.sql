@@ -95,7 +95,7 @@ CREATE TABLE `users` (
   `Email` varchar(45) NOT NULL,
   `Phone` bigint DEFAULT NULL,
   `Password` varchar(45) DEFAULT NULL,
-  `OwnedSeats` varchar(45) DEFAULT NULL,
+  `OwnedSeats` varchar(150) DEFAULT NULL,
   xcel
   PRIMARY KEY (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
