@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 public class Theatre
 {
-    private Vector<ShowRoom> showRooms;
     private Vector<RegisteredUser> registeredUsers;
     private Vector<UnRegisteredUser> unRegisteredUsers;
     private UserController userController;
