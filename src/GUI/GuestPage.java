@@ -26,17 +26,16 @@ public class GuestPage extends javax.swing.JFrame {
 
     private void fillComboBoxes() //fill combo boxes with theatre/ticket information
     {
-        ArrayList<Ticket> tickets = new ArrayList<Ticket>(); 
-        tickets = LoginForm.unregisteredUser.getTickets(); //get tickets from database
+        tickets = LoginForm.registeredUser.getTickets(); //get tickets from database
         if(tickets == null)
-            tickets = new ArrayList<Ticket>(0);
+            tickets = new ArrayList<Ticket>(0); 
         ticketArray = new String[tickets.size() + 1];
 
-        if(tickets.isEmpty()) //no tickets booked
+        if(tickets.isEmpty())
         {
             ticketArray[0] = "No Booked Tickets";
         }
-        else //display tickets
+        else
         {
             ticketArray[0] = "Select Ticket";
             for(int i = 1; i < tickets.size() + 1; i++)
@@ -230,26 +229,30 @@ public class GuestPage extends javax.swing.JFrame {
     
     private void cancelTicketButtonActionPerformed(java.awt.event.ActionEvent evt) //user pressed cancel ticket
     {
-        if(ticketComboBox.getItemCount() == 1) //check if they have booked tickets
+        if(ticketComboBox.getItemCount() == 1) //if they do not have any booked tickets
         {
             JOptionPane.showMessageDialog(null, "You have no booked tickets!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        if(ticketComboBox.getSelectedIndex() == 0) //user has not selected ticket
+        if(ticketComboBox.getSelectedIndex() == 0) //they have not selected a ticket
         {
             JOptionPane.showMessageDialog(null, "Please select a ticket to cancel.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        int index = ticketComboBox.getSelectedIndex();
-        User user = LoginForm.unregisteredUser; //initialize user object
-        Ticket ticket = tickets.get(index - 1); //get ticket to cancel
-        LoginForm.theatre.removeTicket(user, ticket); //remove ticket from database
-       
-        fillComboBoxes();
-        JOptionPane.showMessageDialog(null, "Ticket Canceled!", 
-                        "MOVIES", JOptionPane.CLOSED_OPTION);
+        else //they have selected a ticket to cancel
+        {
+            int index = ticketComboBox.getSelectedIndex();
+            User user = LoginForm.registeredUser; //initialize user object
+            Ticket ticket = tickets.get(index - 1); //get ticket to cancel
+            LoginForm.theatre.removeTicket(user, ticket); //remove ticket from database
+
+            fillComboBoxes(); //update info
+            JOptionPane.showMessageDialog(null, "Ticket Canceled!", //ticket canceled confirmation
+                            "MOVIES", JOptionPane.CLOSED_OPTION);
+
+        }
     }
 
     private void ticketComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                               
