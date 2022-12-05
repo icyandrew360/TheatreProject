@@ -22,7 +22,6 @@ public class ShowController {
      //Method to create a connection to the database, no arguments, no return value  
     private ArrayList<String> searchableMovieList = new ArrayList<String>();
     private HashMap<String, Movie> movieDataByName = new HashMap<String, Movie>();
-    // private HashMap<Integer, Movie> movieDataByID = new HashMap<Integer, Movie>();
 
     public void pullMovieData(){
         String sql = "select * from movies";
@@ -34,21 +33,18 @@ public class ShowController {
             rs = p.executeQuery();
 
             while (rs.next()){
-                //adds movie names to the hashset. this can be sped up,
-                //but leaving this in parts for clarity of how this is done.
+                
                 String movieName = rs.getString("MovieName");
-                int ID = rs.getInt("MoviesID");
                 int movieLength = rs.getInt("Length");
-
-                searchableMovieList.add(movieName);//these kept their cases, not all lowercase
+                //adds movies to a list of strings, allowing for searching
+                searchableMovieList.add(movieName);
+                //adds movie names to the hashmap, allowing for moviedata to be accessed by movie name
                 movieDataByName.put(movieName, new Movie(movieName, movieLength));
-                // movieDataByID.put(ID, tempMovie);
             }
             //sort the search list for binary search implementation (DID NOT USE BINARY SEARCH BECAUSE we are returning all instances)
             Collections.sort(searchableMovieList);
-            //close connection
-            //DBController.closeConnection();
         }
+        //exception handling
         catch(Exception e){
             e.printStackTrace();
         }
@@ -57,6 +53,7 @@ public class ShowController {
 
     //given any string, return the first movie that has that substring in the title
     public String searchMovie(String substring){
+        //pull moviedata from the database into our hashmap and movie title list
         pullMovieData();
         substring = substring.toLowerCase();
 
@@ -64,15 +61,14 @@ public class ShowController {
             //if we find a movie name with the substring in it:
             if (searchableMovieList.get(i).toLowerCase().contains(substring)){
                 //return the first instance of a movie containing the substring
-                //DBController.closeConnection();
                 return searchableMovieList.get(i);
             }
         }
-        //DBController.closeConnection();
-        //if we didnt find a match:
+        //if we didnt find a match, return this special movie
         return ("noDecimalsLand");
     }
 
+    //takes in a specific movie and showtime, returns the taken seats for that showtime
     public ArrayList<String> getTakenSeats(String movieName, int showTime){
         String sql = "select * from movies";
         PreparedStatement p = null;
@@ -87,21 +83,21 @@ public class ShowController {
                 if (rs.getString("MovieName").equals(movieName)  && rs.getInt("ShowTime") == showTime){
                     String[] array = rs.getString("SoldSeats").split("(?<=\\G.{2})");//using regex to split the string into an array of each seat of 2 chars
 
+                    //conversion to arraylist for easier modification
                     ArrayList<String> seatsArrayList = new ArrayList<String>(Arrays.asList(array));
-                    //DBController.closeConnection();
                     return (seatsArrayList);
                 }
             }
-            
         }
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
+
         //if movie and showtime were not found
         return null;
     }  
     
+    //creates a ticket from user selected options
     public Ticket createTicketAndAddSeats(User user, String seats, String movieName, int showTime){
         String sql = "select * from movies";
         PreparedStatement p = null;
@@ -118,7 +114,7 @@ public class ShowController {
             rs = p.executeQuery();
 
             while (rs.next()){
-                //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
+                //if this movie and showtime are in the database, save all of its data and add to a ticket object
                 if (rs.getString("MovieName").equals(movieName)  && rs.getInt("ShowTime") == showTime){
                     movieID = rs.getInt("MoviesID");
                     mName = movieName;
@@ -127,17 +123,17 @@ public class ShowController {
                     showRoom = rs.getInt("ShowRoom");
                     currentSeats = rs.getString("SoldSeats");
                     temp = new Ticket(movieID, user.getEmail(), seats, showRoom, showTime, showDate, movieName);
-                    
                 }
             }
 
             String query = "DELETE FROM movies WHERE MoviesID = ?"; // Creating the query command
             PreparedStatement myStmt = this.onlyInstance.getDBConnection().prepareStatement(query); // Executing the query
-
+            //delete the current movie ticket data in the database, replace with new
             myStmt.setInt(1, movieID);
                         
             myStmt.executeUpdate();   
 
+            //fill movie database with new ticket data
             p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO movies(MoviesID, MovieName, Length, ShowTime, ShowRoom, SoldSeats, ShowDate) VALUES (?, ?, ?, ?, ?, ?, ?)");
             p.setInt(1, movieID);
             p.setString(2, movieName);
@@ -151,10 +147,10 @@ public class ShowController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
         return temp;
     }
 
+    //given movieID and seats, remove the ticket and free the seats
     public void removeTickets(int MovieID, String seats){
         String sql = "select * from movies";
         PreparedStatement p = null;
@@ -166,8 +162,10 @@ public class ShowController {
         String showDate = null;
         int showRoom = -1;
         int showTime = -1;
+        //split database string into an array of each seat
         String[] seatsToRemove = seats.split("(?<=\\G.{2})");
         try{
+
             p = this.onlyInstance.getDBConnection().prepareStatement(sql);
             rs = p.executeQuery();
 
@@ -188,14 +186,13 @@ public class ShowController {
             for(int i = 0; i < seatsToRemove.length; i++)
                 currentSeats = currentSeats.replace(seatsToRemove[i], "");
            
-            
-            //remove row
+            //remove row to remove the ticket data
             String query = "DELETE FROM movies WHERE MoviesID = ?"; // Creating the query command
             PreparedStatement myStmt = this.onlyInstance.getDBConnection().prepareStatement(query);
             myStmt.setInt(1, movieID);
             myStmt.executeUpdate();  
 
-            //add updated row back
+            //add updated row back, with null values
             p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO movies(MoviesID, MovieName, Length, ShowTime, ShowRoom, SoldSeats, ShowDate) VALUES (?, ?, ?, ?, ?, ?, ?)");
             p.setInt(1, movieID);
             p.setString(2, mName);
@@ -209,9 +206,9 @@ public class ShowController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
     }
 
+    
     public Vector<Integer> getShowTimes(String movieTitle){
         String sql = "select * from movies";
         PreparedStatement p = null;
@@ -222,7 +219,7 @@ public class ShowController {
             rs = p.executeQuery();
 
             while (rs.next()){
-                //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
+                //if this movietitle is in the database, take the showtimes and add them to the showTimes vector
                 if (rs.getString("MovieName").equals(movieTitle)){
                     showTimes.add(rs.getInt("ShowTime"));
                 }
@@ -231,11 +228,10 @@ public class ShowController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
-        //if movie and showtime were not found
         return showTimes;
     }
 
+    //given movie title, return the run time of the movie
     public int getMovieLength(String movieTitle){
         String sql = "select * from movies";
         PreparedStatement p = null;
@@ -246,7 +242,7 @@ public class ShowController {
             rs = p.executeQuery();
 
             while (rs.next()){
-                //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
+                //if this movie is found in the db, return its length (in minutes);
                 if (rs.getString("MovieName").equals(movieTitle)){
                     movieLength = rs.getInt("Length");
                 }
