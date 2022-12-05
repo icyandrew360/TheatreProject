@@ -19,6 +19,7 @@ public class PaymentForm extends javax.swing.JFrame {
     private String creditCardCVV;
     private static boolean registered;
     private static String showTime;
+    private double total;
 
     public PaymentForm(String seats, String movie, String showTime, boolean registered) {
         PaymentForm.showTime = showTime;
@@ -42,7 +43,7 @@ public class PaymentForm extends javax.swing.JFrame {
         numberTicketsLabel.setText(numberOfSeats + "x");
         double cost = numberOfSeats * 13.99;
         double gst = cost * 0.05;
-        double total = cost + gst;
+        total = cost + gst;
         gstCostLabel.setText(String.format("%.2f", gst));
         admissionCostLabel.setText("$" + String.format("%.2f", cost));
         totalCostLabel.setText(String.format("%.2f", total));
@@ -393,6 +394,7 @@ public class PaymentForm extends javax.swing.JFrame {
         }
         else
         {
+            sendEmailReceipt(total, seats);
             LoginForm.theatre.addTicket(LoginForm.unregisteredUser, seats, movie, showTime);
             JOptionPane.showMessageDialog(null, "Order Placed!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
