@@ -9,6 +9,7 @@ import java.util.ArrayList;
 * Jenna Vlaar (30113774) and Sadman Shahriar (30121460)
 */
 
+//contains user infromation
 public class User
 {
   protected String firstName;
@@ -18,6 +19,7 @@ public class User
   protected ArrayList<Payment> paymentHistory;
   protected boolean isReg;
 
+  //constructor
   public User(String firstName, String lastName, String email, boolean isReg){
     this.firstName = firstName;
     this.lastName = lastName;
@@ -25,13 +27,20 @@ public class User
     this.isReg = isReg;
   }
 
+  /*
+   * adds payment object to payment
+   */
   public void addPayment(Payment payment){
     paymentHistory.add(payment);
   }
+  /*
+   * adds ticket to tickets
+   */
   public void addTicket(Ticket ticket){
     tickets.add(ticket);
   }
 
+  //getters
   public String getFirstName() {return firstName;}
   public String getLastName() {return lastName;}
   public String getEmail() {return email;}
@@ -39,6 +48,7 @@ public class User
   public ArrayList<Ticket> getTickets() {return tickets;}
   public ArrayList<Payment> getPaymentHistory() {return paymentHistory;}
 
+  //setters
   public void setFirstName(String name){
     this.firstName = name;
   }

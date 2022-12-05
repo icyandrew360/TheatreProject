@@ -8,15 +8,16 @@ package model;
 * Jenna Vlaar (30113774) and Sadman Shahriar (30121460)
 */
 
+//class for holding payment amounts
 public class Payment
 {
   double amount;
   boolean payed = false;
-  
+  //constructor
   public Payment(double amount){
     this.amount = amount;
   }
-
+  //getters
   public double getAmountDue(){
     return this.amount;
   }
@@ -25,6 +26,7 @@ public class Payment
     return this.payed;
   }
 
+  //setters
   public void setAmountDue(double newAmount){
     this.amount = newAmount;
   }

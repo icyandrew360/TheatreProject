@@ -16,11 +16,13 @@ public class Movie
   private String movieName;
   private int movieLength;
 
+  //constructor
   public Movie(String movieName, int movieLength){
     this.movieLength = movieLength;
     this.movieName = movieName;
   }
 
+  //getters
   public String getMovieName(){
     return this.movieName;
   }
@@ -29,6 +31,7 @@ public class Movie
     return this.movieLength;
   }
 
+  //setters
   public void setMovieName(String newMovieName){
     this.movieName = newMovieName;
   }
@@ -38,7 +41,4 @@ public class Movie
   }
 
   
-  
-
-//  private ArrayList<ShowTime> showTimes;
 }
