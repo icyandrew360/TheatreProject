@@ -19,15 +19,18 @@ public class TicketController {
         ResultSet rs = null;
 
         try{
+            //get the ticket data into a result set
             p = this.onlyInstance.getDBConnection().prepareStatement(sql);
             rs = p.executeQuery();
 
             while (rs.next()){
+                //if the email in the database exists in the hashmap, it is a registered user. Add ticket data to that user in the hashmap.
                 if(map.get(rs.getString("Email")) != null){
                     map.get(rs.getString("Email")).add(new Ticket(rs.getInt("TicketID"), rs.getString("Email")
                     , rs.getString("Seats"), rs.getInt("ShowRoom"), 
                     rs.getInt("ShowTime"), rs.getString("ShowDate"), rs.getString("MovieName")));
                 }
+                //if the email in the database is null, it is an unregistered user. add this unregistered user to the unRegUsers vector.
                 else{
                     System.out.println(rs.getString("Email"));
                     unRegUsers.add(new UnRegisteredUser("", "", rs.getString("Email")));
@@ -38,14 +41,15 @@ public class TicketController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
     }
 
+    //given ticket data and user, add ticket data to the database
     public void addTicket(Ticket temp, User user){
-        String sql = "select * from users";
+        //String sql = "select * from users";
         PreparedStatement p = null;
-        ResultSet rs = null;
+        //ResultSet rs = null;
         try{
+            //taking ticket data and inserting a row into ticket database
             p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO tickets(Email,TicketID,Seats,ShowTime,ShowRoom, ShowDate, MovieName, Registered) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             
             p.setString(1, user.getEmail());
@@ -61,13 +65,12 @@ public class TicketController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
     }
 
     public void removeTicket(String email){
         try{
             String query = "DELETE FROM tickets WHERE Email = ?"; // Creating the query command
-            PreparedStatement myStmt = this.onlyInstance.getDBConnection().prepareStatement(query); // Executing the query
+            PreparedStatement myStmt = this.onlyInstance.getDBConnection().prepareStatement(query); //preparing query
 
             myStmt.setString(1, email);
                         
@@ -78,7 +81,6 @@ public class TicketController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
     }
 
 
