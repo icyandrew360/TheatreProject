@@ -13,7 +13,13 @@ public class NotificationController {
         String to = email.trim();
         String from = "jmovies.noreply@gmail.com";
         //puts together a String with the ticket and receipt to send as the email.
-        String Str = "Your ticket(s) - \n";
+        String Str = "This e-mail confirms that your pruchase was successful.\n"
+                      +  "Please note that this email serves as the ticket to your movie.\n"
+                      +  "Keep this with you at all times.\n"
+                      +  "This ticket is or movies registered with - "+ email
+                      +  "For seats - \n";
+
+
 
         //adding the seats of the tickets to the email
         for (String n: seats){
