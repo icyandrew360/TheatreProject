@@ -69,7 +69,9 @@ public class Theatre
     }
 
     public void addUnregisteredUser(String firstName,String lastName,String email){
+        System.out.println(email);
         this.unRegisteredUsers.add(new UnRegisteredUser(firstName, lastName, email));
+
     }
 
     // public void addSeatsToShowTime(String movieName, String showTime){
@@ -81,6 +83,7 @@ public class Theatre
         int intTime = Integer.parseInt(showTimeAsStrings[0]) * 60;
         intTime += Integer.parseInt(showTimeAsStrings[1]);
         Ticket temp = this.showController.createTicketAndAddSeats(user, seats, movieName, intTime);
+        System.out.println(temp);
         if(user.getTickets() == null)
             user.setTickets(new ArrayList<Ticket>());
         user.getTickets().add(temp);
@@ -110,7 +113,6 @@ public class Theatre
         //grab show times as integers and then convert to strings
         Vector<Integer> showTimesAsInt = this.showController.getShowTimes(movieTitle);
         Vector<String> showTimesAsString = new Vector<String>();
-        System.out.println(showTimesAsInt.size());
         //go through list of ints and convert
         for(int i : showTimesAsInt){
             String temp = new String("");

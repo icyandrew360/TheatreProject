@@ -45,9 +45,9 @@ public class TicketController {
         PreparedStatement p = null;
         ResultSet rs = null;
         try{
-            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO tickets(Email,TicketID,Seats,ShowTime,ShowRoom, ShowDate, Mname, IsRegistered) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            System.out.println(temp.getEmail());
-            p.setString(1, temp.getEmail());
+            p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO tickets(Email,TicketID,Seats,ShowTime,ShowRoom, ShowDate, MovieName, Registered) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            
+            p.setString(1, user.getEmail());
             p.setInt(2, temp.getMovieID());
             p.setString(3, temp.getSeatNumber());
             p.setInt(4, temp.getShowTime());

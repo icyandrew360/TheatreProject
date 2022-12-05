@@ -119,7 +119,7 @@ public class ShowController {
 
             while (rs.next()){
                 //if this movie and showtime are in the database, return the taken seats parsed into an arrayList
-                if (rs.getString("MovieName") == movieName && rs.getInt("ShowTime") == showTime){
+                if (rs.getString("MovieName").equals(movieName)  && rs.getInt("ShowTime") == showTime){
                     movieID = rs.getInt("MoviesID");
                     mName = movieName;
                     length = rs.getInt("Length");
