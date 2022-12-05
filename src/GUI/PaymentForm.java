@@ -22,7 +22,7 @@ public class PaymentForm extends javax.swing.JFrame {
     private double total;
 
     public PaymentForm(String seats, String movie, String showTime, boolean registered) {
-        PaymentForm.showTime = showTime;
+        PaymentForm.showTime = showTime; 
         PaymentForm.seats = seats;
         PaymentForm.movie = movie;
         PaymentForm.registered = registered;
@@ -30,27 +30,27 @@ public class PaymentForm extends javax.swing.JFrame {
         addInformation();
     }
     
-    private void addInformation()
+    private void addInformation() //populate receipt
     {
         int numberOfSeats = 0;
         for(int i = 0; i < seats.length(); i++)
         {
-            if(Character.isAlphabetic(seats.charAt(i)))
+            if(Character.isAlphabetic(seats.charAt(i))) //get number of seats from seats string
             {
                 numberOfSeats++;
             }
         }
-        numberTicketsLabel.setText(numberOfSeats + "x");
-        double cost = numberOfSeats * 13.99;
-        double gst = cost * 0.05;
-        total = cost + gst;
-        gstCostLabel.setText(String.format("%.2f", gst));
-        admissionCostLabel.setText("$" + String.format("%.2f", cost));
-        totalCostLabel.setText(String.format("%.2f", total));
-        movieNameText.setText(movie);
+        numberTicketsLabel.setText(numberOfSeats + "x"); //display number of seats selected
+        double cost = numberOfSeats * 13.99; //calculate cost of tickets
+        double gst = cost * 0.05; //calculate tax on tickets
+        total = cost + gst; //compute total
+        gstCostLabel.setText(String.format("%.2f", gst)); //display gst
+        admissionCostLabel.setText("$" + String.format("%.2f", cost)); //display cost of admission
+        totalCostLabel.setText(String.format("%.2f", total)); //display total cost of tickets
+        movieNameText.setText(movie); //display movie title
     }
          
-    private void initComponents() {
+    private void initComponents() { //GUI decorator
 
         paymentFormPanel = new javax.swing.JPanel();
         receiptPanel = new javax.swing.JPanel();
@@ -323,13 +323,13 @@ public class PaymentForm extends javax.swing.JFrame {
         pack();
     }                     
 
-    private void placeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void placeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {  //user selected place order                             
 
-        creditCardNumber = creditCardText.getText().strip();
-        creditCardName = creditNameText.getText();
-        creditCardCVV = CVVText.getText();
+        creditCardNumber = creditCardText.getText().strip(); //get credit card number from text box
+        creditCardName = creditNameText.getText(); //get credit card name from text box
+        creditCardCVV = CVVText.getText(); //get CVV from text box
         
-        if(creditCardNumber == null || creditCardNumber.equals(""))
+        if(creditCardNumber == null || creditCardNumber.equals("")) //if they have not entered a credit card number
         {
             JOptionPane.showMessageDialog(null, "Please a credit card number.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
@@ -337,8 +337,8 @@ public class PaymentForm extends javax.swing.JFrame {
         }
         try
         {
-            Long.parseLong(creditCardNumber);
-            if(creditCardNumber.length() < 15 || creditCardNumber.length() > 16){
+            Long.parseLong(creditCardNumber); //try to convert credit card number to long
+            if(creditCardNumber.length() < 15 || creditCardNumber.length() > 16){ //if credit card number is too long or too short
                 JOptionPane.showMessageDialog(null, "Invalid credit card number.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
                 return;
@@ -346,18 +346,18 @@ public class PaymentForm extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, "Invalid credit card number.", 
+            JOptionPane.showMessageDialog(null, "Invalid credit card number.", //credit card number contained non-digit characters
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
         
-        if(creditCardName == null || creditCardName.isEmpty())
+        if(creditCardName == null || creditCardName.isEmpty()) //if no credit card name provided
         {
             JOptionPane.showMessageDialog(null, "Please enter a name.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        if(creditCardCVV == null || creditCardCVV.isEmpty())
+        if(creditCardCVV == null || creditCardCVV.isEmpty()) //if no CVV provided
         {
             JOptionPane.showMessageDialog(null, "Please enter a CVV.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
@@ -365,8 +365,8 @@ public class PaymentForm extends javax.swing.JFrame {
         }
         try
         {
-            Long.parseLong(creditCardCVV);
-            if(creditCardCVV.length() != 3){
+            Long.parseLong(creditCardCVV); //try to convert CVV to long
+            if(creditCardCVV.length() != 3){ //if CVV is not 3 characters
                 JOptionPane.showMessageDialog(null, "Invalid CVV.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
                 return;
@@ -374,29 +374,29 @@ public class PaymentForm extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, "Invalid CVV.", 
+            JOptionPane.showMessageDialog(null, "Invalid CVV.",  //CVV contained non-digit characters
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
         
 
-        if(LoginForm.registeredUser != null)
+        if(LoginForm.registeredUser != null) //if user is registered
         {
-            LoginForm.theatre.addTicket(LoginForm.registeredUser, seats, movie, showTime);
-            sendEmailReceipt(total, seats, LoginForm.registeredUser.getEmail());
-            JOptionPane.showMessageDialog(null, "Order Placed!", 
+            LoginForm.theatre.addTicket(LoginForm.registeredUser, seats, movie, showTime); //add ticket to their tickets
+            LoginForm.theatre.sendEmailReceipt(total, seats, LoginForm.registeredUser.getEmail()); //send email to their email
+            JOptionPane.showMessageDialog(null, "Order Placed!",  //order confirmation
                         "MOVIES", JOptionPane.CLOSED_OPTION);
-            this.setVisible(false);
+            this.setVisible(false); //close payment form
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new MainPage().setVisible(true);
+                    new MainPage().setVisible(true); //re-open mainpage
                 }
             });
         }
         else
         {    
             LoginForm.theatre.addTicket(LoginForm.unregisteredUser, seats, movie, showTime);
-            sendEmailReceipt(total, seats, LoginForm.unregisteredUser.getEmail());
+            LoginForm.theatre.sendEmailReceipt(total, seats, LoginForm.unregisteredUser.getEmail());
             JOptionPane.showMessageDialog(null, "Order Placed!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             this.setVisible(false);

@@ -22,11 +22,11 @@ public class LoginForm extends javax.swing.JFrame {
     public static UnRegisteredUser unregisteredUser;
 
     public LoginForm() {
-        theatre = new Theatre();
-        initComponents();
+        theatre = new Theatre(); //initialize theatre object
+        initComponents(); // call GUI decorator
     }
                    
-    private void initComponents() {
+    private void initComponents() { //GUI decorator
 
         loginFormPanel = new javax.swing.JPanel();
         welcomeLabel = new javax.swing.JLabel();

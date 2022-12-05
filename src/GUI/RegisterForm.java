@@ -17,7 +17,7 @@ public class RegisterForm extends javax.swing.JFrame {
         initComponents();
     }
                    
-    private void initComponents() {
+    private void initComponents() { //GUI decorator
 
         registerFormPanel = new javax.swing.JPanel();
         registerPanel = new javax.swing.JPanel();
@@ -241,45 +241,45 @@ public class RegisterForm extends javax.swing.JFrame {
         pack();
     }                      
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {  //user pressed register                                     
 
-        String firstName = firstNameText.getText();
-        String lastName = lastNameText.getText();
-        String email = emailText.getText().strip();
-        String password = passwordText.getText();
+        String firstName = firstNameText.getText(); //get their first name
+        String lastName = lastNameText.getText(); //get their last name
+        String email = emailText.getText().strip(); //get their email
+        String password = passwordText.getText(); //get their password
 
-        if(firstName.isEmpty())
+        if(firstName.isEmpty()) //if first name text box is empty
         {
             JOptionPane.showMessageDialog(null, "Please enter a first name.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        if(lastName.isEmpty())
+        if(lastName.isEmpty())  //if last name text box is empty
         {
             JOptionPane.showMessageDialog(null, "Please enter a last name.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
 
-        if(email.equals(""))
+        if(email.equals("")) //if email text box is empty
         {
             JOptionPane.showMessageDialog(null, "Please enter an email address.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        else if(!LoginForm.theatre.validateEmail(email))
+        else if(!LoginForm.theatre.validateEmail(email))  //check if there is already an account registered under this email
         {
             JOptionPane.showMessageDialog(null, "There is already an account registered under that email address!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        else if(email.contains("@") == false)
+        else if(email.contains("@") == false)  //assert email contains @ symbol
         {
             JOptionPane.showMessageDialog(null, "Please enter a valid email address.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        else if(!email.endsWith(".ca") && !email.endsWith(".com")
+        else if(!email.endsWith(".ca") && !email.endsWith(".com") //assert email ends with valid email finisher
                 && !email.endsWith(".net") && !email.endsWith(".org"))
         {
             JOptionPane.showMessageDialog(null, "Please enter a valid email address.", 
@@ -287,7 +287,7 @@ public class RegisterForm extends javax.swing.JFrame {
             return;
         }
        
-        if(password.equals(""))
+        if(password.equals("")) //if password text box is empty
         {
             JOptionPane.showMessageDialog(null, "Please enter a password.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
@@ -295,11 +295,11 @@ public class RegisterForm extends javax.swing.JFrame {
         }
 
 
-        String creditCardNumber = creditCardText.getText().strip();
-        String creditCardName = creditNameText.getText();
-        String creditCardCVV = CVVText.getText();
+        String creditCardNumber = creditCardText.getText().strip(); //get credit card number
+        String creditCardName = creditNameText.getText(); //get credit card name
+        String creditCardCVV = CVVText.getText(); //get CVV number
         
-        if(creditCardNumber == null || creditCardNumber.equals(""))
+        if(creditCardNumber == null || creditCardNumber.equals("")) //check if credit card text box is empty
         {
             JOptionPane.showMessageDialog(null, "Please a credit card number.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
@@ -307,8 +307,8 @@ public class RegisterForm extends javax.swing.JFrame {
         }
         try
         {
-            Long.parseLong(creditCardNumber);
-            if(creditCardNumber.length() < 15 || creditCardNumber.length() > 16){
+            Long.parseLong(creditCardNumber); //try to convert credit card number to long
+            if(creditCardNumber.length() < 15 || creditCardNumber.length() > 16){ //assert credit card number is 15-16 characters
                 JOptionPane.showMessageDialog(null, "Invalid credit card number.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
                 return;
@@ -316,18 +316,18 @@ public class RegisterForm extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, "Invalid credit card number.", 
+            JOptionPane.showMessageDialog(null, "Invalid credit card number.", //credit card number contained invalid characters
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
         
-        if(creditCardName == null || creditCardName.isEmpty())
+        if(creditCardName == null || creditCardName.isEmpty())  //check if credit card name text box is empty
         {
             JOptionPane.showMessageDialog(null, "Please enter a name.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        if(creditCardCVV == null || creditCardCVV.isEmpty())
+        if(creditCardCVV == null || creditCardCVV.isEmpty())  //check if CVV text box is empty
         {
             JOptionPane.showMessageDialog(null, "Please enter a CVV.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
@@ -335,8 +335,8 @@ public class RegisterForm extends javax.swing.JFrame {
         }
         try
         {
-            Long.parseLong(creditCardCVV);
-            if(creditCardCVV.length() != 3){
+            Long.parseLong(creditCardCVV); //try to convert CVV to long
+            if(creditCardCVV.length() != 3){ //assert CVV is 3 digits long
                 JOptionPane.showMessageDialog(null, "Invalid CVV.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
                 return;
@@ -344,22 +344,22 @@ public class RegisterForm extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, "Invalid CVV.", 
+            JOptionPane.showMessageDialog(null, "Invalid CVV.",  //CVV contained invalid characters
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
 
         JOptionPane.showMessageDialog(null, "Successfully Registered!\nYou have been charged $20.", 
-                        "MOVIES", JOptionPane.CLOSED_OPTION);
+                        "MOVIES", JOptionPane.CLOSED_OPTION); //registration confirmation -- annual asmission fee charged at the beginning of period
 
         
-        LoginForm.theatre.registerUser(firstName, lastName, email, password);
-        LoginForm.registeredUser = LoginForm.theatre.grabRegisteredUser(email, password);
+        LoginForm.theatre.registerUser(firstName, lastName, email, password); //register user into database
+        LoginForm.registeredUser = LoginForm.theatre.grabRegisteredUser(email, password); //set registered user object
         
-        this.setVisible(false);
+        this.setVisible(false); //close RegisterForm
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainPage().setVisible(true);
+                new MainPage().setVisible(true); //open MainPage
             }
         });
     }                                              

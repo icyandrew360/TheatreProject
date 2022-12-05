@@ -17,25 +17,26 @@ import model.*;
 public class GuestPage extends javax.swing.JFrame {
     private String[] ticketArray;
     private String[] theatreArray = {"Select Theatre", "Software Theatre"};
+    private ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
     public GuestPage() {
         fillComboBoxes();
         initComponents();
     }
 
-    private void fillComboBoxes()
+    private void fillComboBoxes() //fill combo boxes with theatre/ticket information
     {
-        ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-        tickets = LoginForm.unregisteredUser.getTickets();
+        ArrayList<Ticket> tickets = new ArrayList<Ticket>(); 
+        tickets = LoginForm.unregisteredUser.getTickets(); //get tickets from database
         if(tickets == null)
             tickets = new ArrayList<Ticket>(0);
         ticketArray = new String[tickets.size() + 1];
 
-        if(tickets.isEmpty())
+        if(tickets.isEmpty()) //no tickets booked
         {
             ticketArray[0] = "No Booked Tickets";
         }
-        else
+        else //display tickets
         {
             ticketArray[0] = "Select Ticket";
             for(int i = 1; i < tickets.size() + 1; i++)
@@ -45,7 +46,7 @@ public class GuestPage extends javax.swing.JFrame {
         }
     }
 
-    private void initComponents() {
+    private void initComponents() { //GUI decorator
 
         jPanel1 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
@@ -227,22 +228,25 @@ public class GuestPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>   
     
-    private void cancelTicketButtonActionPerformed(java.awt.event.ActionEvent evt)
+    private void cancelTicketButtonActionPerformed(java.awt.event.ActionEvent evt) //user pressed cancel ticket
     {
-        if(ticketComboBox.getItemCount() == 1)
+        if(ticketComboBox.getItemCount() == 1) //check if they have booked tickets
         {
             JOptionPane.showMessageDialog(null, "You have no booked tickets!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        if(ticketComboBox.getSelectedIndex() == 0)
+        if(ticketComboBox.getSelectedIndex() == 0) //user has not selected ticket
         {
             JOptionPane.showMessageDialog(null, "Please select a ticket to cancel.", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-
-        //REMOVE TICKET FROM DATABASE, UPDATE SEATS
+        int index = ticketComboBox.getSelectedIndex();
+        User user = LoginForm.unregisteredUser; //initialize user object
+        Ticket ticket = tickets.get(index - 1); //get ticket to cancel
+        LoginForm.theatre.removeTicket(user, ticket); //remove ticket from database
+       
         fillComboBoxes();
         JOptionPane.showMessageDialog(null, "Ticket Canceled!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
@@ -254,16 +258,16 @@ public class GuestPage extends javax.swing.JFrame {
     private void theatreComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                                
     }    
     
-    private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        //GET MOST RELEVANT MOVIE FROM DATABASE, return ID
-        if(theatreComboBox.getSelectedIndex() == 0)
+    private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {  //user hit enter on search bar                                 
+       
+        if(theatreComboBox.getSelectedIndex() == 0) //if they dont have theatre selected
         {
             JOptionPane.showMessageDialog(null, "Please select a theatre!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
-
         }
-        if(searchText.getText().equals("Search movie...") || searchText.getText().isEmpty())
+
+        if(searchText.getText().equals("Search movie...") || searchText.getText().isEmpty()) //if they havent searched anything
         {
             JOptionPane.showMessageDialog(null, "Please search for a movie!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
@@ -271,12 +275,12 @@ public class GuestPage extends javax.swing.JFrame {
         }
         else
         {
-            String search = searchText.getText();
-            String movie = LoginForm.theatre.searchMovie(search);
+            String search = searchText.getText(); //get searched text
+            String movie = LoginForm.theatre.searchMovie(search); //get most relevant movie
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new SearchResults(movie, false, search).setVisible(true);
+                    new SearchResults(movie, false, search).setVisible(true); //call search results form
                 }
             });
         }
