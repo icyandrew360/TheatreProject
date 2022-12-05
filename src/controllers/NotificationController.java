@@ -9,9 +9,9 @@ import javax.activation.*;
 public class NotificationController {
 
     public static void sendMail(String email, double paidAmount, String[] seats ){
-        String to = email;
+        String to = email.trim();
         String from = "jmovies.noreply@gmail.com";
-        String host  = "localhost";
+        String host  = "smtp.mailtrap.io";
         String Str = "Your ticket(s) - \n";
 
         for (String n: seats){
@@ -22,14 +22,15 @@ public class NotificationController {
 
         Properties properties = new Properties();
 
-        properties.put("mail.smtp.host", host);
-        properties.put("mail.smtp.port", "587");
-        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com"); 
+        properties.put("mail.smtp.socketFactory.port", "465");
+        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.port", "465");
 
         Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator(){
             protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication("jmovies.noreply@gmail.com", "xhllklxkuplnqanp");
+                return new PasswordAuthentication("jmovies.noreply@gmail.com", "ohxvvxntiluysyyg");
             }
         });
         try{
@@ -41,6 +42,7 @@ public class NotificationController {
             message.setText(Str);
             Transport.send(message);
             System.out.println("Email Sent!");
+            System.out.println(Str);
         }
         catch(MessagingException mex){
             mex.printStackTrace();

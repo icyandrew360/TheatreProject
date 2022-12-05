@@ -74,7 +74,14 @@ public class Theatre
 
     public void addUnregisteredUser(String firstName,String lastName,String email){
         System.out.println("test");
-        this.unRegisteredUsers.add(new UnRegisteredUser(firstName, lastName, email));
+        boolean isInDataBase = false;
+        for(UnRegisteredUser i : unRegisteredUsers){
+            if(i.getEmail().equals(email)){
+                isInDataBase = true;
+            }
+        }
+        if(isInDataBase == false)
+            this.unRegisteredUsers.add(new UnRegisteredUser(firstName, lastName, email));
 
     }
 
@@ -154,7 +161,7 @@ public class Theatre
 
     public void sendEmailReceipt(double paidAmount, String seats, String email){
         String[] seatsAsArray = seats.split("(?<=\\G.{2})");
-        NotificationController.sendMail(seats, paidAmount, seatsAsArray);
+        NotificationController.sendMail(email, paidAmount, seatsAsArray);
     }
 
 
