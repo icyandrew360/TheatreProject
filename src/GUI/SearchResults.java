@@ -24,8 +24,8 @@ public class SearchResults extends javax.swing.JFrame {
         displayResults();
     }
 
-    private void displayResults()
-    {
+    private void displayResults() //display search results
+    {    //select most relevant movie poster image
         if(movie.equals("stackOverflow"))
         {
             ImageIcon stackOverflow = new ImageIcon(getClass().getResource("Images/stackoverflow.png"));
@@ -43,7 +43,7 @@ public class SearchResults extends javax.swing.JFrame {
         }
     }
                       
-    private void initComponents() {
+    private void initComponents() { //GUI decorator
 
         searchResultsPanel = new javax.swing.JPanel();
         moviesTitle = new javax.swing.JLabel();
@@ -245,33 +245,34 @@ public class SearchResults extends javax.swing.JFrame {
         pack();
     }                    
 
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        this.setVisible(false);
-
-        if(registered == true)
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {  //user pressed home button           
+        
+        this.setVisible(false); //close SearchResults
+        
+        if(registered == true) //if user is registered
         {
             java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainPage().setVisible(true);
+                new MainPage().setVisible(true); //open MainPage
             }
             }); 
         }
-        else
+        else //user is unregistered
         {
             java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GuestPage().setVisible(true);
+                new GuestPage().setVisible(true); //open GuestPage
             }
             });
         }
         
     }                                          
 
-    private void buyTicketsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        this.setVisible(false);
+    private void buyTicketsButtonActionPerformed(java.awt.event.ActionEvent evt) { //user pressed buy tickets button    
+        this.setVisible(false); //close SearchResults
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ShowtimeForm(movie).setVisible(true);
+                new ShowtimeForm(movie).setVisible(true); //open ShowtimeForm
             }
         });
     }                                                

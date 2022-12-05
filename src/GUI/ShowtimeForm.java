@@ -26,7 +26,7 @@ public class ShowtimeForm extends javax.swing.JFrame {
         populateInfo();
     }
 
-    private void populateInfo()
+    private void populateInfo() //display movie's poster
     {
         //get show time from database
         if(movie.equals("drSoftware"))
@@ -53,26 +53,26 @@ public class ShowtimeForm extends javax.swing.JFrame {
     }
     
 
-    private void populateShowtimes()
+    private void populateShowtimes() //populate showtimes combobox
     {
         showtimes = LoginForm.theatre.getMovieShowTimes(movie);
         showtimeArray = new String[showtimes.size() + 1];
 
-        if(showtimes.isEmpty())
+        if(showtimes.isEmpty()) //if there are no showtimes for a given movie
         {
             showtimeArray[0] = "No Available Showtimes!";
         }
-        else
+        else //there are showtimes
         {
             showtimeArray[0] = "Select Showtime";
             for(int i = 1; i < showtimes.size() + 1; i++)
             {
-                showtimeArray[i] = showtimes.get(i - 1);
+                showtimeArray[i] = showtimes.get(i - 1); //add to combobox
             }
         }
     }
                 
-    private void initComponents() {
+    private void initComponents() { //GUI decorator
 
         showtimeFormPanel = new javax.swing.JPanel();
         showtimePanel = new javax.swing.JPanel();
@@ -254,26 +254,26 @@ public class ShowtimeForm extends javax.swing.JFrame {
         });
     }
 
-    private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {    
-        if(showtimesComboBox.getSelectedIndex() == 0)
+    private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {  //user pressed continue button  
+        
+        if(showtimesComboBox.getSelectedIndex() == 0) //if user has not selected a showtime
         {
             JOptionPane.showMessageDialog(null, "Please select a showtime!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
-        else
+        else //get selected showtime
         {
             showTime = showtimeArray[showtimesComboBox.getSelectedIndex()];
         }
 
-        this.setVisible(false);
+        this.setVisible(false); //close ShowtimeForm
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SeatForm(movie, showTime, SearchResults.registered).setVisible(true);
+                new SeatForm(movie, showTime, SearchResults.registered).setVisible(true); //display SeatForm
             }
         });
     }        
-
 
     // Variables declaration                  
     private javax.swing.JButton continueButton;

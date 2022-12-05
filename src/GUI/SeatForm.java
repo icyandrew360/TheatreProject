@@ -34,37 +34,36 @@ public class SeatForm extends javax.swing.JFrame {
         disableTakenSeats();
     }
 
-    private void disableTakenSeats()
+    private void disableTakenSeats() //grey out already purchased seats
     {
-        //get vector from database
-        ArrayList<String> takenSeats = LoginForm.theatre.takenSeats(movie, showTime);
-        if(takenSeats == null)
+        ArrayList<String> takenSeats = LoginForm.theatre.takenSeats(movie, showTime); //get taken seats from database
+        if(takenSeats == null) //if there are no taken seats, leave function
         {
             return;
         }
 
-        Vector<JToggleButton> seatButtons = new Vector<>();
-        for(int i = 0; i < takenSeats.size(); i++)
+        Vector<JToggleButton> seatButtons = new Vector<>(); //initialize vector of buttons
+        for(int i = 0; i < takenSeats.size(); i++) //for each taken seat
         {
-            for(int j = 0; j < seatNames.length; j++)
+            for(int j = 0; j < seatNames.length; j++) //find its associated index
             {
                 if(takenSeats.get(i).equals(seatNames[j]))
                 {
-                    seatButtons.add(allSeats[j]);
+                    seatButtons.add(allSeats[j]); //add it to buttons to grey out vector
                     break;
                 }
             }
         }
 
-        for(JToggleButton button : seatButtons)
+        for(JToggleButton button : seatButtons) //for each button to be greyed out
         {
-            ImageIcon takenSeatIcon = new ImageIcon(getClass().getResource("Images/takenseat.png"));
-            button.setDisabledIcon(takenSeatIcon);
-            button.setEnabled(false);
+            ImageIcon takenSeatIcon = new ImageIcon(getClass().getResource("Images/takenseat.png")); //get takenseat icon
+            button.setDisabledIcon(takenSeatIcon); //set disabled icon to takenseat icon
+            button.setEnabled(false); //disable seat button
         }
     }
                
-    private void initComponents() {
+    private void initComponents() { //GUI decorator
 
         seatFormPanel = new javax.swing.JPanel();
         seatTitle = new javax.swing.JLabel();
@@ -651,10 +650,10 @@ public class SeatForm extends javax.swing.JFrame {
         pack();
     }                      
 
-    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) { // user pressed confirm button
         seats = "";
         
-        for(int i = 0; i < allSeats.length; i++)
+        for(int i = 0; i < allSeats.length; i++) //get selected seats as a string i.e. A1B2C3
         {
             if(allSeats[i].isSelected())
             {
@@ -662,32 +661,32 @@ public class SeatForm extends javax.swing.JFrame {
             }
         }
         
-        if(!seats.isEmpty())
+        if(!seats.isEmpty()) //if there are seats selected
         {
-            this.setVisible(false);
+            this.setVisible(false); //close SeatForm
             java.awt.EventQueue.invokeLater(new Runnable() {
               public void run() {
-                new PaymentForm(seats, movie, showTime, registered).setVisible(true);
+                new PaymentForm(seats, movie, showTime, registered).setVisible(true); //open PaymentForm
               }
            });
         }
-        else
+        else //no seats selected
         {
             JOptionPane.showMessageDialog(null, "Please select your seats!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
         }
     }                                             
 
-    private void selectSeat(JToggleButton button)
+    private void selectSeat(JToggleButton button) //if user has pressed a seat button
     {
-        if(button.isSelected())
+        if(button.isSelected()) //if it is selected
         {
             ImageIcon selectedSeat = new ImageIcon(getClass().getResource("Images/selectedseat.png"));
-            button.setIcon(selectedSeat);
+            button.setIcon(selectedSeat); //set icon to selected
         }
         else
         {  
-            button.setIcon(seatIcon);
+            button.setIcon(seatIcon); //set icon to de-selected
         }
     }
     

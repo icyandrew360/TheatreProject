@@ -18,7 +18,7 @@ public class MainPage extends javax.swing.JFrame {
         initComponents();
     }
             
-    private void initComponents() {
+    private void initComponents() { //GUI decorator
 
         mainPagePanel = new javax.swing.JPanel();
         moviesTitle = new javax.swing.JLabel();
@@ -208,37 +208,38 @@ public class MainPage extends javax.swing.JFrame {
     private void theatreComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                                
     }                                               
 
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        LoginForm.registeredUser = null;
-        LoginForm.unregisteredUser = null;
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) { //user pressed logout                                         
+        LoginForm.registeredUser = null; //wipe current user
+        LoginForm.unregisteredUser = null; //wipe current user
        
-        this.setVisible(false);
+        this.setVisible(false); //close MainPage
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginForm().setVisible(true);
+                new LoginForm().setVisible(true); //open LoginForm
             }
         });
     }                                            
 
-    private void accountButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        this.setVisible(false);
+    private void accountButtonActionPerformed(java.awt.event.ActionEvent evt) { // user pressed account button                                   
+        this.setVisible(false); //close MainPage
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AccountPage().setVisible(true);
+                new AccountPage().setVisible(true); //open AccountPage (registered users ONLY)
             }
         });
     }                                             
 
-    private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        if(theatreComboBox.getSelectedIndex() == 0)
+    private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {  //user hit enter on search bar                                  
+       
+        if(theatreComboBox.getSelectedIndex() == 0) //user has not selected a theatre
         {
             JOptionPane.showMessageDialog(null, "Please select a theatre!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
 
         }
-        if(searchText.getText().equals("Search movie...") || searchText.getText().isEmpty())
+        if(searchText.getText().equals("Search movie...") || searchText.getText().isEmpty()) //if user has not searched anything
         {
             JOptionPane.showMessageDialog(null, "Please search for a movie!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
@@ -246,12 +247,12 @@ public class MainPage extends javax.swing.JFrame {
         }
         else
         {
-            String search = searchText.getText();
-            String movie = LoginForm.theatre.searchMovie(search); //GET MOST RELEVANT MOVIE
-            this.setVisible(false);
+            String search = searchText.getText(); //get searched text
+            String movie = LoginForm.theatre.searchMovie(search); //get most relevant movie
+            this.setVisible(false); //close MainPage
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new SearchResults(movie, true, search).setVisible(true);
+                    new SearchResults(movie, true, search).setVisible(true); //open SearchResults
                 }
             });
         }
@@ -278,7 +279,6 @@ public class MainPage extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
