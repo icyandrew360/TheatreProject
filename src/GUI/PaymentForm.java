@@ -383,6 +383,7 @@ public class PaymentForm extends javax.swing.JFrame {
         if(LoginForm.registeredUser != null)
         {
             LoginForm.theatre.addTicket(LoginForm.registeredUser, seats, movie, showTime);
+            sendEmailReceipt(total, seats, LoginForm.registeredUser.getEmail());
             JOptionPane.showMessageDialog(null, "Order Placed!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             this.setVisible(false);
@@ -393,9 +394,9 @@ public class PaymentForm extends javax.swing.JFrame {
             });
         }
         else
-        {
-            sendEmailReceipt(total, seats);
+        {    
             LoginForm.theatre.addTicket(LoginForm.unregisteredUser, seats, movie, showTime);
+            sendEmailReceipt(total, seats, LoginForm.unregisteredUser.getEmail());
             JOptionPane.showMessageDialog(null, "Order Placed!", 
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             this.setVisible(false);
