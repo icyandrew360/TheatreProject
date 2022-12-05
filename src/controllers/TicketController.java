@@ -32,8 +32,12 @@ public class TicketController {
                 }
                 //if the email in the database is null, it is an unregistered user. add this unregistered user to the unRegUsers vector.
                 else{
-                    System.out.println(rs.getString("Email"));
-                    unRegUsers.add(new UnRegisteredUser("", "", rs.getString("Email")));
+                    UnRegisteredUser temp = new UnRegisteredUser("", "", rs.getString("Email"));
+                    temp.setTickets(new ArrayList<Ticket>(0));
+                    temp.getTickets().add(new Ticket(rs.getInt("TicketID"), rs.getString("Email")
+                    , rs.getString("Seats"), rs.getInt("ShowRoom"), 
+                    rs.getInt("ShowTime"), rs.getString("ShowDate"), rs.getString("MovieName")));
+                    unRegUsers.add(temp);
                 }
             }
 

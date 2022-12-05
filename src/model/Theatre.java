@@ -72,16 +72,21 @@ public class Theatre
         return isValidEmail;
     }
 
-    public void addUnregisteredUser(String firstName,String lastName,String email){
-        System.out.println("test");
+    public UnRegisteredUser addUnregisteredUser(String firstName,String lastName,String email){
         boolean isInDataBase = false;
+        UnRegisteredUser userToAdd = null;
         for(UnRegisteredUser i : unRegisteredUsers){
             if(i.getEmail().equals(email)){
+                System.out.println(i.getEmail());
                 isInDataBase = true;
+                userToAdd = i;
             }
         }
-        if(isInDataBase == false)
-            this.unRegisteredUsers.add(new UnRegisteredUser(firstName, lastName, email));
+        if(isInDataBase == false){
+            userToAdd = new UnRegisteredUser(firstName, lastName, email);
+            this.unRegisteredUsers.add(userToAdd);
+        }
+        return userToAdd;
 
     }
 
