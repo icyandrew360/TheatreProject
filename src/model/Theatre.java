@@ -136,9 +136,22 @@ public class Theatre
         return showTimesAsString;
     }
 
-    public int getMovieLength(String movieTitle){
+    public String getMovieLength(String movieTitle){
         int movieLength = this.showController.getMovieLength(movieTitle);
-        return movieLength;
+        String temp = new String("");
+        //divide time as minutes by 60 to get hour, and subtract 12
+        //to get 12 hour clock version
+        temp += (movieLength/60);
+        //add delimeter and add remaining minutes
+        temp += ":";
+        if(movieLength % 60 < 10) {
+            temp += 0;
+            temp += movieLength % 60;
+        }
+        else{
+            temp += movieLength % 60;
+        }
+        return temp;
     }
 
 
