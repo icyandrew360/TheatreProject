@@ -35,9 +35,9 @@ public class UserController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
     }
 
+    //fill userdata hashmap, will be indexed with user email addresses.
     public void pullUserInfo(){
         String sql = "select * from users";
         PreparedStatement p = null;
@@ -47,21 +47,20 @@ public class UserController {
             p = this.onlyInstance.getDBConnection().prepareStatement(sql);
             rs = p.executeQuery();
 
+            //fill hashmap with each row of user data
             while (rs.next()){
                 String fName = rs.getString("Fname");
                 String lName = rs.getString("Lname");
                 String email = rs.getString("Email");
                 userData.put(email, new User(fName, lName, email, false));
             }
-
         }
         catch(Exception e){
             e.printStackTrace();
         }
-       // DBController.closeConnection();
     }
 
-    //populates array users with all the user infromation in the database
+    //populates array users with all the user information in the database
     public void populateUsers(Vector<RegisteredUser> users){
         String sql = "select * from users";
         PreparedStatement p = null;
@@ -70,7 +69,7 @@ public class UserController {
         try{
             p = this.onlyInstance.getDBConnection().prepareStatement(sql);
             rs = p.executeQuery();
-
+            //fill the user array vector with database data
             while (rs.next()){
                 String fName = rs.getString("Fname");
                 String lName = rs.getString("Lname");
@@ -83,9 +82,9 @@ public class UserController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
     }
 
+    //populates the ticket database given registered users and unregistered users
     public void populateUserTickets(Vector<UnRegisteredUser> unRegUsers, Vector<RegisteredUser> users, TicketController ticketController){
         HashMap<String, ArrayList<Ticket>>tempMap = new HashMap<String, ArrayList<Ticket>>();
         for(int i = 0; i < users.size(); i++){
@@ -117,15 +116,14 @@ public class UserController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
         return isInDataBase;
     }
 
+    //adds a user to the database given their data
     public void addUser(String firstName, String lastName, String email, String password){
-        String sql = "select * from users";
         PreparedStatement p = null;
-        ResultSet rs = null;
         try{
+            //add a row to the users database
             p = this.onlyInstance.getDBConnection().prepareStatement("INSERT INTO users(Fname, Lname, Email, Password) VALUES (?, ?, ?, ?)");
             p.setString(1, firstName);
             p.setString(2, lastName);
@@ -136,9 +134,9 @@ public class UserController {
         catch(Exception e){
             e.printStackTrace();
         }
-        //DBController.closeConnection();
     }
     
+    //given an email string, return true if the email is not yet in the database
     public boolean isValidEmail(String email){
         String sql = "select * from users";
         PreparedStatement p = null;
@@ -161,5 +159,4 @@ public class UserController {
         }
         return isValid;
     }
-
 }
