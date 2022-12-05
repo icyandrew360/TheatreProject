@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Vector;
 import java.util.HashMap;
-import java.util.HashSet;
+
 
 public class ShowController {
 
@@ -105,7 +105,6 @@ public class ShowController {
         Ticket temp = null;
         String currentSeats = null;
         int movieID = 0;
-        String mName = null;
         int length = -1;
         String showDate = null;
         int showRoom = -1;
@@ -117,7 +116,6 @@ public class ShowController {
                 //if this movie and showtime are in the database, save all of its data and add to a ticket object
                 if (rs.getString("MovieName").equals(movieName)  && rs.getInt("ShowTime") == showTime){
                     movieID = rs.getInt("MoviesID");
-                    mName = movieName;
                     length = rs.getInt("Length");
                     showDate = rs.getString("ShowDate");
                     showRoom = rs.getInt("ShowRoom");
