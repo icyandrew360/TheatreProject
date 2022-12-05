@@ -22,7 +22,7 @@ import model.User;
  */
 public class AccountPage extends javax.swing.JFrame {
     private String[] ticketArray;
-    private ArrayList<Ticket> tickets;
+    private ArrayList<Ticket> tickets = new ArrayList<Ticket>();
     /**
      * Creates new form AccountPage
      */

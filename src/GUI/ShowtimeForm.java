@@ -47,8 +47,9 @@ public class ShowtimeForm extends javax.swing.JFrame {
             ImageIcon noDecimal = new ImageIcon(getClass().getResource("Images/nodecimal.png"));
             imageLabel.setIcon(noDecimal); 
         }
-    
-        movieLengthLabel.setText("");
+        
+        String movieLength = LoginForm.theatre.getMovieLength(movie);
+        movieLengthLabel.setText(movieLength);
     }
     
 

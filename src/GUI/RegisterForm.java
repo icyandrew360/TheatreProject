@@ -267,6 +267,12 @@ public class RegisterForm extends javax.swing.JFrame {
                         "MOVIES", JOptionPane.CLOSED_OPTION);
             return;
         }
+        else if(!LoginForm.theatre.validateEmail(email))
+        {
+            JOptionPane.showMessageDialog(null, "There is already an account registered under that email address!", 
+                        "MOVIES", JOptionPane.CLOSED_OPTION);
+            return;
+        }
         else if(email.contains("@") == false)
         {
             JOptionPane.showMessageDialog(null, "Please enter a valid email address.", 
@@ -378,7 +384,6 @@ public class RegisterForm extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(RegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

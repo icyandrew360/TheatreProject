@@ -43,32 +43,32 @@ public class MainPage extends javax.swing.JFrame {
 
         mainPagePanel.setBackground(new java.awt.Color(41, 44, 142));
 
-        moviesTitle.setFont(new java.awt.Font("Trebuchet MS", 1, 48)); // NOI18N
+        moviesTitle.setFont(new java.awt.Font("Trebuchet MS", 1, 48)); 
         moviesTitle.setForeground(new java.awt.Color(243, 224, 52));
         moviesTitle.setText("MOVIES");
 
         mainPanel.setBackground(new java.awt.Color(87, 79, 198));
         mainPanel.setForeground(new java.awt.Color(87, 79, 198));
 
-        stackOverflowLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        stackOverflowLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); 
         stackOverflowLabel.setForeground(new java.awt.Color(243, 224, 52));
         stackOverflowLabel.setText("Stack Overflow - Rated R");
 
-        wordsLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        wordsLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); 
         wordsLabel.setForeground(new java.awt.Color(255, 255, 255));
         wordsLabel.setText("Subscribe to MOVIE NEWS to get updates on upcoming movies!");
 
         ImageIcon drSoftware = new ImageIcon(getClass().getResource("Images/drsoftware.png"));
-        drSoftwarePoster.setIcon(drSoftware); // NOI18N
+        drSoftwarePoster.setIcon(drSoftware); 
 
         ImageIcon stackOverflow = new ImageIcon(getClass().getResource("Images/stackoverflow.png"));
-        stackOverflowPoster.setIcon(stackOverflow); // NOI18N
+        stackOverflowPoster.setIcon(stackOverflow); 
 
-        wowLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        wowLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); 
         wowLabel1.setForeground(new java.awt.Color(243, 224, 52));
         wowLabel1.setText("WOW! Check out this week's MOVIE news!");
 
-        drSoftwareLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        drSoftwareLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); 
         drSoftwareLabel.setForeground(new java.awt.Color(243, 224, 52));
         drSoftwareLabel.setText("The Incredible Dr. Software - Rated E");
 
@@ -117,7 +117,7 @@ public class MainPage extends javax.swing.JFrame {
         );
 
         searchText.setBackground(new java.awt.Color(218, 215, 245));
-        searchText.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        searchText.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); 
         searchText.setForeground(new java.awt.Color(146, 146, 159));
         searchText.setText("Search movie...");
         searchText.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class MainPage extends javax.swing.JFrame {
         });
 
         accountButton.setBackground(new java.awt.Color(158, 155, 255));
-        accountButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        accountButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); 
         accountButton.setText("Account");
         accountButton.setActionCommand("");
         accountButton.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,7 @@ public class MainPage extends javax.swing.JFrame {
         });
 
         logoutButton.setBackground(new java.awt.Color(158, 155, 255));
-        logoutButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        logoutButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); 
         logoutButton.setText("Logout");
         logoutButton.setActionCommand("");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
