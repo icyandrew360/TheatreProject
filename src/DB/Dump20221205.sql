@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: userdatabase
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -40,6 +40,7 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
+INSERT INTO `movies` VALUES (0,'drSoftware',95,570,1,'','2022-12-08'),(1,'drSoftware',95,810,1,'','2022-12-08'),(2,'drSoftware',95,1050,1,'B8C6','2022-12-08'),(4,'stackOverflow',95,660,2,'','2022-12-08'),(5,'stackOverflow',95,870,2,'','2022-12-08'),(6,'stackOverflow',95,1290,2,'','2022-12-08'),(7,'noDecimalLand',95,780,3,'','2022-12-08'),(8,'noDecimalLand',95,960,3,'','2022-12-08'),(9,'noDecimalLand',95,1170,3,'','2022-12-08');
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,18 +59,8 @@ CREATE TABLE `tickets` (
   `ShowTime` int NOT NULL,
   `ShowRoom` int NOT NULL,
   `ShowDate` varchar(45) DEFAULT NULL,
-  `Registered` BOOLEAN DEFAULT NULL,
-  PRIMARY KEY (`TicketID`),
-  KEY `Email_idx` (`Email`),
-  KEY `MovieName_idx` (`MovieName`),
-  KEY `ShowTime_idx` (`ShowTime`),
-  KEY `ShowRoom_idx` (`ShowRoom`),
-  KEY `ShowDate_idx` (`ShowDate`),
-  CONSTRAINT `Email` FOREIGN KEY (`Email`) REFERENCES `users` (`Email`),
-  CONSTRAINT `MovieName` FOREIGN KEY (`MovieName`) REFERENCES `movies` (`MovieName`),
-  CONSTRAINT `ShowTime` FOREIGN KEY (`ShowTime`) REFERENCES `movies` (`ShowTime`),
-  CONSTRAINT `ShowRoom` FOREIGN KEY (`ShowRoom`) REFERENCES `movies` (`ShowRoom`),
-  CONSTRAINT `ShowDate` FOREIGN KEY (`ShowDate`) REFERENCES `movies` (`ShowDate`)
+  `Registered` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -79,6 +70,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
+INSERT INTO `tickets` VALUES ('jamesplatt02@gmail.com',2,'drSoftware','C6',1050,1,'2022-12-08',1),('test12344@gmail.com',2,'drSoftware','B8',1050,1,'2022-12-08',1);
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,10 +85,7 @@ CREATE TABLE `users` (
   `Fname` varchar(45) DEFAULT NULL,
   `Lname` varchar(45) DEFAULT NULL,
   `Email` varchar(45) NOT NULL,
-  `Phone` bigint DEFAULT NULL,
   `Password` varchar(45) DEFAULT NULL,
-  `OwnedSeats` varchar(150) DEFAULT NULL,
-  xcel
   PRIMARY KEY (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -107,32 +96,8 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES ('toe','ddd','ddd@gmail.com','1234'),('James','Platt','james@gmail.com','1234'),('james','platt','jamesplatt02@gmail.com','1234'),('james','platt','platt@gmail.com','1234'),('joe','boo','test@gmail.com','12345'),('James','Platt','test12344@gmail.com','1234');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
---
--- Table structure for table `credits`
---
-
-DROP TABLE IF EXISTS `credits`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `credits` (
-  `Email` varchar(45) NOT NULL,
-  `Credit` float NOT NULL,
-  PRIMARY KEY (`Email`),
-  CONSTRAINT `Email` FOREIGN KEY (`Email`) REFERENCES `users` (`Email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `credits`
---
-
-LOCK TABLES `credits` WRITE;
-/*!40000 ALTER TABLE `credits` DISABLE KEYS */;
-/*!40000 ALTER TABLE `credits` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -144,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-03  3:38:15
+-- Dump completed on 2022-12-05 19:27:47
